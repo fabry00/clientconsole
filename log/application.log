@@ -1,0 +1,415 @@
+2016-09-08 18:16:14 DEBUG App:74 - Start application
+2016-09-08 18:16:14 DEBUG App:92 - initRootLayout
+2016-09-08 18:16:14 DEBUG App:188 - getViewURL: view/Main.fxml
+2016-09-08 18:16:14 DEBUG App:112 - showPersonOverview
+2016-09-08 18:16:14 DEBUG App:188 - getViewURL: view/PersonOverview.fxml
+2016-09-08 18:16:14 DEBUG PersonOverviewController:65 - created
+2016-09-08 18:16:15 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 18:16:15 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 18:16:15 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 18:16:15 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:05:15 DEBUG App:82 - Start application
+2016-09-08 19:05:15 DEBUG App:100 - initRootLayout
+2016-09-08 19:05:15 DEBUG App:300 - getViewURL: view/Main.fxml
+2016-09-08 19:05:16 DEBUG App:124 - showPersonOverview
+2016-09-08 19:05:16 DEBUG App:300 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:05:16 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:05:16 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:05:16 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:05:16 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:05:16 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:08:16 DEBUG App:82 - Start application
+2016-09-08 19:08:16 DEBUG App:100 - initRootLayout
+2016-09-08 19:08:16 DEBUG App:300 - getViewURL: view/Main.fxml
+2016-09-08 19:08:16 DEBUG App:124 - showPersonOverview
+2016-09-08 19:08:16 DEBUG App:300 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:08:16 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:08:17 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:08:17 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:08:17 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:08:17 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:09:01 DEBUG App:82 - Start application
+2016-09-08 19:09:01 DEBUG App:100 - initRootLayout
+2016-09-08 19:09:01 DEBUG App:300 - getViewURL: view/Main.fxml
+2016-09-08 19:09:01 DEBUG App:124 - showPersonOverview
+2016-09-08 19:09:01 DEBUG App:300 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:09:01 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:09:02 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:09:02 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:09:02 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:09:02 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:09:44 DEBUG App:82 - Start application
+2016-09-08 19:09:44 DEBUG App:100 - initRootLayout
+2016-09-08 19:09:44 DEBUG App:300 - getViewURL: view/Main.fxml
+2016-09-08 19:09:45 DEBUG App:124 - showPersonOverview
+2016-09-08 19:09:45 DEBUG App:300 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:09:45 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:09:45 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:09:45 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:09:45 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:09:45 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:12:46 DEBUG App:82 - Start application
+2016-09-08 19:12:46 DEBUG App:100 - initRootLayout
+2016-09-08 19:12:46 DEBUG App:300 - getViewURL: view/Main.fxml
+2016-09-08 19:12:47 DEBUG App:124 - showPersonOverview
+2016-09-08 19:12:47 DEBUG App:300 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:12:47 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:12:47 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:12:47 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:12:47 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:12:47 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:15:01 DEBUG App:82 - Start application
+2016-09-08 19:15:01 DEBUG App:100 - initRootLayout
+2016-09-08 19:15:02 DEBUG App:303 - getViewURL: view/Main.fxml
+2016-09-08 19:15:02 DEBUG App:124 - showPersonOverview
+2016-09-08 19:15:02 DEBUG App:303 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:15:02 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:15:02 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:15:02 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:15:02 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:15:02 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:15:09 DEBUG App:237 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:15:43 DEBUG App:82 - Start application
+2016-09-08 19:15:43 DEBUG App:100 - initRootLayout
+2016-09-08 19:15:43 DEBUG App:303 - getViewURL: view/Main.fxml
+2016-09-08 19:15:44 DEBUG App:124 - showPersonOverview
+2016-09-08 19:15:44 DEBUG App:303 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:15:44 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:15:44 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:15:44 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:15:44 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:15:44 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:15:50 DEBUG App:237 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:15:51 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:15:52 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:15:54 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:15:56 DEBUG PersonOverviewController:142 - handleEditPerson
+2016-09-08 19:15:56 DEBUG App:303 - getViewURL: view/PersonEditDialog.fxml
+2016-09-08 19:15:56 DEBUG PersonEditDialogController:62 - setPerson Hans
+2016-09-08 19:16:06 DEBUG PersonEditDialogController:89 - handleOk
+2016-09-08 19:16:06 DEBUG PersonEditDialogController:80 - isOkClicked true
+2016-09-08 19:16:06 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:16:11 DEBUG App:210 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:16:11 DEBUG App:289 - File saved: /home/user/Progects/tes.xml
+2016-09-08 19:16:11 DEBUG App:237 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:16:16 DEBUG App:82 - Start application
+2016-09-08 19:16:16 DEBUG App:100 - initRootLayout
+2016-09-08 19:16:16 DEBUG App:303 - getViewURL: view/Main.fxml
+2016-09-08 19:16:17 DEBUG App:124 - showPersonOverview
+2016-09-08 19:16:17 DEBUG App:303 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:16:17 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:16:17 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:16:17 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:16:17 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:16:17 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:16:26 DEBUG App:237 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:17:38 DEBUG App:82 - Start application
+2016-09-08 19:17:38 DEBUG App:100 - initRootLayout
+2016-09-08 19:17:38 DEBUG App:303 - getViewURL: view/Main.fxml
+2016-09-08 19:17:38 DEBUG App:124 - showPersonOverview
+2016-09-08 19:17:38 DEBUG App:303 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:17:38 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:17:38 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:17:38 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:17:38 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:17:38 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:19:05 DEBUG App:82 - Start application
+2016-09-08 19:19:05 DEBUG App:105 - initRootLayout
+2016-09-08 19:19:05 DEBUG App:308 - getViewURL: view/Main.fxml
+2016-09-08 19:19:06 DEBUG App:129 - showPersonOverview
+2016-09-08 19:19:06 DEBUG App:308 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:19:06 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:19:06 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:19:06 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:19:06 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:19:06 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:19:06 DEBUG App:215 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:19:06 DEBUG App:242 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:32:43 DEBUG App:83 - Start application
+2016-09-08 19:32:43 DEBUG App:106 - initRootLayout
+2016-09-08 19:32:43 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:32:44 DEBUG App:130 - showPersonOverview
+2016-09-08 19:32:44 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:32:44 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:32:44 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:32:44 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:32:44 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:32:44 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:32:44 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:32:44 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:33:07 DEBUG App:83 - Start application
+2016-09-08 19:33:07 DEBUG App:106 - initRootLayout
+2016-09-08 19:33:07 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:33:07 DEBUG App:130 - showPersonOverview
+2016-09-08 19:33:07 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:33:07 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:33:07 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:33:07 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:33:07 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:33:07 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:33:07 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:33:08 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:34:04 DEBUG App:83 - Start application
+2016-09-08 19:34:04 DEBUG App:106 - initRootLayout
+2016-09-08 19:34:04 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:34:05 DEBUG App:130 - showPersonOverview
+2016-09-08 19:34:05 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:34:05 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:34:05 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:34:05 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:34:05 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:34:05 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:34:05 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:34:05 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:34:45 DEBUG App:83 - Start application
+2016-09-08 19:34:45 DEBUG App:106 - initRootLayout
+2016-09-08 19:34:45 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:34:45 DEBUG App:130 - showPersonOverview
+2016-09-08 19:34:45 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:34:45 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:34:45 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:34:45 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:34:45 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:34:45 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:34:45 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:34:46 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:34:49 ERROR App:269 - javafx.fxml.LoadException: 
+/home/user/Progects/clientconsole/target/classes/com/javafxexample/view/BirthdayStatistics.fxml:13
+
+2016-09-08 19:34:52 ERROR App:269 - javafx.fxml.LoadException: 
+/home/user/Progects/clientconsole/target/classes/com/javafxexample/view/BirthdayStatistics.fxml:13
+
+2016-09-08 19:34:58 DEBUG App:83 - Start application
+2016-09-08 19:34:58 DEBUG App:106 - initRootLayout
+2016-09-08 19:34:58 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:34:59 DEBUG App:130 - showPersonOverview
+2016-09-08 19:34:59 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:34:59 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:34:59 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:34:59 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:34:59 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:34:59 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:34:59 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:34:59 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:35:13 ERROR App:269 - javafx.fxml.LoadException: 
+/home/user/Progects/clientconsole/target/classes/com/javafxexample/view/BirthdayStatistics.fxml:13
+
+2016-09-08 19:36:38 DEBUG App:83 - Start application
+2016-09-08 19:36:38 DEBUG App:106 - initRootLayout
+2016-09-08 19:36:38 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:36:39 DEBUG App:130 - showPersonOverview
+2016-09-08 19:36:39 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:36:39 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:36:39 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:36:39 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:36:39 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:36:39 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:36:39 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:36:39 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:36:43 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:36:43 ERROR App:269 - javafx.fxml.LoadException: 
+/home/user/Progects/clientconsole/target/classes/com/javafxexample/view/BirthdayStatistics.fxml:13
+
+2016-09-08 19:37:46 DEBUG App:83 - Start application
+2016-09-08 19:37:46 DEBUG App:106 - initRootLayout
+2016-09-08 19:37:46 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:37:46 DEBUG App:130 - showPersonOverview
+2016-09-08 19:37:46 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:37:46 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:37:46 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:37:46 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:37:46 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:37:46 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:37:46 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:37:46 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:37:51 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:37:51 ERROR App:269 - javafx.fxml.LoadException: 
+/home/user/Progects/clientconsole/target/classes/com/javafxexample/view/BirthdayStatistics.fxml:13
+
+2016-09-08 19:42:24 DEBUG App:83 - Start application
+2016-09-08 19:42:24 DEBUG App:106 - initRootLayout
+2016-09-08 19:42:24 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:42:25 DEBUG App:130 - showPersonOverview
+2016-09-08 19:42:25 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:42:25 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:42:25 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:42:25 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:42:25 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:42:25 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:42:25 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:42:25 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:42:31 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:43:16 DEBUG App:83 - Start application
+2016-09-08 19:43:16 DEBUG App:106 - initRootLayout
+2016-09-08 19:43:16 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:43:17 DEBUG App:130 - showPersonOverview
+2016-09-08 19:43:17 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:43:17 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:43:17 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:43:17 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:43:17 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:43:17 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:43:17 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:43:17 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:43:23 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:44:22 DEBUG App:83 - Start application
+2016-09-08 19:44:22 DEBUG App:106 - initRootLayout
+2016-09-08 19:44:22 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:44:23 DEBUG App:130 - showPersonOverview
+2016-09-08 19:44:23 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:44:23 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:44:23 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:44:23 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:44:23 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:44:23 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:44:23 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:44:23 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:44:28 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:45:02 DEBUG App:83 - Start application
+2016-09-08 19:45:02 DEBUG App:106 - initRootLayout
+2016-09-08 19:45:02 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:45:03 DEBUG App:130 - showPersonOverview
+2016-09-08 19:45:03 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:45:03 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:45:03 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:45:03 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:45:03 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:45:03 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:45:03 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:45:03 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:45:09 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:45:18 ERROR App:269 - javafx.fxml.LoadException: 
+/home/user/Progects/clientconsole/target/classes/com/javafxexample/view/BirthdayStatistics.fxml:13
+
+2016-09-08 19:46:14 DEBUG App:83 - Start application
+2016-09-08 19:46:14 DEBUG App:106 - initRootLayout
+2016-09-08 19:46:14 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:46:15 DEBUG App:130 - showPersonOverview
+2016-09-08 19:46:15 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:46:15 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:46:15 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:46:15 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:46:15 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:46:15 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:46:15 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:46:15 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:46:21 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:46:58 DEBUG App:83 - Start application
+2016-09-08 19:46:58 DEBUG App:106 - initRootLayout
+2016-09-08 19:46:58 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:46:58 DEBUG App:130 - showPersonOverview
+2016-09-08 19:46:58 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:46:58 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:46:59 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:46:59 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:46:59 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:46:59 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:46:59 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:46:59 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:47:03 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:47:04 ERROR App:269 - javafx.fxml.LoadException: 
+/home/user/Progects/clientconsole/target/classes/com/javafxexample/view/BirthdayStatistics.fxml:13
+
+2016-09-08 19:47:27 DEBUG App:83 - Start application
+2016-09-08 19:47:27 DEBUG App:106 - initRootLayout
+2016-09-08 19:47:27 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:47:28 DEBUG App:130 - showPersonOverview
+2016-09-08 19:47:28 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:47:28 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:47:28 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:47:28 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:47:28 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:47:28 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:47:28 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:47:28 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:47:34 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:48:29 DEBUG App:83 - Start application
+2016-09-08 19:48:29 DEBUG App:106 - initRootLayout
+2016-09-08 19:48:29 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:48:29 DEBUG App:130 - showPersonOverview
+2016-09-08 19:48:29 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:48:29 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:48:29 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:48:29 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:48:29 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:48:29 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:48:29 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:48:30 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:48:36 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:49:02 DEBUG App:83 - Start application
+2016-09-08 19:49:02 DEBUG App:106 - initRootLayout
+2016-09-08 19:49:02 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:49:03 DEBUG App:130 - showPersonOverview
+2016-09-08 19:49:03 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:49:03 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:49:03 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:49:03 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:49:03 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:49:03 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:49:03 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:49:03 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:49:05 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:49:24 DEBUG App:83 - Start application
+2016-09-08 19:49:24 DEBUG App:106 - initRootLayout
+2016-09-08 19:49:24 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:49:25 DEBUG App:130 - showPersonOverview
+2016-09-08 19:49:25 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:49:25 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:49:25 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:49:25 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:49:25 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:49:25 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:49:25 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:49:25 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:49:28 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:49:39 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:50:21 DEBUG App:83 - Start application
+2016-09-08 19:50:21 DEBUG App:106 - initRootLayout
+2016-09-08 19:50:21 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:50:22 DEBUG App:130 - showPersonOverview
+2016-09-08 19:50:22 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:50:22 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:50:22 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:50:22 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:50:22 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:50:22 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:50:22 DEBUG App:216 - Registry File getted: /home/user/Progects/tes.xml
+2016-09-08 19:50:22 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:50:32 DEBUG App:322 - File saved: /home/user/Progects/tes.xml
+2016-09-08 19:50:32 DEBUG App:232 - Registry File saved: /home/user/Progects/tes.xml
+2016-09-08 19:51:57 DEBUG App:232 - Registry File saved: /home/user/Progects/clientconsole/tes.xml
+2016-09-08 19:52:03 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 19:52:27 DEBUG App:83 - Start application
+2016-09-08 19:52:27 DEBUG App:106 - initRootLayout
+2016-09-08 19:52:27 DEBUG App:336 - getViewURL: view/Main.fxml
+2016-09-08 19:52:28 DEBUG App:130 - showPersonOverview
+2016-09-08 19:52:28 DEBUG App:336 - getViewURL: view/PersonOverview.fxml
+2016-09-08 19:52:28 DEBUG PersonOverviewController:65 - created
+2016-09-08 19:52:28 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 19:52:28 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 19:52:28 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 19:52:28 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 19:52:28 DEBUG App:216 - Registry File getted: /home/user/Progects/clientconsole/tes.xml
+2016-09-08 19:52:28 DEBUG App:232 - Registry File saved: /home/user/Progects/clientconsole/tes.xml
+2016-09-08 19:52:32 DEBUG App:336 - getViewURL: view/BirthdayStatistics.fxml
+2016-09-08 20:15:05 DEBUG App:84 - Start application
+2016-09-08 20:15:05 DEBUG App:107 - initRootLayout
+2016-09-08 20:15:05 DEBUG App:322 - getViewURL: view/Main.fxml
+2016-09-08 20:15:05 DEBUG App:131 - showPersonOverview
+2016-09-08 20:15:05 DEBUG App:322 - getViewURL: view/PersonOverview.fxml
+2016-09-08 20:15:05 DEBUG PersonOverviewController:65 - created
+2016-09-08 20:15:05 DEBUG PersonOverviewController:88 - initialize
+2016-09-08 20:15:05 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-08 20:15:05 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-08 20:15:05 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-08 20:15:05 DEBUG App:217 - Registry File getted: /home/user/Progects/clientconsole/tes.xml
+2016-09-09 16:56:27 DEBUG App:84 - Start application
+2016-09-09 16:56:27 DEBUG App:107 - initRootLayout
+2016-09-09 16:56:27 DEBUG App:322 - getViewURL: view/Main.fxml
+2016-09-09 16:56:27 DEBUG App:131 - showPersonOverview
+2016-09-09 16:56:27 DEBUG App:322 - getViewURL: view/PersonOverview.fxml
+2016-09-09 16:56:27 DEBUG PersonOverviewController:65 - created
+2016-09-09 16:56:27 DEBUG PersonOverviewController:88 - initialize
+2016-09-09 16:56:27 DEBUG PersonOverviewController:169 - showPersonDetails
+2016-09-09 16:56:27 DEBUG PersonOverviewController:182 - Clear fileds
+2016-09-09 16:56:27 DEBUG PersonOverviewController:74 - setMainApp
