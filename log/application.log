@@ -413,3 +413,14 @@
 2016-09-09 16:56:27 DEBUG PersonOverviewController:169 - showPersonDetails
 2016-09-09 16:56:27 DEBUG PersonOverviewController:182 - Clear fileds
 2016-09-09 16:56:27 DEBUG PersonOverviewController:74 - setMainApp
+2016-09-09 18:48:01 DEBUG App:32 - Starting the application
+2016-09-09 18:48:36 DEBUG App:32 - Starting the application
+2016-09-09 18:49:00 DEBUG App:32 - Starting the application
+2016-09-09 18:51:01 DEBUG App:32 - Starting the application
+2016-09-09 18:54:10 DEBUG App:32 - Starting the application
+2016-09-09 18:56:42 DEBUG App:32 - Starting the application
+2016-09-09 18:57:28 DEBUG App:32 - Starting the application
+2016-09-09 18:57:48 DEBUG App:32 - Starting the application
+2016-09-09 19:00:48 DEBUG App:32 - Starting the application
+2016-09-09 19:03:13 DEBUG App:32 - Starting the application
+2016-09-09 19:04:42 DEBUG App:32 - Starting the application
