@@ -2,6 +2,7 @@ package com.console;
 
 import com.console.view.dashboard.DashboardView;
 import com.airhacks.afterburner.injection.Injector;
+import com.console.service.StoreService;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.Month;
@@ -24,6 +25,10 @@ public class App extends Application {
     private static final String APP_TITLE = "Console";
     private static final String APP_CSS = "app.css";
     private static final String LOG_CONF = "log4j.properties";
+    
+    @Inject
+    // Init store
+    private StoreService store;
 
     public static void main(String[] args) {
         launch(args);
@@ -53,6 +58,7 @@ public class App extends Application {
         scene.getStylesheets().add(uri);
         stage.setScene(scene);
         stage.show();
+        
     }
 
     private void initLogger() {

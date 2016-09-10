@@ -1,6 +1,6 @@
 package com.console.view.status;
 
-import com.console.service.StatusService;
+import com.console.service.StoreService;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
@@ -9,24 +9,34 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javax.inject.Inject;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author user
  */
-public class StatusPresenter  implements Initializable {
+public class StatusPresenter implements Initializable {
+
+    private final Logger logger = Logger.getLogger(StatusPresenter.class);
 
     @FXML
     private Label statusLabel;
-    
+
     @Inject
-    StatusService statusService;
-    
+    private StoreService storeService;
+
+    private final StringProperty statusLabelText = new SimpleStringProperty("");
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        StringProperty currentStatus = 
-                new SimpleStringProperty(statusService.getCurrentStatus().getLabel());
-        statusLabel.textProperty().bind(currentStatus);
+        statusLabelText.set(storeService.state().status().getLabel());
+
+        statusLabel.textProperty().bind(statusLabelText);
+
+        storeService.subscribe(() -> {
+            statusLabelText.set(storeService.state().status().getLabel());
+            logger.debug("event fired --> set status label " + statusLabelText.get());
+        });
     }
-    
+
 }

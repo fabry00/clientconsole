@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -35,4 +36,12 @@
    <bottom>
       <AnchorPane fx:id="bottomPane" prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
    </bottom>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="348.0" layoutY="159.0" mnemonicParsing="false" onAction="#handleTest" text="Start" />
+            <Button layoutX="400.0" layoutY="159.0" mnemonicParsing="false" onAction="#handleStop" text="Stop" />
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>

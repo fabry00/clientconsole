@@ -2,8 +2,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.airhacks</groupId>
-    <artifactId>followme</artifactId>
+    <groupId>clientconsole</groupId>
+    <artifactId>clientconsole</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>clientconsole</name>
@@ -41,6 +41,16 @@
             <artifactId>afterburner.fx</artifactId>
             <version>1.7.0</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.immutables</groupId>
+            <artifactId>value</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.immutables</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.3</version>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>

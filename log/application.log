@@ -435,3 +435,322 @@
 2016-09-10 14:19:32 DEBUG App:67 - initConfiguration
 2016-09-10 14:19:32 DEBUG App:48 - initStage
 2016-09-10 14:19:50 DEBUG App:43 - stop
+2016-09-10 15:49:23 DEBUG App:72 - initConfiguration
+2016-09-10 15:49:23 DEBUG App:53 - initStage
+2016-09-10 15:49:23 DEBUG StoreService:22 - init store
+2016-09-10 15:49:23 DEBUG PersistanceController:17 - constructor
+2016-09-10 15:49:23 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 15:49:23 DEBUG PersistanceController:32 - dispatch
+2016-09-10 15:50:44 DEBUG App:48 - stop
+2016-09-10 15:58:35 DEBUG App:73 - initConfiguration
+2016-09-10 15:58:35 DEBUG App:53 - initStage
+2016-09-10 15:58:35 DEBUG StoreService:22 - init store
+2016-09-10 15:58:35 DEBUG PersistanceController:17 - constructor
+2016-09-10 15:58:35 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 15:58:35 DEBUG PersistanceController:32 - dispatch
+2016-09-10 15:59:52 DEBUG App:48 - stop
+2016-09-10 16:02:31 DEBUG App:73 - initConfiguration
+2016-09-10 16:02:31 DEBUG App:53 - initStage
+2016-09-10 16:02:31 DEBUG StoreService:22 - init store
+2016-09-10 16:02:31 DEBUG PersistanceController:17 - constructor
+2016-09-10 16:02:31 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 16:02:31 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:02:31 DEBUG Logger:16 - mytag--> ADD: AAAAAAAAAA
+2016-09-10 16:02:31 DEBUG State$Reducer:44 - reduce: ADD: AAAAAAAAAA
+2016-09-10 16:02:31 DEBUG Logger:18 - mytag<-- State{tasks=[Task{id=1, name=AAAAAAAAAA, checked=false}]}
+2016-09-10 16:06:36 DEBUG App:73 - initConfiguration
+2016-09-10 16:06:36 DEBUG App:53 - initStage
+2016-09-10 16:06:37 DEBUG StoreService:22 - init store
+2016-09-10 16:06:37 DEBUG PersistanceController:17 - constructor
+2016-09-10 16:06:37 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 16:06:37 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:06:37 DEBUG Logger:16 - mytag--> ADD: WAITING
+2016-09-10 16:06:37 DEBUG State$Reducer:44 - reduce: ADD: WAITING
+2016-09-10 16:06:37 DEBUG App:48 - stop
+2016-09-10 16:06:40 DEBUG App:48 - stop
+2016-09-10 16:06:55 DEBUG App:73 - initConfiguration
+2016-09-10 16:06:55 DEBUG App:53 - initStage
+2016-09-10 16:06:55 DEBUG StoreService:22 - init store
+2016-09-10 16:06:55 DEBUG PersistanceController:17 - constructor
+2016-09-10 16:06:55 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 16:06:55 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:06:55 DEBUG Logger:16 - mytag--> ADD: WAITING
+2016-09-10 16:06:55 DEBUG State$Reducer:44 - reduce: ADD: WAITING
+2016-09-10 16:06:55 DEBUG App:48 - stop
+2016-09-10 16:18:34 DEBUG App:73 - initConfiguration
+2016-09-10 16:18:34 DEBUG App:53 - initStage
+2016-09-10 16:18:34 DEBUG StoreService:22 - init store
+2016-09-10 16:18:34 DEBUG PersistanceController:17 - constructor
+2016-09-10 16:18:34 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 16:18:34 DEBUG App:48 - stop
+2016-09-10 16:20:32 DEBUG App:73 - initConfiguration
+2016-09-10 16:20:32 DEBUG App:53 - initStage
+2016-09-10 16:20:33 DEBUG StoreService:22 - init store
+2016-09-10 16:20:33 DEBUG PersistanceController:17 - constructor
+2016-09-10 16:20:33 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 16:20:33 DEBUG App:48 - stop
+2016-09-10 16:21:24 DEBUG App:73 - initConfiguration
+2016-09-10 16:21:24 DEBUG App:53 - initStage
+2016-09-10 16:21:28 DEBUG StoreService:22 - init store
+2016-09-10 16:21:29 DEBUG PersistanceController:17 - constructor
+2016-09-10 16:21:31 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 16:21:37 DEBUG App:48 - stop
+2016-09-10 16:22:05 DEBUG App:73 - initConfiguration
+2016-09-10 16:22:05 DEBUG App:53 - initStage
+2016-09-10 16:22:05 DEBUG StoreService:22 - init store
+2016-09-10 16:22:05 DEBUG PersistanceController:17 - constructor
+2016-09-10 16:22:05 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 16:22:12 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:22:12 DEBUG Logger:16 - mytag--> STATUS_CHANGED: WAITING
+2016-09-10 16:22:12 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 16:22:12 DEBUG Logger:18 - mytag<-- State{status=WAITING, tasks=[]}
+2016-09-10 16:22:16 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:22:16 DEBUG Logger:16 - mytag--> STATUS_CHANGED: WAITING
+2016-09-10 16:22:16 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 16:22:16 DEBUG Logger:18 - mytag<-- State{status=WAITING, tasks=[]}
+2016-09-10 16:22:17 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:22:17 DEBUG Logger:16 - mytag--> STATUS_CHANGED: WAITING
+2016-09-10 16:22:17 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 16:22:17 DEBUG Logger:18 - mytag<-- State{status=WAITING, tasks=[]}
+2016-09-10 16:22:18 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:22:18 DEBUG Logger:16 - mytag--> STATUS_CHANGED: WAITING
+2016-09-10 16:22:18 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 16:22:18 DEBUG Logger:18 - mytag<-- State{status=WAITING, tasks=[]}
+2016-09-10 16:22:18 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:22:18 DEBUG Logger:16 - mytag--> STATUS_CHANGED: WAITING
+2016-09-10 16:22:18 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 16:22:18 DEBUG Logger:18 - mytag<-- State{status=WAITING, tasks=[]}
+2016-09-10 16:22:18 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:22:18 DEBUG Logger:16 - mytag--> STATUS_CHANGED: WAITING
+2016-09-10 16:22:18 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 16:22:18 DEBUG Logger:18 - mytag<-- State{status=WAITING, tasks=[]}
+2016-09-10 16:22:25 DEBUG App:48 - stop
+2016-09-10 16:30:08 DEBUG App:73 - initConfiguration
+2016-09-10 16:30:08 DEBUG App:53 - initStage
+2016-09-10 16:30:08 DEBUG StoreService:26 - init store
+2016-09-10 16:30:08 DEBUG PersistanceController:17 - constructor
+2016-09-10 16:30:08 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 16:30:08 DEBUG StatusService:26 - getCurrentStatus:Unknown
+2016-09-10 16:30:12 DEBUG App:48 - stop
+2016-09-10 16:30:22 DEBUG App:73 - initConfiguration
+2016-09-10 16:30:22 DEBUG App:53 - initStage
+2016-09-10 16:30:22 DEBUG StoreService:26 - init store
+2016-09-10 16:30:22 DEBUG PersistanceController:17 - constructor
+2016-09-10 16:30:22 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 16:30:22 DEBUG StatusService:26 - getCurrentStatus:Unknown
+2016-09-10 16:30:23 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 16:30:23 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:30:23 DEBUG StatusService:32 - dispatch
+2016-09-10 16:30:23 DEBUG StatusService:35 - status changed
+2016-09-10 16:30:23 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 16:30:23 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 16:48:11 DEBUG App:73 - initConfiguration
+2016-09-10 16:48:11 DEBUG App:53 - initStage
+2016-09-10 16:48:11 DEBUG StoreService:26 - init store
+2016-09-10 16:48:11 DEBUG PersistanceController:17 - constructor
+2016-09-10 16:48:11 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 16:48:11 DEBUG StatusService:26 - getCurrentStatus:Unknown
+2016-09-10 16:48:13 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 16:48:13 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:48:13 DEBUG StatusService:32 - dispatch
+2016-09-10 16:48:13 DEBUG StatusService:35 - status changed to 
+2016-09-10 16:48:13 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 16:48:42 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 16:57:13 DEBUG App:48 - stop
+2016-09-10 16:57:18 DEBUG App:73 - initConfiguration
+2016-09-10 16:57:18 DEBUG App:53 - initStage
+2016-09-10 16:57:18 DEBUG StoreService:26 - init store
+2016-09-10 16:57:18 DEBUG PersistanceController:17 - constructor
+2016-09-10 16:57:18 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 16:57:18 DEBUG StatusService:26 - getCurrentStatus:Unknown
+2016-09-10 16:57:29 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 16:57:29 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:57:29 DEBUG StatusService:32 - dispatch
+2016-09-10 16:57:29 DEBUG StatusService:35 - status changed to 
+2016-09-10 16:57:29 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 16:57:29 DEBUG StatusPresenter:41 - ssssss
+2016-09-10 16:57:29 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 16:57:35 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 16:57:35 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:57:35 DEBUG StatusService:32 - dispatch
+2016-09-10 16:57:35 DEBUG StatusService:35 - status changed to 
+2016-09-10 16:57:35 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 16:57:35 DEBUG StatusPresenter:41 - ssssss
+2016-09-10 16:57:35 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 16:57:36 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 16:57:36 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:57:36 DEBUG StatusService:32 - dispatch
+2016-09-10 16:57:36 DEBUG StatusService:35 - status changed to 
+2016-09-10 16:57:36 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 16:57:36 DEBUG StatusPresenter:41 - ssssss
+2016-09-10 16:57:36 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 16:57:41 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 16:57:41 DEBUG PersistanceController:32 - dispatch
+2016-09-10 16:57:41 DEBUG StatusService:32 - dispatch
+2016-09-10 16:57:41 DEBUG StatusService:35 - status changed to 
+2016-09-10 16:57:41 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 16:57:41 DEBUG StatusPresenter:41 - ssssss
+2016-09-10 16:57:41 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 16:57:53 DEBUG App:48 - stop
+2016-09-10 17:00:20 DEBUG App:73 - initConfiguration
+2016-09-10 17:00:20 DEBUG App:53 - initStage
+2016-09-10 17:00:20 DEBUG StoreService:26 - init store
+2016-09-10 17:00:20 DEBUG PersistanceController:17 - constructor
+2016-09-10 17:00:20 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 17:00:21 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:00:21 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:00:21 DEBUG StatusService:32 - dispatch
+2016-09-10 17:00:21 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:00:21 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:00:21 DEBUG StatusPresenter:44 - event fired --> set status label
+2016-09-10 17:00:21 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:00:22 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:00:22 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:00:22 DEBUG StatusService:32 - dispatch
+2016-09-10 17:00:22 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:00:22 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:00:22 DEBUG StatusPresenter:44 - event fired --> set status label
+2016-09-10 17:00:22 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:00:22 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:00:22 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:00:22 DEBUG StatusService:32 - dispatch
+2016-09-10 17:00:22 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:00:22 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:00:22 DEBUG StatusPresenter:44 - event fired --> set status label
+2016-09-10 17:00:22 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:00:23 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:00:23 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:00:23 DEBUG StatusService:32 - dispatch
+2016-09-10 17:00:23 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:00:23 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:00:23 DEBUG StatusPresenter:44 - event fired --> set status label
+2016-09-10 17:00:23 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:00:23 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:00:23 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:00:23 DEBUG StatusService:32 - dispatch
+2016-09-10 17:00:23 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:00:23 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:00:23 DEBUG StatusPresenter:44 - event fired --> set status label
+2016-09-10 17:00:23 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:00:23 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:00:23 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:00:23 DEBUG StatusService:32 - dispatch
+2016-09-10 17:00:23 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:00:23 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:00:23 DEBUG StatusPresenter:44 - event fired --> set status label
+2016-09-10 17:00:23 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:00:23 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:00:23 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:00:23 DEBUG StatusService:32 - dispatch
+2016-09-10 17:00:23 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:00:23 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:00:23 DEBUG StatusPresenter:44 - event fired --> set status label
+2016-09-10 17:00:23 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:00:23 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:00:23 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:00:23 DEBUG StatusService:32 - dispatch
+2016-09-10 17:00:23 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:00:23 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:00:23 DEBUG StatusPresenter:44 - event fired --> set status label
+2016-09-10 17:00:23 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:01:32 DEBUG App:48 - stop
+2016-09-10 17:01:36 DEBUG App:73 - initConfiguration
+2016-09-10 17:01:36 DEBUG App:53 - initStage
+2016-09-10 17:01:36 DEBUG StoreService:26 - init store
+2016-09-10 17:01:36 DEBUG PersistanceController:17 - constructor
+2016-09-10 17:01:36 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 17:01:37 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:01:37 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:01:37 DEBUG StatusService:32 - dispatch
+2016-09-10 17:01:37 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:01:37 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:01:37 DEBUG StatusPresenter:45 - event fired --> set status label
+2016-09-10 17:01:37 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:01:38 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:01:38 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:01:38 DEBUG StatusService:32 - dispatch
+2016-09-10 17:01:38 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:01:38 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:01:38 DEBUG StatusPresenter:45 - event fired --> set status label
+2016-09-10 17:01:38 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:01:38 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:01:38 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:01:38 DEBUG StatusService:32 - dispatch
+2016-09-10 17:01:38 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:01:38 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:01:38 DEBUG StatusPresenter:45 - event fired --> set status label
+2016-09-10 17:01:38 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:01:40 DEBUG App:48 - stop
+2016-09-10 17:02:27 DEBUG App:73 - initConfiguration
+2016-09-10 17:02:27 DEBUG App:53 - initStage
+2016-09-10 17:02:27 DEBUG StoreService:26 - init store
+2016-09-10 17:02:27 DEBUG PersistanceController:17 - constructor
+2016-09-10 17:02:27 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 17:02:29 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:02:29 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:02:29 DEBUG StatusService:32 - dispatch
+2016-09-10 17:02:29 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:02:29 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:02:29 DEBUG StatusPresenter:46 - event fired --> set status label Waiting
+2016-09-10 17:02:29 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:02:41 DEBUG App:48 - stop
+2016-09-10 17:08:41 DEBUG App:73 - initConfiguration
+2016-09-10 17:08:41 DEBUG App:53 - initStage
+2016-09-10 17:08:41 DEBUG StoreService:26 - init store
+2016-09-10 17:08:41 DEBUG PersistanceController:17 - constructor
+2016-09-10 17:08:41 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 17:08:43 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:08:43 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:08:43 DEBUG StatusService:32 - dispatch
+2016-09-10 17:08:43 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:08:43 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:08:43 DEBUG StatusPresenter:49 - event fired --> set status label Waiting
+2016-09-10 17:08:43 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:08:44 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:08:44 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:08:44 DEBUG StatusService:32 - dispatch
+2016-09-10 17:08:44 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:08:44 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:08:44 DEBUG StatusPresenter:49 - event fired --> set status label Waiting
+2016-09-10 17:08:44 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:08:44 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:08:44 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:08:44 DEBUG StatusService:32 - dispatch
+2016-09-10 17:08:44 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:08:44 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:08:44 DEBUG StatusPresenter:49 - event fired --> set status label Waiting
+2016-09-10 17:08:44 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 17:08:45 DEBUG App:48 - stop
+2016-09-10 17:10:21 DEBUG App:73 - initConfiguration
+2016-09-10 17:10:21 DEBUG App:53 - initStage
+2016-09-10 17:10:22 DEBUG StoreService:26 - init store
+2016-09-10 17:10:22 DEBUG PersistanceController:17 - constructor
+2016-09-10 17:10:22 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 17:10:22 DEBUG App:48 - stop
+2016-09-10 17:39:26 DEBUG App:73 - initConfiguration
+2016-09-10 17:39:26 DEBUG App:53 - initStage
+2016-09-10 17:39:26 DEBUG StoreService:26 - init store
+2016-09-10 17:39:26 DEBUG PersistanceController:17 - constructor
+2016-09-10 17:39:26 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 17:39:28 DEBUG Logger:16 - ActionLogger--> STATUS_CHANGED: WAITING
+2016-09-10 17:39:28 DEBUG PersistanceController:32 - dispatch
+2016-09-10 17:39:28 DEBUG StatusService:32 - dispatch
+2016-09-10 17:39:28 DEBUG StatusService:35 - status changed to 
+2016-09-10 17:39:28 DEBUG State$Reducer:46 - reduce: STATUS_CHANGED: WAITING
+2016-09-10 17:39:28 DEBUG StatusPresenter:45 - event fired --> set status label Waiting
+2016-09-10 17:39:28 DEBUG Logger:18 - ActionLogger<-- State{status=WAITING, tasks=[]}
+2016-09-10 18:02:35 DEBUG App:73 - initConfiguration
+2016-09-10 18:02:35 DEBUG App:53 - initStage
+2016-09-10 18:02:35 DEBUG StoreService:24 - init store
+2016-09-10 18:02:35 DEBUG PersistanceController:17 - constructor
+2016-09-10 18:02:35 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 18:02:37 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 18:02:37 DEBUG PersistanceController:32 - dispatch
+2016-09-10 18:02:37 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 18:02:37 DEBUG StatusPresenter:38 - event fired --> set status label Init
+2016-09-10 18:02:37 DEBUG Logger:18 - ActionLogger<-- State{status=INIT, tasks=[]}
+2016-09-10 18:02:40 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 18:02:40 DEBUG PersistanceController:32 - dispatch
+2016-09-10 18:02:40 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 18:02:40 DEBUG StatusPresenter:38 - event fired --> set status label Init
+2016-09-10 18:02:40 DEBUG Logger:18 - ActionLogger<-- State{status=INIT, tasks=[]}

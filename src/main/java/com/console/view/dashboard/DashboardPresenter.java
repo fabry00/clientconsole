@@ -1,14 +1,15 @@
 package com.console.view.dashboard;
 
-import com.console.service.Tower;
+import com.console.domain.ActionType;
+import com.console.domain.Status;
+import com.console.service.StoreService;
 import com.console.view.light.LightView;
 import com.console.view.status.StatusView;
+import com.jedux.Action;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -42,6 +43,9 @@ public class DashboardPresenter implements Initializable {
     
     @FXML
     private Pane bottomPane;
+    
+    @Inject
+    private StoreService store;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -58,10 +62,20 @@ public class DashboardPresenter implements Initializable {
     private void handleExit() {
         System.exit(0);
     }
+    
+    @FXML 
+    private void handleTest() {
+        store.dispatch(new Action<>(ActionType.START, null));
+    }
+    
+    @FXML 
+    private void handleStop() {
+        store.dispatch(new Action<>(ActionType.STOP, null));
+    }
 
     @PostConstruct
     public void init() {
-      
+        
     }
     
     public void createLights() {

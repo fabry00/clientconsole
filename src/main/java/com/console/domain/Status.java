@@ -8,6 +8,7 @@ public enum Status {
 
     UNKWOWN("Unknown"),
     INIT("Init"),
+    STARTING("Starting"),
     WAITING("Waiting"),
     PROCESSING("Processing");
     
