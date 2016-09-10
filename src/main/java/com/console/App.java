@@ -3,6 +3,8 @@ package com.console;
 import com.console.view.dashboard.DashboardView;
 import com.airhacks.afterburner.injection.Injector;
 import com.console.service.StoreService;
+import com.console.service.backend.CommandLineAppService;
+import com.console.service.backend.IBackendService;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.Month;
@@ -12,6 +14,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javax.inject.Inject;
+import javax.inject.Named;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -25,22 +28,25 @@ public class App extends Application {
     private static final String APP_TITLE = "Console";
     private static final String APP_CSS = "app.css";
     private static final String LOG_CONF = "log4j.properties";
-    
+
     @Inject
     // Init store
     private StoreService store;
-
+   
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public App() {
+        initLogger();
     }
 
     @Override
     public void start(Stage stage) throws Exception {
         logger.debug("start");
-        initLogger();
         initConfiguration();
         initStage(stage);
-
+        logger.debug("started");
     }
 
     @Override
@@ -58,7 +64,7 @@ public class App extends Application {
         scene.getStylesheets().add(uri);
         stage.setScene(scene);
         stage.show();
-        
+
     }
 
     private void initLogger() {
@@ -75,13 +81,18 @@ public class App extends Application {
          * Properties of any type can be easily injected.
          */
         LocalDate date = LocalDate.of(4242, Month.JULY, 21);
-        Map<Object, Object> customProperties = new HashMap<>();
-        customProperties.put("date", date);
+        
+        Map<Object, Object> context = new HashMap<>();
+        context.put("date", date);
+        
+        // This is needed to be able to Inject interfaces implementation
+        context.put( "backendService", new CommandLineAppService());
+        
         /*
          * any function which accepts an Object as key and returns
          * and return an Object as result can be used as source.
          */
-        Injector.setConfigurationSource(customProperties::get);
+        Injector.setConfigurationSource(context::get);
 
         System.setProperty("happyEnding", " Enjoy the flight!");
     }

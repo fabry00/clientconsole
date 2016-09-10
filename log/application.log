@@ -754,3 +754,280 @@
 2016-09-10 18:02:40 DEBUG State$Reducer:47 - reduce: START
 2016-09-10 18:02:40 DEBUG StatusPresenter:38 - event fired --> set status label Init
 2016-09-10 18:02:40 DEBUG Logger:18 - ActionLogger<-- State{status=INIT, tasks=[]}
+2016-09-10 19:25:01 DEBUG App:73 - initConfiguration
+2016-09-10 19:25:01 DEBUG App:53 - initStage
+2016-09-10 19:25:01 DEBUG StoreService:24 - init store
+2016-09-10 19:25:01 DEBUG PersistanceController:17 - constructor
+2016-09-10 19:25:01 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 19:25:04 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 19:25:04 DEBUG PersistanceController:32 - dispatch
+2016-09-10 19:25:04 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 19:25:04 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 19:25:04 DEBUG Logger:18 - ActionLogger<-- State{status=STARTING, tasks=[]}
+2016-09-10 19:25:06 DEBUG Logger:16 - ActionLogger--> STOP
+2016-09-10 19:25:06 DEBUG PersistanceController:32 - dispatch
+2016-09-10 19:25:06 DEBUG State$Reducer:47 - reduce: STOP
+2016-09-10 19:25:06 DEBUG StatusPresenter:38 - event fired --> set status label Unknown
+2016-09-10 19:25:06 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 19:25:08 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 19:25:08 DEBUG PersistanceController:32 - dispatch
+2016-09-10 19:25:08 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 19:25:08 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 19:25:08 DEBUG Logger:18 - ActionLogger<-- State{status=STARTING, tasks=[]}
+2016-09-10 19:25:08 DEBUG Logger:16 - ActionLogger--> STOP
+2016-09-10 19:25:08 DEBUG PersistanceController:32 - dispatch
+2016-09-10 19:25:08 DEBUG State$Reducer:47 - reduce: STOP
+2016-09-10 19:25:08 DEBUG StatusPresenter:38 - event fired --> set status label Unknown
+2016-09-10 19:25:08 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 19:25:10 DEBUG App:48 - stop
+2016-09-10 19:41:05 DEBUG App:73 - initConfiguration
+2016-09-10 19:41:05 DEBUG App:53 - initStage
+2016-09-10 19:41:06 DEBUG App:48 - stop
+2016-09-10 19:41:53 DEBUG App:73 - initConfiguration
+2016-09-10 19:41:54 DEBUG App:53 - initStage
+2016-09-10 19:41:54 DEBUG App:48 - stop
+2016-09-10 19:42:37 DEBUG App:73 - initConfiguration
+2016-09-10 19:42:37 DEBUG App:53 - initStage
+2016-09-10 19:42:38 DEBUG StoreService:30 - init store
+2016-09-10 19:42:38 DEBUG PersistanceController:17 - constructor
+2016-09-10 19:42:38 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 19:42:40 DEBUG App:48 - stop
+2016-09-10 19:43:13 DEBUG App:73 - initConfiguration
+2016-09-10 19:43:13 DEBUG App:53 - initStage
+2016-09-10 19:43:13 DEBUG App:48 - stop
+2016-09-10 19:46:15 DEBUG App:79 - initConfiguration
+2016-09-10 19:46:15 DEBUG App:59 - initStage
+2016-09-10 19:46:15 DEBUG StoreService:28 - init store
+2016-09-10 19:46:15 DEBUG PersistanceController:17 - constructor
+2016-09-10 19:46:15 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 19:46:18 DEBUG App:54 - stop
+2016-09-10 19:46:28 DEBUG App:76 - initConfiguration
+2016-09-10 19:46:28 DEBUG App:56 - initStage
+2016-09-10 19:46:28 DEBUG App:51 - stop
+2016-09-10 19:47:03 DEBUG App:76 - initConfiguration
+2016-09-10 19:47:03 DEBUG App:56 - initStage
+2016-09-10 19:47:03 DEBUG App:51 - stop
+2016-09-10 19:47:21 DEBUG App:76 - initConfiguration
+2016-09-10 19:47:21 DEBUG App:56 - initStage
+2016-09-10 19:47:21 DEBUG App:51 - stop
+2016-09-10 19:48:14 DEBUG App:79 - initConfiguration
+2016-09-10 19:48:14 DEBUG App:59 - initStage
+2016-09-10 19:48:14 DEBUG StoreService:29 - init store
+2016-09-10 19:48:14 DEBUG PersistanceController:17 - constructor
+2016-09-10 19:48:14 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 19:49:30 DEBUG App:79 - initConfiguration
+2016-09-10 19:49:30 DEBUG App:59 - initStage
+2016-09-10 19:49:30 DEBUG StoreService:29 - init store
+2016-09-10 19:49:30 DEBUG PersistanceController:17 - constructor
+2016-09-10 19:49:30 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 19:51:09 DEBUG App:51 - start
+2016-09-10 19:51:09 DEBUG App:84 - initConfiguration
+2016-09-10 19:51:09 DEBUG App:64 - initStage
+2016-09-10 19:51:09 DEBUG StoreService:29 - init store
+2016-09-10 19:51:09 DEBUG PersistanceController:17 - constructor
+2016-09-10 19:51:09 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 19:51:26 DEBUG App:51 - start
+2016-09-10 19:51:26 DEBUG App:84 - initConfiguration
+2016-09-10 19:51:36 DEBUG App:64 - initStage
+2016-09-10 19:51:36 DEBUG StoreService:29 - init store
+2016-09-10 19:51:36 DEBUG PersistanceController:17 - constructor
+2016-09-10 19:51:36 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 19:51:57 DEBUG App:59 - stop
+2016-09-10 19:52:02 DEBUG App:54 - stop
+2016-09-10 19:52:20 DEBUG App:51 - start
+2016-09-10 19:52:20 DEBUG App:84 - initConfiguration
+2016-09-10 19:52:26 DEBUG App:64 - initStage
+2016-09-10 19:52:26 DEBUG StoreService:29 - init store
+2016-09-10 19:52:26 DEBUG PersistanceController:17 - constructor
+2016-09-10 19:52:26 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 19:52:51 DEBUG App:59 - stop
+2016-09-10 19:56:25 DEBUG App:52 - start
+2016-09-10 19:56:47 DEBUG App:85 - initConfiguration
+2016-09-10 19:56:47 DEBUG App:65 - initStage
+2016-09-10 19:56:48 DEBUG StoreService:29 - init store
+2016-09-10 19:56:48 DEBUG PersistanceController:17 - constructor
+2016-09-10 19:56:48 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 19:57:22 DEBUG App:52 - start
+2016-09-10 19:57:25 DEBUG App:85 - initConfiguration
+2016-09-10 19:57:25 DEBUG App:65 - initStage
+2016-09-10 19:57:25 DEBUG StoreService:29 - init store
+2016-09-10 19:57:25 DEBUG PersistanceController:17 - constructor
+2016-09-10 19:57:25 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 19:57:28 DEBUG CommandLineAppService:17 - CommandLineAppService
+2016-09-10 19:57:30 DEBUG CommandLineAppService:22 - initialized
+2016-09-10 20:04:00 DEBUG App:52 - start
+2016-09-10 20:04:22 DEBUG App:52 - start
+2016-09-10 20:04:26 DEBUG App:85 - initConfiguration
+2016-09-10 20:04:27 DEBUG App:65 - initStage
+2016-09-10 20:04:27 DEBUG StoreService:29 - init store
+2016-09-10 20:04:27 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:04:27 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:04:31 DEBUG CommandLineAppService:17 - CommandLineAppService
+2016-09-10 20:04:56 DEBUG CommandLineAppService:22 - initialized
+2016-09-10 20:05:44 DEBUG App:55 - started
+2016-09-10 20:05:51 DEBUG App:60 - stop
+2016-09-10 20:09:22 DEBUG App:45 - start
+2016-09-10 20:09:22 DEBUG App:78 - initConfiguration
+2016-09-10 20:09:22 DEBUG App:58 - initStage
+2016-09-10 20:09:22 DEBUG App:53 - stop
+2016-09-10 20:10:05 DEBUG App:52 - start
+2016-09-10 20:10:05 DEBUG App:85 - initConfiguration
+2016-09-10 20:10:05 DEBUG App:65 - initStage
+2016-09-10 20:10:05 DEBUG App:60 - stop
+2016-09-10 20:13:22 DEBUG App:52 - start
+2016-09-10 20:13:22 DEBUG App:85 - initConfiguration
+2016-09-10 20:13:22 DEBUG App:65 - initStage
+2016-09-10 20:13:22 DEBUG StoreService:54 - init store
+2016-09-10 20:13:22 DEBUG CommandLineAppService:17 - CommandLineAppService
+2016-09-10 20:13:22 DEBUG CommandLineAppService:22 - initialized
+2016-09-10 20:13:22 DEBUG App:60 - stop
+2016-09-10 20:14:44 DEBUG App:50 - start
+2016-09-10 20:14:44 DEBUG App:83 - initConfiguration
+2016-09-10 20:14:44 DEBUG App:63 - initStage
+2016-09-10 20:14:44 DEBUG StoreService:36 - init store
+2016-09-10 20:14:44 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:14:44 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:14:44 DEBUG CommandLineAppService:17 - CommandLineAppService
+2016-09-10 20:14:44 DEBUG CommandLineAppService:22 - initialized
+2016-09-10 20:14:45 DEBUG App:53 - started
+2016-09-10 20:14:47 DEBUG App:58 - stop
+2016-09-10 20:14:57 DEBUG App:50 - start
+2016-09-10 20:14:57 DEBUG App:83 - initConfiguration
+2016-09-10 20:14:57 DEBUG App:63 - initStage
+2016-09-10 20:14:57 DEBUG StoreService:36 - init store
+2016-09-10 20:14:57 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:14:57 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:14:57 DEBUG CommandLineAppService:17 - CommandLineAppService
+2016-09-10 20:14:57 DEBUG CommandLineAppService:22 - initialized
+2016-09-10 20:15:39 DEBUG App:47 - start
+2016-09-10 20:15:39 DEBUG App:80 - initConfiguration
+2016-09-10 20:15:39 DEBUG App:60 - initStage
+2016-09-10 20:15:39 DEBUG StoreService:36 - init store
+2016-09-10 20:15:39 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:15:39 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:15:39 DEBUG App:55 - stop
+2016-09-10 20:15:50 DEBUG App:47 - start
+2016-09-10 20:15:50 DEBUG App:80 - initConfiguration
+2016-09-10 20:15:50 DEBUG App:60 - initStage
+2016-09-10 20:15:50 DEBUG StoreService:36 - init store
+2016-09-10 20:15:50 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:15:50 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:15:50 DEBUG App:55 - stop
+2016-09-10 20:15:59 DEBUG App:47 - start
+2016-09-10 20:15:59 DEBUG App:80 - initConfiguration
+2016-09-10 20:15:59 DEBUG App:60 - initStage
+2016-09-10 20:15:59 DEBUG StoreService:36 - init store
+2016-09-10 20:15:59 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:15:59 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:16:46 DEBUG App:47 - start
+2016-09-10 20:16:46 DEBUG App:80 - initConfiguration
+2016-09-10 20:16:46 DEBUG App:60 - initStage
+2016-09-10 20:16:46 DEBUG StoreService:36 - init store
+2016-09-10 20:16:46 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:16:46 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:16:46 DEBUG App:55 - stop
+2016-09-10 20:17:21 DEBUG App:47 - start
+2016-09-10 20:17:21 DEBUG App:80 - initConfiguration
+2016-09-10 20:17:21 DEBUG App:60 - initStage
+2016-09-10 20:17:21 DEBUG StoreService:36 - init store
+2016-09-10 20:17:21 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:17:21 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:17:21 DEBUG App:55 - stop
+2016-09-10 20:21:47 DEBUG App:47 - start
+2016-09-10 20:21:47 DEBUG App:80 - initConfiguration
+2016-09-10 20:21:47 DEBUG App:60 - initStage
+2016-09-10 20:21:47 DEBUG StoreService:36 - init store
+2016-09-10 20:21:47 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:21:47 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:21:47 DEBUG CommandLineAppService:17 - CommandLineAppService
+2016-09-10 20:21:47 DEBUG CommandLineAppService:22 - initialized
+2016-09-10 20:22:27 DEBUG App:47 - start
+2016-09-10 20:22:27 DEBUG App:80 - initConfiguration
+2016-09-10 20:22:27 DEBUG App:60 - initStage
+2016-09-10 20:22:27 DEBUG CommandLineAppService:17 - CommandLineAppService
+2016-09-10 20:22:27 DEBUG CommandLineAppService:22 - initialized
+2016-09-10 20:22:27 DEBUG StoreService:38 - init store
+2016-09-10 20:22:27 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:22:27 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:22:56 DEBUG App:46 - start
+2016-09-10 20:22:56 DEBUG App:79 - initConfiguration
+2016-09-10 20:22:56 DEBUG App:59 - initStage
+2016-09-10 20:22:56 DEBUG CommandLineAppService:19 - initialized
+2016-09-10 20:22:56 DEBUG StoreService:38 - init store
+2016-09-10 20:22:56 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:22:56 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:22:57 DEBUG App:49 - started
+2016-09-10 20:22:58 DEBUG App:54 - stop
+2016-09-10 20:23:50 DEBUG App:46 - start
+2016-09-10 20:23:50 DEBUG App:79 - initConfiguration
+2016-09-10 20:23:50 DEBUG App:59 - initStage
+2016-09-10 20:23:50 DEBUG App:54 - stop
+2016-09-10 20:24:26 DEBUG App:46 - start
+2016-09-10 20:24:26 DEBUG App:79 - initConfiguration
+2016-09-10 20:24:26 DEBUG App:59 - initStage
+2016-09-10 20:24:26 DEBUG CommandLineAppService:19 - initialized
+2016-09-10 20:24:26 DEBUG StoreService:39 - init store
+2016-09-10 20:24:26 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:24:26 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:24:30 DEBUG App:49 - started
+2016-09-10 20:24:33 DEBUG App:54 - stop
+2016-09-10 20:24:59 DEBUG App:46 - start
+2016-09-10 20:24:59 DEBUG App:79 - initConfiguration
+2016-09-10 20:24:59 DEBUG App:59 - initStage
+2016-09-10 20:24:59 DEBUG CommandLineAppService:19 - initialized
+2016-09-10 20:24:59 DEBUG App:54 - stop
+2016-09-10 20:25:40 DEBUG App:46 - start
+2016-09-10 20:25:40 DEBUG App:79 - initConfiguration
+2016-09-10 20:25:40 DEBUG App:59 - initStage
+2016-09-10 20:25:40 DEBUG CommandLineAppService:19 - initialized
+2016-09-10 20:25:40 DEBUG StoreService:40 - init store
+2016-09-10 20:25:40 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:25:40 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:25:41 DEBUG App:49 - started
+2016-09-10 20:25:44 DEBUG App:54 - stop
+2016-09-10 20:26:17 DEBUG App:46 - start
+2016-09-10 20:26:17 DEBUG App:79 - initConfiguration
+2016-09-10 20:26:17 DEBUG App:59 - initStage
+2016-09-10 20:26:17 DEBUG CommandLineAppService:19 - initialized
+2016-09-10 20:26:17 DEBUG StoreService:33 - init store
+2016-09-10 20:26:17 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:26:17 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:26:18 DEBUG App:49 - started
+2016-09-10 20:26:20 DEBUG App:54 - stop
+2016-09-10 20:26:43 DEBUG App:46 - start
+2016-09-10 20:26:43 DEBUG App:79 - initConfiguration
+2016-09-10 20:26:43 DEBUG App:59 - initStage
+2016-09-10 20:26:43 DEBUG App:54 - stop
+2016-09-10 20:27:03 DEBUG App:46 - start
+2016-09-10 20:27:03 DEBUG App:79 - initConfiguration
+2016-09-10 20:27:03 DEBUG App:59 - initStage
+2016-09-10 20:27:04 DEBUG App:54 - stop
+2016-09-10 20:42:07 DEBUG App:46 - start
+2016-09-10 20:42:07 DEBUG App:79 - initConfiguration
+2016-09-10 20:42:07 DEBUG App:59 - initStage
+2016-09-10 20:42:07 DEBUG StoreService:32 - init store
+2016-09-10 20:42:07 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:42:07 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:42:08 DEBUG App:49 - started
+2016-09-10 20:42:10 DEBUG App:54 - stop
+2016-09-10 20:42:21 DEBUG App:46 - start
+2016-09-10 20:42:21 DEBUG App:79 - initConfiguration
+2016-09-10 20:42:21 DEBUG App:59 - initStage
+2016-09-10 20:42:25 DEBUG StoreService:32 - init store
+2016-09-10 20:42:25 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:42:25 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:42:45 DEBUG App:49 - started
+2016-09-10 20:46:37 DEBUG App:46 - start
+2016-09-10 20:46:37 DEBUG App:79 - initConfiguration
+2016-09-10 20:46:37 DEBUG App:59 - initStage
+2016-09-10 20:46:37 DEBUG StoreService:30 - init store
+2016-09-10 20:46:37 DEBUG PersistanceController:17 - constructor
+2016-09-10 20:46:37 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 20:46:37 DEBUG App:49 - started
+2016-09-10 20:46:38 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 20:46:38 DEBUG PersistanceController:32 - dispatch
+2016-09-10 20:46:38 DEBUG CommandLineAppService:33 - dispatch
+2016-09-10 20:46:38 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 20:46:38 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 20:46:38 DEBUG Logger:18 - ActionLogger<-- State{status=STARTING, tasks=[]}
+2016-09-10 20:46:46 DEBUG App:54 - stop

@@ -3,6 +3,8 @@ package com.console.view.dashboard;
 import com.console.domain.ActionType;
 import com.console.domain.Status;
 import com.console.service.StoreService;
+import com.console.service.backend.CommandLineAppService;
+import com.console.service.backend.IBackendService;
 import com.console.view.light.LightView;
 import com.console.view.status.StatusView;
 import com.jedux.Action;
@@ -13,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  *
@@ -46,7 +49,7 @@ public class DashboardPresenter implements Initializable {
     
     @Inject
     private StoreService store;
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       //fetched from followme.properties
