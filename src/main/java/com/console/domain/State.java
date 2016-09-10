@@ -44,7 +44,7 @@ public abstract class State {
         private Logger logger = Logger.getLogger(Reducer.class);
         
         public State reduce(Action action, State old) {
-            logger.debug("reduce: "+action.toString());
+            logger.debug("reduce: "+action.toString()+" old: "+old.status().getLabel());
             return ImmutableState.builder()
                     .from(old)
                     .status(reduceStatus(action, old.status()))
@@ -57,6 +57,15 @@ public abstract class State {
             switch (type) {
                 case START:{
                     return Status.STARTING;
+                }
+                case STARTED:{
+                    return Status.STARTED;
+                }
+                case STOP:{
+                    return Status.WAITING;
+                }
+                case CLOSE:{
+                    return Status.CLOSING;
                 }
                 default:
                     return status.UNKWOWN;

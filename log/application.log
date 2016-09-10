@@ -1031,3 +1031,486 @@
 2016-09-10 20:46:38 DEBUG StatusPresenter:38 - event fired --> set status label Starting
 2016-09-10 20:46:38 DEBUG Logger:18 - ActionLogger<-- State{status=STARTING, tasks=[]}
 2016-09-10 20:46:46 DEBUG App:54 - stop
+2016-09-10 21:17:08 DEBUG App:46 - start
+2016-09-10 21:17:08 DEBUG App:79 - initConfiguration
+2016-09-10 21:17:08 DEBUG App:59 - initStage
+2016-09-10 21:17:08 DEBUG StoreService:30 - init store
+2016-09-10 21:17:08 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:17:08 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:17:08 DEBUG App:49 - started
+2016-09-10 21:17:10 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:17:10 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:17:10 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:17:10 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:17:10 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:17:10 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:17:10 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:17:10 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:17:10 DEBUG State$Reducer:47 - reduce: STARTED
+2016-09-10 21:17:10 DEBUG StatusPresenter:38 - event fired --> set status label Unknown
+2016-09-10 21:17:10 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:17:10 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:17:54 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:17:54 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:17:54 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:17:54 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:17:54 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:17:54 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:17:54 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:17:54 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:17:54 DEBUG State$Reducer:47 - reduce: STARTED
+2016-09-10 21:17:54 DEBUG StatusPresenter:38 - event fired --> set status label Unknown
+2016-09-10 21:17:54 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:17:54 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:17:54 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:17:54 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:17:54 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:17:54 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:17:54 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:17:54 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:17:54 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:17:54 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:17:54 DEBUG State$Reducer:47 - reduce: STARTED
+2016-09-10 21:17:54 DEBUG StatusPresenter:38 - event fired --> set status label Unknown
+2016-09-10 21:17:54 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:17:54 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:18:51 DEBUG App:54 - stop
+2016-09-10 21:18:59 DEBUG App:46 - start
+2016-09-10 21:18:59 DEBUG App:79 - initConfiguration
+2016-09-10 21:18:59 DEBUG App:59 - initStage
+2016-09-10 21:18:59 DEBUG StoreService:30 - init store
+2016-09-10 21:18:59 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:18:59 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:18:59 DEBUG App:49 - started
+2016-09-10 21:19:00 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:19:00 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:19:00 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:19:00 DEBUG State$Reducer:45 - reduce: START
+2016-09-10 21:19:00 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:19:00 DEBUG Logger:18 - ActionLogger<-- State{status=STARTING, tasks=[]}
+2016-09-10 21:19:02 DEBUG App:54 - stop
+2016-09-10 21:23:57 DEBUG App:46 - start
+2016-09-10 21:23:57 DEBUG App:79 - initConfiguration
+2016-09-10 21:23:57 DEBUG App:59 - initStage
+2016-09-10 21:23:57 DEBUG StoreService:32 - init store
+2016-09-10 21:23:57 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:23:57 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:23:57 DEBUG App:49 - started
+2016-09-10 21:23:59 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:23:59 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:23:59 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:23:59 DEBUG State$Reducer:45 - reduce: START
+2016-09-10 21:23:59 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:23:59 DEBUG CommandLineAppService:37 - start backend
+2016-09-10 21:23:59 DEBUG Logger:18 - ActionLogger<-- State{status=STARTING, tasks=[]}
+2016-09-10 21:24:00 DEBUG App:54 - stop
+2016-09-10 21:24:50 DEBUG App:46 - start
+2016-09-10 21:24:50 DEBUG App:79 - initConfiguration
+2016-09-10 21:24:50 DEBUG App:59 - initStage
+2016-09-10 21:24:50 DEBUG StoreService:32 - init store
+2016-09-10 21:24:50 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:24:50 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:24:51 DEBUG App:49 - started
+2016-09-10 21:24:54 DEBUG Logger:16 - ActionLogger--> CLOSE
+2016-09-10 21:24:54 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:24:54 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:24:54 DEBUG State$Reducer:45 - reduce: CLOSE
+2016-09-10 21:24:54 DEBUG StatusPresenter:38 - event fired --> set status label Unknown
+2016-09-10 21:24:54 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:27:40 DEBUG App:54 - stop
+2016-09-10 21:27:44 DEBUG App:46 - start
+2016-09-10 21:27:44 DEBUG App:79 - initConfiguration
+2016-09-10 21:27:44 DEBUG App:59 - initStage
+2016-09-10 21:27:44 DEBUG StoreService:31 - init store
+2016-09-10 21:27:44 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:27:44 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:27:44 DEBUG App:49 - started
+2016-09-10 21:27:46 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:27:46 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:27:46 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:27:46 DEBUG CommandLineAppService:37 - start backend
+2016-09-10 21:27:46 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:27:47 DEBUG App:54 - stop
+2016-09-10 21:30:11 DEBUG App:46 - start
+2016-09-10 21:30:11 DEBUG App:79 - initConfiguration
+2016-09-10 21:30:11 DEBUG App:59 - initStage
+2016-09-10 21:30:11 DEBUG StoreService:31 - init store
+2016-09-10 21:30:11 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:30:11 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:30:12 DEBUG App:49 - started
+2016-09-10 21:30:13 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:30:13 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:30:13 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:30:13 DEBUG CommandLineAppService:37 - start backend
+2016-09-10 21:30:13 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:30:14 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:30:14 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:30:14 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:30:14 DEBUG CommandLineAppService:37 - start backend
+2016-09-10 21:30:14 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:30:14 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:30:14 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:30:14 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:30:14 DEBUG CommandLineAppService:37 - start backend
+2016-09-10 21:30:14 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:30:15 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:30:15 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:30:15 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:30:15 DEBUG CommandLineAppService:37 - start backend
+2016-09-10 21:30:15 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:30:15 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:30:15 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:30:15 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:30:15 DEBUG CommandLineAppService:37 - start backend
+2016-09-10 21:30:15 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:30:16 DEBUG App:54 - stop
+2016-09-10 21:30:23 DEBUG App:46 - start
+2016-09-10 21:30:23 DEBUG App:79 - initConfiguration
+2016-09-10 21:30:23 DEBUG App:59 - initStage
+2016-09-10 21:30:23 DEBUG StoreService:31 - init store
+2016-09-10 21:30:23 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:30:23 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:30:23 DEBUG App:49 - started
+2016-09-10 21:30:25 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:30:25 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:30:33 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:30:40 DEBUG CommandLineAppService:37 - start backend
+2016-09-10 21:30:40 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:30:53 DEBUG App:54 - stop
+2016-09-10 21:31:04 DEBUG App:46 - start
+2016-09-10 21:31:04 DEBUG App:79 - initConfiguration
+2016-09-10 21:31:04 DEBUG App:59 - initStage
+2016-09-10 21:31:04 DEBUG StoreService:31 - init store
+2016-09-10 21:31:04 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:31:04 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:31:04 DEBUG App:49 - started
+2016-09-10 21:31:06 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:31:06 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:31:06 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:31:06 DEBUG CommandLineAppService:37 - start backend
+2016-09-10 21:31:06 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:31:07 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:31:07 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:31:07 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:31:07 DEBUG CommandLineAppService:37 - start backend
+2016-09-10 21:31:07 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:31:08 DEBUG App:54 - stop
+2016-09-10 21:31:31 DEBUG App:46 - start
+2016-09-10 21:31:31 DEBUG App:79 - initConfiguration
+2016-09-10 21:31:31 DEBUG App:59 - initStage
+2016-09-10 21:31:31 DEBUG StoreService:31 - init store
+2016-09-10 21:31:31 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:31:31 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:31:32 DEBUG App:49 - started
+2016-09-10 21:31:33 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:31:33 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:31:33 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:31:33 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:31:36 DEBUG App:54 - stop
+2016-09-10 21:32:05 DEBUG App:46 - start
+2016-09-10 21:32:05 DEBUG App:79 - initConfiguration
+2016-09-10 21:32:05 DEBUG App:59 - initStage
+2016-09-10 21:32:05 DEBUG StoreService:31 - init store
+2016-09-10 21:32:05 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:32:05 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:32:06 DEBUG App:49 - started
+2016-09-10 21:32:07 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:32:07 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:32:10 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:32:11 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:32:31 DEBUG App:46 - start
+2016-09-10 21:32:31 DEBUG App:79 - initConfiguration
+2016-09-10 21:32:31 DEBUG App:59 - initStage
+2016-09-10 21:32:31 DEBUG StoreService:31 - init store
+2016-09-10 21:32:31 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:32:31 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:32:32 DEBUG App:49 - started
+2016-09-10 21:32:33 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:32:33 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:32:36 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:32:48 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:35:15 DEBUG App:46 - start
+2016-09-10 21:35:15 DEBUG App:79 - initConfiguration
+2016-09-10 21:35:15 DEBUG App:59 - initStage
+2016-09-10 21:35:15 DEBUG StoreService:30 - init store
+2016-09-10 21:35:15 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:35:15 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:35:15 DEBUG App:49 - started
+2016-09-10 21:35:16 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:35:16 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:35:16 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:35:16 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:35:16 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:35:16 DEBUG Logger:18 - ActionLogger<-- State{status=STARTING, tasks=[]}
+2016-09-10 21:35:18 DEBUG App:54 - stop
+2016-09-10 21:36:29 DEBUG App:46 - start
+2016-09-10 21:36:29 DEBUG App:79 - initConfiguration
+2016-09-10 21:36:29 DEBUG App:59 - initStage
+2016-09-10 21:36:29 DEBUG StoreService:32 - init store
+2016-09-10 21:36:29 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:36:29 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:36:29 DEBUG App:49 - started
+2016-09-10 21:36:31 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:36:31 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:36:31 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:36:31 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:36:32 DEBUG App:54 - stop
+2016-09-10 21:36:57 DEBUG App:46 - start
+2016-09-10 21:36:57 DEBUG App:79 - initConfiguration
+2016-09-10 21:36:57 DEBUG App:59 - initStage
+2016-09-10 21:36:57 DEBUG StoreService:32 - init store
+2016-09-10 21:36:57 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:36:57 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:36:58 DEBUG App:49 - started
+2016-09-10 21:36:59 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:36:59 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:36:59 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:36:59 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:36:59 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:36:59 DEBUG Logger:18 - ActionLogger<-- State{status=STARTING, tasks=[]}
+2016-09-10 21:37:00 DEBUG App:54 - stop
+2016-09-10 21:37:39 DEBUG App:46 - start
+2016-09-10 21:37:39 DEBUG App:79 - initConfiguration
+2016-09-10 21:37:39 DEBUG App:59 - initStage
+2016-09-10 21:37:39 DEBUG StoreService:32 - init store
+2016-09-10 21:37:39 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:37:39 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:37:40 DEBUG App:49 - started
+2016-09-10 21:37:41 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:37:41 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:37:41 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:37:41 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:37:41 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:37:41 DEBUG Logger:18 - ActionLogger<-- State{status=STARTING, tasks=[]}
+2016-09-10 21:37:43 DEBUG Logger:16 - ActionLogger--> CLOSE
+2016-09-10 21:37:43 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:37:43 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:37:43 DEBUG ApplicationService:20 - Exiting application
+2016-09-10 21:39:25 DEBUG App:46 - start
+2016-09-10 21:39:25 DEBUG App:79 - initConfiguration
+2016-09-10 21:39:25 DEBUG App:59 - initStage
+2016-09-10 21:39:25 DEBUG StoreService:32 - init store
+2016-09-10 21:39:25 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:39:25 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:39:26 DEBUG App:49 - started
+2016-09-10 21:39:33 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:39:33 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:39:33 DEBUG CommandLineAppService:34 - dispatch
+2016-09-10 21:39:33 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:39:33 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:39:33 DEBUG Logger:18 - ActionLogger<-- State{status=STARTING, tasks=[]}
+2016-09-10 21:42:53 DEBUG App:54 - stop
+2016-09-10 21:43:03 DEBUG App:46 - start
+2016-09-10 21:43:03 DEBUG App:79 - initConfiguration
+2016-09-10 21:43:03 DEBUG App:59 - initStage
+2016-09-10 21:43:03 DEBUG StoreService:32 - init store
+2016-09-10 21:43:03 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:43:03 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:43:04 DEBUG App:49 - started
+2016-09-10 21:43:05 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:43:05 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:43:05 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:43:05 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:43:05 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:43:05 DEBUG CommandLineAppService:42 - start backend
+2016-09-10 21:43:05 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:43:05 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:43:05 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:43:05 DEBUG State$Reducer:47 - reduce: STARTED
+2016-09-10 21:43:05 DEBUG StatusPresenter:38 - event fired --> set status label Unknown
+2016-09-10 21:43:05 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:43:05 DEBUG Logger:18 - ActionLogger<-- State{status=UNKWOWN, tasks=[]}
+2016-09-10 21:43:50 DEBUG App:54 - stop
+2016-09-10 21:43:53 DEBUG App:46 - start
+2016-09-10 21:43:53 DEBUG App:79 - initConfiguration
+2016-09-10 21:43:53 DEBUG App:59 - initStage
+2016-09-10 21:43:54 DEBUG StoreService:32 - init store
+2016-09-10 21:43:54 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:43:54 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:43:54 DEBUG App:49 - started
+2016-09-10 21:43:55 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:43:55 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:43:55 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:43:55 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:43:55 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:43:55 DEBUG CommandLineAppService:42 - start backend
+2016-09-10 21:43:55 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:43:55 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:43:55 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:43:55 DEBUG State$Reducer:47 - reduce: STARTED
+2016-09-10 21:43:55 DEBUG StatusPresenter:38 - event fired --> set status label Started
+2016-09-10 21:43:55 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:43:55 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:43:57 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:43:57 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:43:57 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:43:57 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:43:57 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:43:57 DEBUG CommandLineAppService:42 - start backend
+2016-09-10 21:43:57 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:43:57 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:43:57 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:43:57 DEBUG State$Reducer:47 - reduce: STARTED
+2016-09-10 21:43:57 DEBUG StatusPresenter:38 - event fired --> set status label Started
+2016-09-10 21:43:57 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:43:57 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:44:05 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:44:05 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:44:05 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:44:05 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:44:05 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:44:05 DEBUG CommandLineAppService:42 - start backend
+2016-09-10 21:44:05 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:44:05 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:44:05 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:44:05 DEBUG State$Reducer:47 - reduce: STARTED
+2016-09-10 21:44:05 DEBUG StatusPresenter:38 - event fired --> set status label Started
+2016-09-10 21:44:05 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:44:05 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:44:14 DEBUG App:54 - stop
+2016-09-10 21:44:56 DEBUG App:46 - start
+2016-09-10 21:44:56 DEBUG App:79 - initConfiguration
+2016-09-10 21:44:56 DEBUG App:59 - initStage
+2016-09-10 21:44:56 DEBUG StoreService:32 - init store
+2016-09-10 21:44:56 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:44:56 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:44:57 DEBUG App:49 - started
+2016-09-10 21:44:58 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:44:58 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:44:58 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:44:58 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:44:58 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:44:58 DEBUG CommandLineAppService:38 - Current status: Starting
+2016-09-10 21:44:58 DEBUG CommandLineAppService:43 - start backend
+2016-09-10 21:44:58 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:44:58 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:44:58 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:44:58 DEBUG State$Reducer:47 - reduce: STARTED
+2016-09-10 21:44:58 DEBUG StatusPresenter:38 - event fired --> set status label Started
+2016-09-10 21:44:58 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:44:58 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:45:03 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:45:03 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:45:03 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:45:03 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:45:03 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:45:03 DEBUG CommandLineAppService:38 - Current status: Starting
+2016-09-10 21:45:03 DEBUG CommandLineAppService:43 - start backend
+2016-09-10 21:45:03 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:45:03 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:45:03 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:45:03 DEBUG State$Reducer:47 - reduce: STARTED
+2016-09-10 21:45:03 DEBUG StatusPresenter:38 - event fired --> set status label Started
+2016-09-10 21:45:03 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:45:03 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:45:14 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:45:14 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:45:14 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:45:14 DEBUG State$Reducer:47 - reduce: START
+2016-09-10 21:45:14 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:45:14 DEBUG CommandLineAppService:38 - Current status: Starting
+2016-09-10 21:45:14 DEBUG CommandLineAppService:43 - start backend
+2016-09-10 21:45:14 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:45:14 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:45:14 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:45:14 DEBUG State$Reducer:47 - reduce: STARTED
+2016-09-10 21:45:14 DEBUG StatusPresenter:38 - event fired --> set status label Started
+2016-09-10 21:45:14 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:45:14 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:46:47 DEBUG App:54 - stop
+2016-09-10 21:46:51 DEBUG App:46 - start
+2016-09-10 21:46:51 DEBUG App:79 - initConfiguration
+2016-09-10 21:46:51 DEBUG App:59 - initStage
+2016-09-10 21:46:51 DEBUG StoreService:32 - init store
+2016-09-10 21:46:51 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:46:51 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:46:51 DEBUG App:49 - started
+2016-09-10 21:46:52 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:46:52 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:46:52 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:46:52 DEBUG State$Reducer:47 - reduce: START old: Unknown
+2016-09-10 21:46:52 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:46:52 DEBUG CommandLineAppService:38 - Current status: Starting
+2016-09-10 21:46:52 DEBUG CommandLineAppService:43 - start backend
+2016-09-10 21:46:52 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:46:52 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:46:52 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:46:52 DEBUG State$Reducer:47 - reduce: STARTED old: Starting
+2016-09-10 21:46:52 DEBUG StatusPresenter:38 - event fired --> set status label Started
+2016-09-10 21:46:52 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:46:52 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:46:55 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:46:55 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:46:55 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:46:55 DEBUG State$Reducer:47 - reduce: START old: Started
+2016-09-10 21:46:55 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:46:55 DEBUG CommandLineAppService:38 - Current status: Starting
+2016-09-10 21:46:55 DEBUG CommandLineAppService:43 - start backend
+2016-09-10 21:46:55 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:46:55 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:46:55 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:46:55 DEBUG State$Reducer:47 - reduce: STARTED old: Starting
+2016-09-10 21:46:55 DEBUG StatusPresenter:38 - event fired --> set status label Started
+2016-09-10 21:46:55 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:46:55 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:48:10 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:48:10 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:48:10 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:48:10 DEBUG State$Reducer:47 - reduce: START old: Started
+2016-09-10 21:48:10 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:48:10 DEBUG CommandLineAppService:38 - Current status: Starting
+2016-09-10 21:48:10 DEBUG CommandLineAppService:43 - start backend
+2016-09-10 21:48:10 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:48:10 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:48:10 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:48:10 DEBUG State$Reducer:47 - reduce: STARTED old: Starting
+2016-09-10 21:48:10 DEBUG StatusPresenter:38 - event fired --> set status label Started
+2016-09-10 21:48:10 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:48:10 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:49:23 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:49:23 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:49:23 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:49:23 DEBUG State$Reducer:47 - reduce: START old: Started
+2016-09-10 21:49:23 DEBUG StatusPresenter:38 - event fired --> set status label Starting
+2016-09-10 21:49:23 DEBUG CommandLineAppService:38 - Current status: Starting
+2016-09-10 21:49:23 DEBUG CommandLineAppService:43 - start backend
+2016-09-10 21:49:23 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:49:23 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:49:23 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:49:23 DEBUG State$Reducer:47 - reduce: STARTED old: Starting
+2016-09-10 21:49:23 DEBUG StatusPresenter:38 - event fired --> set status label Started
+2016-09-10 21:49:23 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:49:23 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:49:25 DEBUG App:54 - stop
+2016-09-10 21:49:28 DEBUG App:46 - start
+2016-09-10 21:49:28 DEBUG App:79 - initConfiguration
+2016-09-10 21:49:28 DEBUG App:59 - initStage
+2016-09-10 21:49:28 DEBUG StoreService:32 - init store
+2016-09-10 21:49:28 DEBUG PersistanceController:17 - constructor
+2016-09-10 21:49:28 DEBUG PersistanceController:24 - getSavedState
+2016-09-10 21:49:28 DEBUG App:49 - started
+2016-09-10 21:49:29 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:49:29 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:49:29 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:49:29 DEBUG CommandLineAppService:37 - Current status: Unknown
+2016-09-10 21:49:29 DEBUG CommandLineAppService:42 - start backend
+2016-09-10 21:49:29 DEBUG Logger:16 - ActionLogger--> STARTED
+2016-09-10 21:49:29 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:49:29 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:49:29 DEBUG State$Reducer:47 - reduce: STARTED old: Unknown
+2016-09-10 21:49:29 DEBUG StatusPresenter:38 - event fired --> set status label Started
+2016-09-10 21:49:29 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:49:29 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:49:33 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:49:33 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:49:33 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:49:33 DEBUG CommandLineAppService:37 - Current status: Started
+2016-09-10 21:49:33 INFO  CommandLineAppService:39 - backend already stared
+2016-09-10 21:49:33 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:49:40 DEBUG Logger:16 - ActionLogger--> START
+2016-09-10 21:49:40 DEBUG PersistanceController:32 - dispatch
+2016-09-10 21:49:40 DEBUG CommandLineAppService:35 - dispatch
+2016-09-10 21:49:40 DEBUG CommandLineAppService:37 - Current status: Started
+2016-09-10 21:49:40 INFO  CommandLineAppService:39 - backend already stared
+2016-09-10 21:49:40 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
+2016-09-10 21:49:42 DEBUG App:54 - stop

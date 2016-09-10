@@ -63,7 +63,7 @@ public class DashboardPresenter implements Initializable {
      */
     @FXML
     private void handleExit() {
-        System.exit(0);
+        store.dispatch(new Action<>(ActionType.CLOSE, null));
     }
     
     @FXML 

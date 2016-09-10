@@ -21,10 +21,12 @@ public class StoreService {
     private final Logger logger = Logger.getLogger(StoreService.class);
     private Store<Action, State> store;
 
-    @Inject    
+    @Inject
     IBackendService backendService;
-    
-    
+
+    @Inject
+    ApplicationService appService;
+
     @PostConstruct
     public void init() {
         logger.debug("init store");
@@ -38,7 +40,8 @@ public class StoreService {
         this.store = new Store<>(new State.Reducer(), initialState,
                 new com.jedux.Logger("ActionLogger"),
                 persistanceController,
-                backendService);
+                backendService,
+                appService);
 
     }
 
