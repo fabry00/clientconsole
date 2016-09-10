@@ -1,13 +1,11 @@
 package com.console.view.dashboard;
 
+import com.console.domain.Action;
 import com.console.domain.ActionType;
-import com.console.domain.Status;
-import com.console.service.StoreService;
-import com.console.service.backend.CommandLineAppService;
-import com.console.service.backend.IBackendService;
+import com.console.service.ApplicationService;
+import com.console.domain.ActionType;
 import com.console.view.light.LightView;
 import com.console.view.status.StatusView;
-import com.jedux.Action;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -15,7 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import javax.inject.Named;
+import static jdk.nashorn.internal.codegen.OptimisticTypesPersistence.store;
+
 
 /**
  *
@@ -48,7 +47,7 @@ public class DashboardPresenter implements Initializable {
     private Pane bottomPane;
     
     @Inject
-    private StoreService store;
+    private ApplicationService appService;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -63,17 +62,17 @@ public class DashboardPresenter implements Initializable {
      */
     @FXML
     private void handleExit() {
-        store.dispatch(new Action<>(ActionType.CLOSE, null));
+        appService.dispatch(new Action<>(ActionType.CLOSE, null));        
     }
     
     @FXML 
     private void handleTest() {
-        store.dispatch(new Action<>(ActionType.START, null));
+        appService.dispatch(new Action<>(ActionType.START, null));
     }
     
     @FXML 
     private void handleStop() {
-        store.dispatch(new Action<>(ActionType.STOP, null));
+        appService.dispatch(new Action<>(ActionType.STOP, null));
     }
 
     @PostConstruct

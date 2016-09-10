@@ -2,9 +2,7 @@ package com.console;
 
 import com.console.view.dashboard.DashboardView;
 import com.airhacks.afterburner.injection.Injector;
-import com.console.service.StoreService;
 import com.console.service.backend.CommandLineAppService;
-import com.console.service.backend.IBackendService;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.Month;
@@ -14,7 +12,6 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javax.inject.Inject;
-import javax.inject.Named;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -29,10 +26,6 @@ public class App extends Application {
     private static final String APP_CSS = "app.css";
     private static final String LOG_CONF = "log4j.properties";
 
-    @Inject
-    // Init store
-    private StoreService store;
-   
     public static void main(String[] args) {
         launch(args);
     }

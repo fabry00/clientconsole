@@ -1,6 +1,6 @@
 package com.console.view.status;
 
-import com.console.service.StoreService;
+import com.console.service.ApplicationService;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
@@ -23,7 +23,7 @@ public class StatusPresenter implements Initializable {
     private Label statusLabel;
 
     @Inject
-    private StoreService storeService;
+    private ApplicationService appService;
 
     private final StringProperty statusLabelText = new SimpleStringProperty("");
 

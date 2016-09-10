@@ -4,7 +4,7 @@ package com.console.domain;
  *
  * @author Fabrizio Faustinoni
  */
-public enum Status {
+public enum AppState {
 
     UNKWOWN("Unknown"),
     INIT("Init"),
@@ -16,7 +16,7 @@ public enum Status {
     CLOSING("Closing");
     
     private final String label;
-    private Status(String label) {
+    private AppState(String label) {
         this.label = label;
     }
     
