@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 /**
@@ -18,7 +19,7 @@ import javax.inject.Inject;
  */
 public class DashboardPresenter implements Initializable {
 
-    @FXML
+    /*@FXML
     Label message;
 
     @FXML
@@ -36,29 +37,36 @@ public class DashboardPresenter implements Initializable {
     @Inject
     private LocalDate date;
 
-    private String theVeryEnd;
+    private String theVeryEnd;*/
+    
+    @FXML
+    private Pane bottomPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //fetched from followme.properties
-        this.theVeryEnd = rb.getString("theEnd");
-        
-        
+      //fetched from followme.properties
+      //this.theVeryEnd = rb.getString("theEnd");
+        bottomPane.getChildren().add(new StatusView().getView());
     }
 
+    @PostConstruct
+    public void init() {
+      
+    }
+    
     public void createLights() {
         for (int i = 0; i < 255; i++) {
             final int red = i;
             LightView view = new LightView((f) -> red);
-            view.getViewAsync(lightsBox.getChildren()::add);
+     //       view.getViewAsync(lightsBox.getChildren()::add);
         }
        /* StatusView view = new StatusView();
         lightsBox.getChildren().add(view.getView());*/
     }
 
     public void launch() {
-        message.setText("Date: " + date + " -> " + prefix + tower.readyToTakeoff() + happyEnding + theVeryEnd
-        );
+      //  message.setText("Date: " + date + " -> " + prefix + tower.readyToTakeoff() + happyEnding + theVeryEnd
+      //  );
     }
 
 }

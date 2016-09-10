@@ -28,7 +28,7 @@ RUN \
     echo "===> install Java"  && \
     echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections  && \
     echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections  && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes oracle-java8-installer oracle-java8-set-default fakeroot rpm
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes oracle-java8-installer oracle-java8-set-default maven fakeroot rpm
     
 RUN echo "===> installing netbeans"
 RUN wget http://download.netbeans.org/netbeans/8.0.1/final/bundles/netbeans-8.0.1-javase-linux.sh -O /tmp/netbeans.sh -q && \
@@ -38,10 +38,9 @@ RUN wget http://download.netbeans.org/netbeans/8.0.1/final/bundles/netbeans-8.0.
     rm -rf /tmp/*
 
 ADD run /usr/local/bin/netbeans
-
 RUN chmod +x /usr/local/bin/netbeans && \
     mkdir -p /home/user && \
-    echo "user:x:1000:1000:Developer,,,:/home/user:/bin/bash" >> /etc/passwd && \
+    echo "user:x:1000:1000:user,,,:/home/user:/bin/bash" >> /etc/passwd && \
     echo "user:x:1000:" >> /etc/group && \
     echo "user ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/user && \
     chmod 0440 /etc/sudoers.d/user && \

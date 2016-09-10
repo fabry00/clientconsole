@@ -1,23 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.input.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane id="AnchorPane" minHeight="180.0" prefHeight="259.0" prefWidth="525.0" styleClass="airpad" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.console.view.dashboard.DashboardPresenter">
-    <children>
-        <FlowPane fx:id="lightsBox" hgap="1.0" prefHeight="143.0" prefWidth="525.0" vgap="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <padding>
-                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-            </padding>
-        </FlowPane>
-        <Label fx:id="message" layoutX="78.0" layoutY="148.0" prefHeight="39.0" prefWidth="347.0" text="A simplest possible afterburner.fx application" />
-        <Button fx:id="launch" layoutX="78.0" layoutY="206.0" mnemonicParsing="false" onAction="#launch" text="Launch" />
-        <Button layoutX="158.0" layoutY="206.0" mnemonicParsing="false" onAction="#createLights" text="Create 256 Views Asynchronously" />
-    </children>
-</AnchorPane>
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.console.view.dashboard.DashboardPresenter">
+    <top>
+        <MenuBar>
+          <menus>
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="SaveAs" />
+                <MenuItem mnemonicParsing="false" text="Close" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Statistics">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Birthday statistics" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="About" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+      </top>
+   <bottom>
+      <AnchorPane fx:id="bottomPane" prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
