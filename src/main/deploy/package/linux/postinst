@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo chmod -R 777 /opt/clientconsole/app/log
+sudo chmod +x /opt/clientconsole/clientconsole.desktop 

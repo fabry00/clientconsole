@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.console.view.dashboard.DashboardPresenter">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="600.0" prefHeight="600.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.console.view.dashboard.DashboardPresenter">
     <top>
         <MenuBar>
           <menus>
@@ -16,7 +16,7 @@
                   <MenuItem mnemonicParsing="false" text="Open" />
                   <MenuItem mnemonicParsing="false" text="Save" />
                   <MenuItem mnemonicParsing="false" text="SaveAs" />
-                <MenuItem mnemonicParsing="false" text="Close" />
+                <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Close" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Statistics">

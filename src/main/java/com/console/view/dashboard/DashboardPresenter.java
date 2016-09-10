@@ -28,6 +28,7 @@ public class DashboardPresenter implements Initializable {
     @Inject
     Tower tower;
 
+    //! This come from configuration.properties
     @Inject
     private String prefix;
 
@@ -46,7 +47,16 @@ public class DashboardPresenter implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
       //fetched from followme.properties
       //this.theVeryEnd = rb.getString("theEnd");
-        bottomPane.getChildren().add(new StatusView().getView());
+      
+      bottomPane.getChildren().add(new StatusView().getView());
+    }
+    
+     /**
+     * Closes the application.
+     */
+    @FXML
+    private void handleExit() {
+        System.exit(0);
     }
 
     @PostConstruct

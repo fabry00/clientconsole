@@ -424,3 +424,14 @@
 2016-09-09 19:00:48 DEBUG App:32 - Starting the application
 2016-09-09 19:03:13 DEBUG App:32 - Starting the application
 2016-09-09 19:04:42 DEBUG App:32 - Starting the application
+2016-09-10 14:18:33 DEBUG App:67 - initConfiguration
+2016-09-10 14:18:33 DEBUG App:48 - initStage
+2016-09-10 14:18:38 DEBUG App:43 - stop
+2016-09-10 14:18:44 DEBUG App:67 - initConfiguration
+2016-09-10 14:18:44 DEBUG App:48 - initStage
+2016-09-10 14:18:51 DEBUG App:67 - initConfiguration
+2016-09-10 14:18:51 DEBUG App:48 - initStage
+2016-09-10 14:18:59 DEBUG App:43 - stop
+2016-09-10 14:19:32 DEBUG App:67 - initConfiguration
+2016-09-10 14:19:32 DEBUG App:48 - initStage
+2016-09-10 14:19:50 DEBUG App:43 - stop

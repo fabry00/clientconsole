@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=clientconsole
+Comment=clientconsole
+Exec=/opt/clientconsole/clientconsole
+Icon=/opt/clientconsole/clientconsole.png
+Terminal=false
+Type=Application
+Categories=Unknown
+
