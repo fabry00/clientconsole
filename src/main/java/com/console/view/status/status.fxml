@@ -12,7 +12,7 @@
       <AnchorPane prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
          <children>
             <Label prefHeight="30.0" prefWidth="50.0" text="Status" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="147.0" AnchorPane.topAnchor="0.0" />
-            <Circle fill="#dedede" radius="8.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="6.0" />
+            <Circle fx:id="statusBallon" fill="#dedede" radius="8.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="6.0" />
             <Label fx:id="statusLabel" prefHeight="30.0" prefWidth="117.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>

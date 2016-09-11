@@ -10,6 +10,8 @@ import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
 
@@ -23,6 +25,9 @@ public class StatusPresenter implements Initializable, IAppStateListener {
 
     @FXML
     private Label statusLabel;
+    
+    @FXML
+    private Circle statusBallon;
 
     @Inject
     private ApplicationService appService;
@@ -47,6 +52,7 @@ public class StatusPresenter implements Initializable, IAppStateListener {
     public void AppStateChanged(AppState oldState, AppState currentState) {
        logger.debug("Applciation state change");
        statusLabelText.set(currentState.getState().getLabel());
+       statusBallon.setFill(currentState.getState().getColor());
     }
     
     
