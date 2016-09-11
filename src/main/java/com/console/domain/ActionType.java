@@ -6,5 +6,6 @@ public enum ActionType {
     STOP,
     STOPPED,
     STATUS_CHANGED,    
+    DATA_RECEIVED,
     CLOSE,    
 }

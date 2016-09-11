@@ -12,8 +12,8 @@ public enum State {
     STARTED("Started"),
     STOPPED("Stopped"),
     WAITING("Waiting"),
-    CONNECTING("Connecting"),
     PROCESSING("Processing"), 
+    NEWDATARECEIVED("Receiving"),
     CLOSING("Closing"),
     ERROR("Error");
     

@@ -18,7 +18,7 @@ public class StopAction implements IActionHandler {
     public ImmutableAppState execute(ImmutableAppState currentState, Action action, ApplicationService appService) {
         logger.debug("Stop action execution");
 
-        if (!currentState.getState().equals(State.STARTED)
+        /*if (!currentState.getState().equals(State.STARTED)
                 && !currentState.getState().equals(State.PROCESSING)) {
             StringBuilder builder
                     = new StringBuilder("Wrong application status. Expected: ");
@@ -29,7 +29,7 @@ public class StopAction implements IActionHandler {
                     .append(currentState.getState().toString());
             logger.warn(builder.toString());
             return currentState;
-        }
+        }*/
 
         appService.stopAllServices();
 

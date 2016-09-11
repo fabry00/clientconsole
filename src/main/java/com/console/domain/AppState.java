@@ -15,4 +15,6 @@ public abstract class AppState {
     
     public abstract State getState();
     
+    public abstract Optional<DataReceived> getDataReceived();
+    
 }

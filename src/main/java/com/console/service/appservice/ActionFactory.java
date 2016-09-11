@@ -17,6 +17,7 @@ class ActionFactory {
             put(ActionType.START,new InitAction());
             put(ActionType.STOP,new StopAction());
             put(ActionType.STATUS_CHANGED, new StatusChangedAction());
+            put(ActionType.DATA_RECEIVED, new ProcessDataAction());
         }
     };
 
