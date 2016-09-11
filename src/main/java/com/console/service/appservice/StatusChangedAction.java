@@ -19,7 +19,7 @@ public class StatusChangedAction implements IActionHandler {
 
     @Override
     public ImmutableAppState execute(ImmutableAppState currentState,
-            Action action, Map<ServiceName, Object> services) {
+            Action action, ApplicationService appService) {
         logger.debug("StatusChangedAction execution");
         State newState = (State) action.value;
         return ImmutableAppState

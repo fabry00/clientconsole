@@ -2,7 +2,11 @@ package com.console;
 
 import com.console.view.dashboard.DashboardView;
 import com.airhacks.afterburner.injection.Injector;
+import com.console.domain.Action;
+import com.console.domain.ActionType;
+import com.console.service.appservice.ApplicationService;
 import com.console.service.backend.ThreadBackendService;
+import com.console.view.dashboard.DashboardPresenter;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.Month;
@@ -24,7 +28,8 @@ public class App extends Application {
     private static final String APP_TITLE = "Console";
     private static final String APP_CSS = "app.css";
     private static final String LOG_CONF = "log4j.properties";
-    
+
+    private DashboardView appView;
     public static void main(String[] args) {
         launch(args);
     }
@@ -37,7 +42,7 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         logger.debug("start");
         initConfiguration();
-        initStage(stage);      
+        initStage(stage);
         logger.debug("started");
     }
 
@@ -45,16 +50,21 @@ public class App extends Application {
     public void stop() throws Exception {
         logger.debug("stop");
         Injector.forgetAll();
+
+        DashboardPresenter presenter = (DashboardPresenter) appView.getPresenter();
+        presenter.getAppService().dispatch(new Action<>(ActionType.STOP, null));
+        logger.debug("Stopping application");
         
-        // FIX ME this shuldn't be necessary
-        // but without this the application doesn't exit
-        System.err.println("########################################### CLOE ALL THREAD BEFORE");
+        // Wait all thread exit
+        Thread.sleep(500);
+        // The follow shuldn't be here, but we have to be that all thread
+        // exits otherwise the application will not close
         System.exit(0);
     }
 
     private void initStage(Stage stage) {
         logger.debug("initStage");
-        DashboardView appView = new DashboardView();
+        appView = new DashboardView();
         Scene scene = new Scene(appView.getView());
         stage.setTitle(APP_TITLE);
         final String uri = getClass().getResource(APP_CSS).toExternalForm();
@@ -77,19 +87,16 @@ public class App extends Application {
          * Properties of any type can be easily injected.
          */
         LocalDate date = LocalDate.of(4242, Month.JULY, 21);
-        
+
         Map<Object, Object> context = new HashMap<>();
         context.put("date", date);
-        
+
         // This is needed to be able to Inject interfaces implementation
-        context.put("backendService", new ThreadBackendService());
-        
+        // context.put("backendService", new ThreadBackendService(null));
         /*
          * any function which accepts an Object as key and returns
          * and return an Object as result can be used as source.
          */
-        Injector.setConfigurationSource(context::get);
-
         System.setProperty("happyEnding", " Enjoy the flight!");
     }
 }

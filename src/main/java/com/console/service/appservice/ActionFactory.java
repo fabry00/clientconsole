@@ -1,11 +1,8 @@
 package com.console.service.appservice;
 
-import com.console.domain.Action;
 import com.console.domain.ActionType;
-import com.console.service.backend.IBackendService;
 import java.util.HashMap;
 import java.util.Map;
-import javax.inject.Inject;
 import org.apache.log4j.Logger;
 
 /**
@@ -14,14 +11,11 @@ import org.apache.log4j.Logger;
  */
 class ActionFactory {
 
-    @Inject
-    ApplicationService service;
-  
-    
     private static final Map<ActionType, IActionHandler> MAPPER
             = new HashMap<ActionType, IActionHandler>() {
         {
             put(ActionType.START,new InitAction());
+            put(ActionType.STOP,new StopAction());
             put(ActionType.STATUS_CHANGED, new StatusChangedAction());
         }
     };

@@ -6,12 +6,6 @@ import com.console.domain.ServiceName;
 import com.console.domain.State;
 import com.console.service.backend.BackEndServiceException;
 import com.console.service.backend.IBackendService;
-import com.console.service.backend.ThreadBackendService;
-import java.net.URL;
-import java.util.Map;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import javax.inject.Inject;
 import org.apache.log4j.Logger;
 
 /**
@@ -25,10 +19,10 @@ public class InitAction implements IActionHandler {
 
     @Override
     public ImmutableAppState execute(ImmutableAppState currentState,
-            Action action, Map<ServiceName, Object> services) {
+            Action action, ApplicationService appService) {
         logger.debug("Init action execution");
 
-        IBackendService backendService = (IBackendService) services.get(ServiceName.BACKEND);
+        IBackendService backendService = (IBackendService) appService.getService(ServiceName.BACKEND);
 
         if (!currentState.getState().equals(expected)) {
             StringBuilder builder

@@ -6,6 +6,5 @@ package com.console.domain;
  */
 public enum ServiceName {
     
-    APP,
     BACKEND
 }

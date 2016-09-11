@@ -6,13 +6,17 @@ import com.console.domain.IAppStateListener;
 import com.console.domain.ImmutableAppState;
 import com.console.domain.ServiceName;
 import com.console.domain.State;
+import com.console.service.IService;
+import com.console.service.backend.ThreadBackendService;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
+import javafx.application.Platform;
 import javax.annotation.PostConstruct;
 import org.apache.log4j.Logger;
 
@@ -22,7 +26,6 @@ import org.apache.log4j.Logger;
  */
 public class ApplicationService {
 
-    private static final int MAX_THREADS = 5;
     private final Logger logger = Logger.getLogger(ApplicationService.class);
 
     private ImmutableAppState currentState;
@@ -30,10 +33,7 @@ public class ApplicationService {
 
     private final Set<IAppStateListener> listeners = new HashSet<>();
 
-    private final ExecutorService executor
-            = Executors.newFixedThreadPool(MAX_THREADS, new AppServiceThreadFactory());
-
-    private Map<ServiceName, Object> services = new HashMap<>();
+    private final Map<ServiceName, Object> services = new HashMap<>();
 
     @PostConstruct
     public void init() {
@@ -43,6 +43,7 @@ public class ApplicationService {
                 .state(State.NOT_STARTED)
                 .build();
 
+        initServices();
     }
 
     public ImmutableAppState getCurrentState() {
@@ -55,13 +56,26 @@ public class ApplicationService {
         try {
             ImmutableAppState oldState = ImmutableAppState.copyOf(currentState);
             IActionHandler handler = factory.create(action.type);
-            currentState = handler.execute(currentState, action, services);
+            currentState = handler.execute(currentState, action, this);
+
+            if (oldState.equals(currentState)) {
+                return;
+            }
             logger.debug("New state: " + currentState.getState()
                     + " oldState: " + oldState.getState());
             fireAppStateChange(oldState);
         } catch (ActionNotFoundException ex) {
             logger.error(ex);
         }
+    }
+
+    public Object getService(ServiceName serviceName) {
+        if (!services.containsKey(serviceName)) {
+            logger.error("Service not found: " + serviceName);
+            return null;
+        }
+
+        return services.get(serviceName);
     }
 
     public void subscribe(IAppStateListener listener) {
@@ -72,17 +86,32 @@ public class ApplicationService {
         listeners.remove(listener);
     }
 
-    private void fireAppStateChange(ImmutableAppState oldState) {
+    public void stopAllServices() {
 
+        services.entrySet().stream().map((entry) -> {
+            logger.debug("Stopping service: " + entry.getKey().toString());
+            return entry;
+        }).forEach((entry) -> {
+            ((IService) entry.getValue()).stop();
+        });
+
+    }
+
+    private void fireAppStateChange(ImmutableAppState oldState) {
         listeners.stream().forEach((listener) -> {
-            executor.submit(() -> {
-                listener.AppStateChanged(oldState, currentState);
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    listener.AppStateChanged(oldState, currentState);
+                }
+
             });
         });
     }
 
-    public void injectServices(Map<ServiceName, Object> services) {
-        this.services = services;
+    private void initServices() {
+        this.services.put(ServiceName.BACKEND, new ThreadBackendService(this));
+
     }
 
     private static class AppServiceThreadFactory implements ThreadFactory {

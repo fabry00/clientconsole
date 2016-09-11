@@ -2,8 +2,6 @@ package com.console.service.appservice;
 
 import com.console.domain.Action;
 import com.console.domain.ImmutableAppState;
-import com.console.domain.ServiceName;
-import java.util.Map;
 
 /**
  *
@@ -12,5 +10,5 @@ import java.util.Map;
 interface IActionHandler {
 
     public ImmutableAppState execute(ImmutableAppState currentState,
-            Action action, Map<ServiceName, Object> services);
+            Action action, ApplicationService appService);
 }
