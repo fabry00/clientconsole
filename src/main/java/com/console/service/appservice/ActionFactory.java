@@ -18,6 +18,7 @@ class ActionFactory {
             put(ActionType.STOP,new StopAction());
             put(ActionType.STATUS_CHANGED, new StatusChangedAction());
             put(ActionType.DATA_RECEIVED, new ProcessDataAction());
+            put(ActionType.CLOSE, new CloseAction());
         }
     };
 

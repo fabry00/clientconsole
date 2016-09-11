@@ -30,6 +30,7 @@ public class App extends Application {
     private static final String LOG_CONF = "log4j.properties";
 
     private DashboardView appView;
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -52,14 +53,13 @@ public class App extends Application {
         Injector.forgetAll();
 
         DashboardPresenter presenter = (DashboardPresenter) appView.getPresenter();
-        presenter.getAppService().dispatch(new Action<>(ActionType.STOP, null));
-        logger.debug("Stopping application");
-        
+        presenter.getAppService().dispatch(new Action<>(ActionType.CLOSE, null));
+
         // Wait all thread exit
-        Thread.sleep(500);
+        //Thread.sleep(500);
         // The follow shuldn't be here, but we have to be that all thread
         // exits otherwise the application will not close
-        System.exit(0);
+        //System.exit(0);
     }
 
     private void initStage(Stage stage) {

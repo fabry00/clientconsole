@@ -110,16 +110,4 @@ public class ApplicationService {
         this.services.put(ServiceName.BACKEND, new ThreadBackendService(this));
 
     }
-
-    private static class AppServiceThreadFactory implements ThreadFactory {
-
-        private static final String THREAD_NAME
-                = ApplicationService.class.getSimpleName() + "ExecutionThread";
-
-        @Override
-        public Thread newThread(Runnable r) {
-            return new Thread(r, THREAD_NAME);
-        }
-    }
-
 }

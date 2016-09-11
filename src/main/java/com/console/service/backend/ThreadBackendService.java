@@ -3,12 +3,10 @@ package com.console.service.backend;
 import com.console.domain.Action;
 import com.console.domain.ActionType;
 import com.console.domain.ImmutableDataReceived;
-import com.console.domain.State;
 import com.console.service.appservice.ApplicationService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -36,6 +34,7 @@ public class ThreadBackendService implements IBackendService {
     @Override
     public void start() throws BackEndServiceException {
         logger.debug("Starting Thread backendService");
+        
         executor.scheduleAtFixedRate(() -> {
 
             logger.debug("new data to process");
@@ -45,6 +44,8 @@ public class ThreadBackendService implements IBackendService {
             this.appService.dispatch(new Action<>(ActionType.DATA_RECEIVED, datas));
 
         }, INITIAL_SLEEP, SCHEDULE_EVERY, TimeUnit.SECONDS);
+        
+        this.appService.dispatch(new Action<>(ActionType.NEW_MESSAGE, "Waiting for data...."));
 
     }
 

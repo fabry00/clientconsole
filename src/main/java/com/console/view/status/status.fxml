@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="600.0" styleClass="statuscontainer" stylesheets="@status.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.console.view.status.StatusPresenter">
    <children>
-      <Label prefHeight="20.0" prefWidth="371.0" text="System message" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="10.0" />
+      <Label fx:id="systemMessage" prefHeight="20.0" prefWidth="371.0" text="System message" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="10.0" />
       <Separator layoutX="416.0" layoutY="-86.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="2.0" />
       <AnchorPane prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
          <children>
