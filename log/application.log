@@ -1594,3 +1594,58 @@
 2016-09-11 12:00:23 WARN  InitAction:27 - Wrong application status. Expected: STARTING but found: NOT_STARTED
 2016-09-11 12:00:23 DEBUG ApplicationService:54 - New state: NOT_STARTED oldState: NOT_STARTED
 2016-09-11 12:00:23 DEBUG App:46 - started
+2016-09-11 12:03:24 DEBUG App:51 - stop
+2016-09-11 12:03:31 DEBUG App:42 - start
+2016-09-11 12:03:31 DEBUG App:75 - initConfiguration
+2016-09-11 12:03:31 DEBUG App:56 - initStage
+2016-09-11 12:03:32 DEBUG ApplicationService:35 - init
+2016-09-11 12:03:32 DEBUG DashboardPresenter:56 - Initialize
+2016-09-11 12:03:32 DEBUG DashboardPresenter:104 - initApp
+2016-09-11 12:03:32 DEBUG ApplicationService:48 - New action: START
+2016-09-11 12:03:32 DEBUG ActionFactory:24 - Creating action: START
+2016-09-11 12:03:32 DEBUG InitAction:19 - Init action execution
+2016-09-11 12:03:32 WARN  InitAction:27 - Wrong application status. Expected: STARTING but found: NOT_STARTED
+2016-09-11 12:03:32 DEBUG ApplicationService:54 - New state: NOT_STARTED oldState: NOT_STARTED
+2016-09-11 12:03:32 DEBUG App:46 - started
+2016-09-11 12:03:45 DEBUG App:51 - stop
+2016-09-11 12:05:58 DEBUG App:42 - start
+2016-09-11 12:05:58 DEBUG App:75 - initConfiguration
+2016-09-11 12:05:58 DEBUG App:56 - initStage
+2016-09-11 12:05:58 DEBUG ApplicationService:35 - init
+2016-09-11 12:05:58 DEBUG DashboardPresenter:56 - Initialize
+2016-09-11 12:05:58 DEBUG DashboardPresenter:104 - initApp
+2016-09-11 12:05:58 DEBUG ApplicationService:48 - New action: START
+2016-09-11 12:05:58 DEBUG ActionFactory:24 - Creating action: START
+2016-09-11 12:05:58 DEBUG InitAction:19 - Init action execution
+2016-09-11 12:05:58 DEBUG ApplicationService:54 - New state: STARTED oldState: NOT_STARTED
+2016-09-11 12:05:59 DEBUG App:46 - started
+2016-09-11 12:06:09 DEBUG App:51 - stop
+2016-09-11 12:06:49 DEBUG App:42 - start
+2016-09-11 12:06:49 DEBUG App:75 - initConfiguration
+2016-09-11 12:06:49 DEBUG App:56 - initStage
+2016-09-11 12:06:49 DEBUG ApplicationService:35 - init
+2016-09-11 12:06:49 DEBUG DashboardPresenter:55 - Initialize
+2016-09-11 12:06:49 DEBUG StatusPresenter:34 - Initialize
+2016-09-11 12:06:49 DEBUG App:51 - stop
+2016-09-11 12:07:20 DEBUG App:42 - start
+2016-09-11 12:07:20 DEBUG App:75 - initConfiguration
+2016-09-11 12:07:20 DEBUG App:56 - initStage
+2016-09-11 12:07:20 DEBUG ApplicationService:35 - init
+2016-09-11 12:07:20 DEBUG DashboardPresenter:55 - Initialize
+2016-09-11 12:07:20 DEBUG StatusPresenter:34 - Initialize
+2016-09-11 12:07:21 DEBUG DashboardPresenter:104 - initApp
+2016-09-11 12:07:21 DEBUG ApplicationService:48 - New action: START
+2016-09-11 12:07:21 DEBUG ActionFactory:24 - Creating action: START
+2016-09-11 12:07:21 DEBUG InitAction:19 - Init action execution
+2016-09-11 12:07:21 DEBUG ApplicationService:54 - New state: STARTED oldState: NOT_STARTED
+2016-09-11 12:07:21 DEBUG DashboardPresenter:99 - AppStateChanged
+2016-09-11 12:07:21 DEBUG StatusPresenter:48 - Applciation state change
+2016-09-11 12:07:21 DEBUG App:46 - started
+2016-09-11 12:08:09 DEBUG ApplicationService:48 - New action: START
+2016-09-11 12:08:09 DEBUG ActionFactory:24 - Creating action: START
+2016-09-11 12:08:09 DEBUG InitAction:19 - Init action execution
+2016-09-11 12:08:09 WARN  InitAction:27 - Wrong application status. Expected: NOT_STARTED but found: STARTED
+2016-09-11 12:08:09 DEBUG ApplicationService:54 - New state: STARTED oldState: STARTED
+2016-09-11 12:08:09 DEBUG DashboardPresenter:99 - AppStateChanged
+2016-09-11 12:08:09 DEBUG StatusPresenter:48 - Applciation state change
+2016-09-11 12:08:18 DEBUG App:51 - stop

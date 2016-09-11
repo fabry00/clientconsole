@@ -13,7 +13,6 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
 
@@ -54,6 +53,7 @@ public class DashboardPresenter implements Initializable, IAppStateListener {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         logger.debug("Initialize");
+        appService.subscribe(this);
         //fetched from followme.properties
         //this.theVeryEnd = rb.getString("theEnd");        
         bottomPane.getChildren().add(new StatusView().getView());

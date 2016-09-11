@@ -1,5 +1,7 @@
 package com.console.view.status;
 
+import com.console.domain.AppState;
+import com.console.domain.IAppStateListener;
 import com.console.service.appservice.ApplicationService;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +17,7 @@ import org.apache.log4j.Logger;
  *
  * @author user
  */
-public class StatusPresenter implements Initializable {
+public class StatusPresenter implements Initializable, IAppStateListener {
 
     private final Logger logger = Logger.getLogger(StatusPresenter.class);
 
@@ -29,6 +31,8 @@ public class StatusPresenter implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        logger.debug("Initialize");
+        appService.subscribe(this);
         statusLabelText.set(appService.getCurrentState().getState().getLabel());
 
         statusLabel.textProperty().bind(statusLabelText);
@@ -38,5 +42,13 @@ public class StatusPresenter implements Initializable {
             logger.debug("event fired --> set status label " + statusLabelText.get());
         });  */
     }
+
+    @Override
+    public void AppStateChanged(AppState oldState, AppState currentState) {
+       logger.debug("Applciation state change");
+       statusLabelText.set(currentState.getState().getLabel());
+    }
+    
+    
 
 }
