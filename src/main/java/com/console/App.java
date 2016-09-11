@@ -45,6 +45,11 @@ public class App extends Application {
     public void stop() throws Exception {
         logger.debug("stop");
         Injector.forgetAll();
+        
+        // FIX ME this shuldn't be necessary
+        // but without this the application doesn't exit
+        System.err.println("########################################### CLOE ALL THREAD BEFORE");
+        System.exit(0);
     }
 
     private void initStage(Stage stage) {
