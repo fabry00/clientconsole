@@ -38,6 +38,8 @@ public class ThreadBackendService implements IBackendService {
         executor.scheduleAtFixedRate(() -> {
 
             logger.debug("new data to process");
+            this.appService.dispatch(new Action<>(ActionType.NEW_MESSAGE, "Waiting for data...."));
+            
             String data = "AAAA";
             ImmutableDataReceived datas 
                     = ImmutableDataReceived.builder().data(data).build();
@@ -45,7 +47,7 @@ public class ThreadBackendService implements IBackendService {
 
         }, INITIAL_SLEEP, SCHEDULE_EVERY, TimeUnit.SECONDS);
         
-        this.appService.dispatch(new Action<>(ActionType.NEW_MESSAGE, "Waiting for data...."));
+        
 
     }
 
