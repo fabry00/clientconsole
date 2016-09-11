@@ -4,8 +4,11 @@ import com.console.domain.Action;
 import com.console.domain.ActionType;
 import com.console.domain.IAppStateListener;
 import com.console.domain.ImmutableAppState;
+import com.console.domain.ServiceName;
 import com.console.domain.State;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -30,6 +33,8 @@ public class ApplicationService {
     private final ExecutorService executor
             = Executors.newFixedThreadPool(MAX_THREADS, new AppServiceThreadFactory());
 
+    private Map<ServiceName, Object> services = new HashMap<>();
+
     @PostConstruct
     public void init() {
         logger.debug("init");
@@ -50,7 +55,7 @@ public class ApplicationService {
         try {
             ImmutableAppState oldState = ImmutableAppState.copyOf(currentState);
             IActionHandler handler = factory.create(action.type);
-            currentState = handler.execute(currentState, action);
+            currentState = handler.execute(currentState, action, services);
             logger.debug("New state: " + currentState.getState()
                     + " oldState: " + oldState.getState());
             fireAppStateChange(oldState);
@@ -74,6 +79,10 @@ public class ApplicationService {
                 listener.AppStateChanged(oldState, currentState);
             });
         });
+    }
+
+    public void injectServices(Map<ServiceName, Object> services) {
+        this.services = services;
     }
 
     private static class AppServiceThreadFactory implements ThreadFactory {

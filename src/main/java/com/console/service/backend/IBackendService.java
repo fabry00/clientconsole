@@ -6,5 +6,5 @@ package com.console.service.backend;
  */
 public interface IBackendService{
     
-    public void start();
+    public void start() throws BackEndServiceException;
 }

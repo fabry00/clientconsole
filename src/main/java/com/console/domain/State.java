@@ -12,8 +12,10 @@ public enum State {
     STARTED("Started"),
     STOPPED("Stopped"),
     WAITING("Waiting"),
+    CONNECTING("Connecting"),
     PROCESSING("Processing"), 
-    CLOSING("Closing");
+    CLOSING("Closing"),
+    ERROR("Error");
     
     
     private final String label;

@@ -5,10 +5,14 @@ import com.console.service.appservice.ApplicationService;
 import com.console.domain.ActionType;
 import com.console.domain.AppState;
 import com.console.domain.IAppStateListener;
+import com.console.domain.ServiceName;
+import com.console.service.backend.IBackendService;
 import com.console.view.light.LightView;
 import com.console.view.status.StatusView;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -50,9 +54,13 @@ public class DashboardPresenter implements Initializable, IAppStateListener {
     @Inject
     private ApplicationService appService;
     
+    @Inject
+    private IBackendService backendService;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         logger.debug("Initialize");
+        injectServices();
         appService.subscribe(this);
         //fetched from followme.properties
         //this.theVeryEnd = rb.getString("theEnd");        
@@ -103,6 +111,14 @@ public class DashboardPresenter implements Initializable, IAppStateListener {
     private void initApp() {
         logger.debug("initApp");
         appService.dispatch(new Action<>(ActionType.START, null));
+    }
+
+    private void injectServices() {
+       
+        Map<ServiceName, Object> services = new HashMap<>();
+        services.put(ServiceName.BACKEND, backendService);
+                
+        appService.injectServices(services);
     }
 
     

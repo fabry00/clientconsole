@@ -2,10 +2,7 @@ package com.console;
 
 import com.console.view.dashboard.DashboardView;
 import com.airhacks.afterburner.injection.Injector;
-import com.console.domain.Action;
-import com.console.domain.ActionType;
-import com.console.service.appservice.ApplicationService;
-import com.console.service.backend.CommandLineAppService;
+import com.console.service.backend.ThreadBackendService;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.Month;
@@ -14,7 +11,6 @@ import java.util.Map;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javax.inject.Inject;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -41,8 +37,7 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         logger.debug("start");
         initConfiguration();
-        initStage(stage);
-      
+        initStage(stage);      
         logger.debug("started");
     }
 
@@ -82,7 +77,7 @@ public class App extends Application {
         context.put("date", date);
         
         // This is needed to be able to Inject interfaces implementation
-        context.put( "backendService", new CommandLineAppService());
+        context.put("backendService", new ThreadBackendService());
         
         /*
          * any function which accepts an Object as key and returns

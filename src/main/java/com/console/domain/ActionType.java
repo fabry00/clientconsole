@@ -5,6 +5,6 @@ public enum ActionType {
     STARTED,
     STOP,
     STOPPED,
-    STATUS_CHANGED,
+    STATUS_CHANGED,    
     CLOSE,    
 }
