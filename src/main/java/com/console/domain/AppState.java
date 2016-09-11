@@ -1,27 +1,18 @@
 package com.console.domain;
 
+import java.util.Optional;
+import org.immutables.value.Value;
+
 /**
  *
- * @author Fabrizio Faustinoni
+ * @author fabry
  */
-public enum AppState {
-
-    UNKWOWN("Unknown"),
-    INIT("Init"),
-    STARTING("Starting"),
-    STARTED("Started"),
-    STOPPED("Stopped"),
-    WAITING("Waiting"),
-    PROCESSING("Processing"), 
-    CLOSING("Closing");
+@Value.Immutable
+public abstract class AppState {
     
-    private final String label;
-    private AppState(String label) {
-        this.label = label;
-    }
+    // To remove, just to remember that we can create optionals param
+    public abstract Optional<String> getOptionalParam();
     
-    public String getLabel(){
-        return this.label;
-    }
+    public abstract State getState();
     
 }

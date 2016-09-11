@@ -1,7 +1,7 @@
 package com.console.service.backend;
 
 import com.console.domain.ActionType;
-import com.console.domain.AppState;
+import com.console.domain.State;
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
 import org.apache.log4j.Logger;

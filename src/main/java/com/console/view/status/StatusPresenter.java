@@ -1,6 +1,6 @@
 package com.console.view.status;
 
-import com.console.service.ApplicationService;
+import com.console.service.appservice.ApplicationService;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
@@ -29,14 +29,14 @@ public class StatusPresenter implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        statusLabelText.set(storeService.state().status().getLabel());
+        statusLabelText.set(appService.getCurrentState().getState().getLabel());
 
         statusLabel.textProperty().bind(statusLabelText);
 
-        storeService.subscribe(() -> {
+        /*storeService.subscribe(() -> {
             statusLabelText.set(storeService.state().status().getLabel());
             logger.debug("event fired --> set status label " + statusLabelText.get());
-        });
+        });  */
     }
 
 }

@@ -1514,3 +1514,83 @@
 2016-09-10 21:49:40 INFO  CommandLineAppService:39 - backend already stared
 2016-09-10 21:49:40 DEBUG Logger:18 - ActionLogger<-- State{status=STARTED, tasks=[]}
 2016-09-10 21:49:42 DEBUG App:54 - stop
+2016-09-11 11:36:14 DEBUG App:39 - start
+2016-09-11 11:36:14 DEBUG App:72 - initConfiguration
+2016-09-11 11:36:14 DEBUG App:52 - initStage
+2016-09-11 11:36:14 DEBUG ApplicationService:35 - init
+2016-09-11 11:36:15 DEBUG App:42 - started
+2016-09-11 11:36:47 DEBUG App:47 - stop
+2016-09-11 11:41:36 DEBUG App:39 - start
+2016-09-11 11:41:36 DEBUG App:72 - initConfiguration
+2016-09-11 11:41:36 DEBUG App:52 - initStage
+2016-09-11 11:41:36 DEBUG ApplicationService:35 - init
+2016-09-11 11:41:36 DEBUG App:42 - started
+2016-09-11 11:41:38 DEBUG ApplicationService:55 - New action: START
+2016-09-11 11:41:38 DEBUG ActionFactory:23 - Creating action: START
+2016-09-11 11:41:38 ERROR ApplicationService:63 - com.console.service.appservice.ActionNotFoundException: ActionNotFound: START
+2016-09-11 11:41:44 DEBUG App:47 - stop
+2016-09-11 11:42:39 DEBUG App:39 - start
+2016-09-11 11:42:39 DEBUG App:72 - initConfiguration
+2016-09-11 11:42:39 DEBUG App:52 - initStage
+2016-09-11 11:42:39 DEBUG ApplicationService:35 - init
+2016-09-11 11:42:39 DEBUG App:42 - started
+2016-09-11 11:42:40 DEBUG ApplicationService:55 - New action: START
+2016-09-11 11:42:40 DEBUG ActionFactory:23 - Creating action: START
+2016-09-11 11:42:40 DEBUG InitAction:19 - Init action execution
+2016-09-11 11:43:36 DEBUG App:47 - stop
+2016-09-11 11:43:39 DEBUG App:39 - start
+2016-09-11 11:43:39 DEBUG App:72 - initConfiguration
+2016-09-11 11:43:39 DEBUG App:52 - initStage
+2016-09-11 11:43:39 DEBUG ApplicationService:35 - init
+2016-09-11 11:43:39 DEBUG App:42 - started
+2016-09-11 11:43:41 DEBUG ApplicationService:55 - New action: START
+2016-09-11 11:43:41 DEBUG ActionFactory:23 - Creating action: START
+2016-09-11 11:43:41 DEBUG InitAction:19 - Init action execution
+2016-09-11 11:43:41 DEBUG ApplicationService:61 - New state: STARTED oldState: STARTING
+2016-09-11 11:43:52 DEBUG App:47 - stop
+2016-09-11 11:45:26 DEBUG App:39 - start
+2016-09-11 11:45:26 DEBUG App:72 - initConfiguration
+2016-09-11 11:45:26 DEBUG App:52 - initStage
+2016-09-11 11:45:26 DEBUG ApplicationService:35 - init
+2016-09-11 11:45:26 DEBUG DashboardPresenter:54 - Initialize
+2016-09-11 11:45:26 DEBUG App:42 - started
+2016-09-11 11:45:28 DEBUG ApplicationService:55 - New action: START
+2016-09-11 11:45:28 DEBUG ActionFactory:23 - Creating action: START
+2016-09-11 11:45:28 DEBUG InitAction:19 - Init action execution
+2016-09-11 11:45:28 DEBUG ApplicationService:61 - New state: STARTED oldState: STARTING
+2016-09-11 11:45:39 DEBUG App:47 - stop
+2016-09-11 11:53:40 DEBUG App:39 - start
+2016-09-11 11:53:40 DEBUG App:72 - initConfiguration
+2016-09-11 11:53:40 DEBUG App:52 - initStage
+2016-09-11 11:53:40 DEBUG ApplicationService:35 - init
+2016-09-11 11:53:40 DEBUG DashboardPresenter:54 - Initialize
+2016-09-11 11:53:40 DEBUG App:42 - started
+2016-09-11 11:53:41 DEBUG ApplicationService:48 - New action: START
+2016-09-11 11:53:41 DEBUG ActionFactory:24 - Creating action: START
+2016-09-11 11:53:41 DEBUG InitAction:19 - Init action execution
+2016-09-11 11:53:41 DEBUG ApplicationService:54 - New state: STARTED oldState: STARTING
+2016-09-11 11:53:43 DEBUG App:47 - stop
+2016-09-11 11:55:08 DEBUG App:39 - start
+2016-09-11 11:55:08 DEBUG App:72 - initConfiguration
+2016-09-11 11:55:08 DEBUG App:52 - initStage
+2016-09-11 11:55:08 DEBUG ApplicationService:35 - init
+2016-09-11 11:55:08 DEBUG DashboardPresenter:54 - Initialize
+2016-09-11 11:55:08 DEBUG App:42 - started
+2016-09-11 11:55:12 DEBUG App:47 - stop
+2016-09-11 11:58:06 DEBUG App:45 - start
+2016-09-11 11:58:06 DEBUG App:82 - initConfiguration
+2016-09-11 11:58:06 DEBUG App:59 - initStage
+2016-09-11 11:58:06 DEBUG ApplicationService:35 - init
+2016-09-11 11:58:06 DEBUG DashboardPresenter:54 - Initialize
+2016-09-11 11:58:07 DEBUG App:54 - stop
+2016-09-11 12:00:23 DEBUG App:42 - start
+2016-09-11 12:00:23 DEBUG App:75 - initConfiguration
+2016-09-11 12:00:23 DEBUG App:56 - initStage
+2016-09-11 12:00:23 DEBUG ApplicationService:35 - init
+2016-09-11 12:00:23 DEBUG DashboardPresenter:54 - Initialize
+2016-09-11 12:00:23 DEBUG ApplicationService:48 - New action: START
+2016-09-11 12:00:23 DEBUG ActionFactory:24 - Creating action: START
+2016-09-11 12:00:23 DEBUG InitAction:19 - Init action execution
+2016-09-11 12:00:23 WARN  InitAction:27 - Wrong application status. Expected: STARTING but found: NOT_STARTED
+2016-09-11 12:00:23 DEBUG ApplicationService:54 - New state: NOT_STARTED oldState: NOT_STARTED
+2016-09-11 12:00:23 DEBUG App:46 - started

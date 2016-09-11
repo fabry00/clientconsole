@@ -2,6 +2,9 @@ package com.console;
 
 import com.console.view.dashboard.DashboardView;
 import com.airhacks.afterburner.injection.Injector;
+import com.console.domain.Action;
+import com.console.domain.ActionType;
+import com.console.service.appservice.ApplicationService;
 import com.console.service.backend.CommandLineAppService;
 import java.io.File;
 import java.time.LocalDate;
@@ -25,7 +28,7 @@ public class App extends Application {
     private static final String APP_TITLE = "Console";
     private static final String APP_CSS = "app.css";
     private static final String LOG_CONF = "log4j.properties";
-
+    
     public static void main(String[] args) {
         launch(args);
     }
@@ -39,6 +42,7 @@ public class App extends Application {
         logger.debug("start");
         initConfiguration();
         initStage(stage);
+      
         logger.debug("started");
     }
 
@@ -57,7 +61,6 @@ public class App extends Application {
         scene.getStylesheets().add(uri);
         stage.setScene(scene);
         stage.show();
-
     }
 
     private void initLogger() {

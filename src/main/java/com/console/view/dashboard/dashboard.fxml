@@ -39,7 +39,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="348.0" layoutY="159.0" mnemonicParsing="false" onAction="#handleTest" text="Start" />
+            <Button layoutX="348.0" layoutY="159.0" mnemonicParsing="false" onAction="#handleStart" text="Start" />
             <Button layoutX="400.0" layoutY="159.0" mnemonicParsing="false" onAction="#handleStop" text="Stop" />
          </children>
       </AnchorPane>
