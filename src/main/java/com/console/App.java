@@ -4,8 +4,6 @@ import com.console.view.dashboard.DashboardView;
 import com.airhacks.afterburner.injection.Injector;
 import com.console.domain.Action;
 import com.console.domain.ActionType;
-import com.console.service.appservice.ApplicationService;
-import com.console.service.backend.ThreadBackendService;
 import com.console.view.dashboard.DashboardPresenter;
 import java.io.File;
 import java.time.LocalDate;
@@ -42,6 +40,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         logger.debug("start");
+        setUserAgentStylesheet(STYLESHEET_CASPIAN);
         initConfiguration();
         initStage(stage);
         logger.debug("started");

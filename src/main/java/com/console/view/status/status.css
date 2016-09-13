@@ -1,6 +1,8 @@
-.statuscontainer {
-  /* -fx-border-width: 1 2 3 4; 
-  -fx-border-color: red blue green yellow;*/
-  -fx-border-width: 1 0 0 0; 
-  -fx-border-color: #DEDEDE;
+#statusBar{
+    -fx-border-color: gray;
+}
+
+#stackPane{
+  /*  -fx-padding: 20px;*/
+    
 }

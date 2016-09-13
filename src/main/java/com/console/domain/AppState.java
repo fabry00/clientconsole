@@ -11,8 +11,8 @@ import javafx.beans.property.StringProperty;
 public class AppState {
     
     private State state;
-    private final StringProperty stateProperty = new SimpleStringProperty();
-    private final StringProperty message = new SimpleStringProperty();
+    private final StringProperty stateProperty = new SimpleStringProperty("");
+    private final StringProperty message = new SimpleStringProperty("");
     private final DataReceived dataRecieved = new DataReceived();
     
     public State getState() {

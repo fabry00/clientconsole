@@ -34,7 +34,7 @@
         </MenuBar>
       </top>
    <bottom>
-      <AnchorPane fx:id="bottomPane" prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="bottomPane" prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
