@@ -2,14 +2,16 @@ package com.console.service.appservice;
 
 import com.console.domain.Action;
 import com.console.domain.ActionType;
+import com.console.domain.AppState;
 import com.console.domain.IAppStateListener;
-import com.console.domain.ImmutableAppState;
 import com.console.domain.ServiceName;
 import com.console.domain.State;
 import com.console.service.IService;
 import com.console.service.backend.ThreadBackendService;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javafx.application.Platform;
@@ -24,7 +26,9 @@ public class ApplicationService {
 
     private final Logger logger = Logger.getLogger(ApplicationService.class);
 
-    private ImmutableAppState currentState;
+    private final List<AppState> oldStates = new ArrayList<>();
+    private int currentIndex = 0;
+    private final AppState currentState = new AppState();
     private final ActionFactory factory = new ActionFactory();
 
     private final Set<IAppStateListener> listeners = new HashSet<>();
@@ -34,35 +38,37 @@ public class ApplicationService {
     @PostConstruct
     public void init() {
         logger.debug("init");
-        currentState = ImmutableAppState
-                .builder()
-                .state(State.NOT_STARTED)
-                .build();
+        currentState.setState(State.NOT_STARTED);
 
         initServices();
     }
 
-    public ImmutableAppState getCurrentState() {
+    public AppState getCurrentState() {
         return currentState;
     }
 
-    public void dispatch(Action<ActionType, Object> action) {
+    public void dispatch(final Action<ActionType, Object> action) {
         logger.debug("New action: " + action);
+        final ApplicationService self = this;
 
-        try {
-            ImmutableAppState oldState = ImmutableAppState.copyOf(currentState);
-            IActionHandler handler = factory.create(action.type);
-            currentState = handler.execute(currentState, action, this);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    AppState oldState = currentState.clone();
+                    oldStates.add(oldState);
+                    IActionHandler handler = factory.create(action.type);
 
-            if (oldState.equals(currentState)) {
-                return;
+                    handler.execute(currentState, action, self);
+
+                    logger.debug("Action executed");
+                    fireAppStateChange(oldState);
+                } catch (ActionNotFoundException ex) {
+                    logger.error(ex);
+                }
             }
-            logger.debug("New state: " + currentState.getState()
-                    + " oldState: " + oldState.getState());
-            fireAppStateChange(oldState);
-        } catch (ActionNotFoundException ex) {
-            logger.error(ex);
-        }
+        });
+
     }
 
     public Object getService(ServiceName serviceName) {
@@ -93,7 +99,7 @@ public class ApplicationService {
 
     }
 
-    private void fireAppStateChange(ImmutableAppState oldState) {
+    private void fireAppStateChange(AppState oldState) {
         listeners.stream().forEach((listener) -> {
             Platform.runLater(new Runnable() {
                 @Override

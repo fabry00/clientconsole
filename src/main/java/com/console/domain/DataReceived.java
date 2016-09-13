@@ -1,14 +1,23 @@
 package com.console.domain;
 
-import org.immutables.value.Value;
-
 /**
  *
  * @author fabry
  */
-@Value.Immutable
-public abstract class DataReceived {
+public class DataReceived {
 
-    public abstract String getData();
-    
+    private String data;
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public void copy(DataReceived dataRecieved) {
+        this.data = dataRecieved.getData();
+    }
+
 }

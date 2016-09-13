@@ -1,7 +1,7 @@
 package com.console.service.appservice;
 
 import com.console.domain.Action;
-import com.console.domain.ImmutableAppState;
+import com.console.domain.AppState;
 import com.console.domain.ServiceName;
 import com.console.domain.State;
 import com.console.service.backend.BackEndServiceException;
@@ -18,7 +18,7 @@ public class InitAction implements IActionHandler {
     private final Logger logger = Logger.getLogger(InitAction.class);
 
     @Override
-    public ImmutableAppState execute(ImmutableAppState currentState,
+    public void execute(AppState currentState,
             Action action, ApplicationService appService) {
         logger.debug("Init action execution");
 
@@ -31,16 +31,15 @@ public class InitAction implements IActionHandler {
                     .append(" but found: ")
                     .append(currentState.getState().toString());
             logger.warn(builder.toString());
-            return currentState;
+            return;
         }
 
         try {
             backendService.start();
         } catch (BackEndServiceException ex) {
             logger.error(ex);
-            return ImmutableAppState.copyOf(currentState).withState(State.ERROR);
+            currentState.setState(State.ERROR);
         }
-
-        return ImmutableAppState.copyOf(currentState).withState(State.STARTED);
+        currentState.setState(State.STARTED);
     }
 }

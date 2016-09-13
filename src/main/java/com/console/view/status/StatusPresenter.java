@@ -5,8 +5,6 @@ import com.console.domain.IAppStateListener;
 import com.console.service.appservice.ApplicationService;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -34,17 +32,18 @@ public class StatusPresenter implements Initializable, IAppStateListener {
     @Inject
     private ApplicationService appService;
 
-    private final StringProperty statusLabelText = new SimpleStringProperty("");
-    private final StringProperty systemMessageText = new SimpleStringProperty("");
-
+    //private final StringProperty statusLabelText = new SimpleStringProperty("");
+    //private final StringProperty systemMessageText = new SimpleStringProperty("");
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         logger.debug("Initialize");
         appService.subscribe(this);
-        statusLabelText.set(appService.getCurrentState().getState().getLabel());
-        systemMessageText.set("");
-        statusLabel.textProperty().bind(statusLabelText);
-        systemMessage.textProperty().bind(systemMessageText);
+        //statusLabelText.set(appService.getCurrentState().getState().getLabel());
+        //systemMessageText.set("");
+        //statusLabel.textProperty().bind(statusLabelText);
+        //systemMessage.textProperty().bind(systemMessageText);
+        statusLabel.textProperty().bind(appService.getCurrentState().getStateProp());
+        systemMessage.textProperty().bind(appService.getCurrentState().getMessage());
 
         /*storeService.subscribe(() -> {
             statusLabelText.set(storeService.state().status().getLabel());
@@ -55,11 +54,11 @@ public class StatusPresenter implements Initializable, IAppStateListener {
     @Override
     public void AppStateChanged(AppState oldState, AppState currentState) {
         logger.debug("Applciation state change");
-        statusLabelText.set(currentState.getState().getLabel());
+        /*statusLabelText.set(currentState.getState().getLabel());
         statusBallon.setFill(currentState.getState().getColor());
         if (appService.getCurrentState().getMessage().isPresent()) {
             systemMessageText.set(appService.getCurrentState().getMessage().get());
-        }
+        }*/
     }
 
 }
