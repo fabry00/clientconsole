@@ -1,7 +1,7 @@
 package com.console.service.appservice;
 
 import com.console.domain.Action;
-import com.console.domain.ImmutableAppState;
+import com.console.domain.AppState;
 import org.apache.log4j.Logger;
 
 /**
@@ -10,13 +10,13 @@ import org.apache.log4j.Logger;
  */
 public class NewMessageAction implements IActionHandler {
 
-    private Logger logger = Logger.getLogger(NewMessageAction.class);
+    private final Logger logger = Logger.getLogger(NewMessageAction.class);
 
     @Override
-    public ImmutableAppState execute(ImmutableAppState currentState, Action action, ApplicationService appService) {
+    public void execute(AppState currentState, Action action, ApplicationService appService) {
         String message = (String) action.value;
         logger.debug("New application message: " + message);
-        return ImmutableAppState.copyOf(currentState).withMessage(message);
+        currentState.setMessage(message);
     }
 
 }

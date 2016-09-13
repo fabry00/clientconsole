@@ -1,9 +1,8 @@
 package com.console.service.appservice;
 
 import com.console.domain.Action;
-import com.console.domain.ImmutableAppState;
+import com.console.domain.AppState;
 import com.console.domain.State;
-import com.console.service.backend.IBackendService;
 import org.apache.log4j.Logger;
 
 /**
@@ -15,7 +14,7 @@ public class StopAction implements IActionHandler {
     private Logger logger = Logger.getLogger(StopAction.class);
 
     @Override
-    public ImmutableAppState execute(ImmutableAppState currentState, Action action, ApplicationService appService) {
+    public void execute(AppState currentState, Action action, ApplicationService appService) {
         logger.debug("Stop action execution");
 
         /*if (!currentState.getState().equals(State.STARTED)
@@ -30,10 +29,9 @@ public class StopAction implements IActionHandler {
             logger.warn(builder.toString());
             return currentState;
         }*/
-
         appService.stopAllServices();
 
-        return ImmutableAppState.copyOf(currentState).withState(State.STOPPED);
+        currentState.setState(State.STOPPED);
     }
 
 }

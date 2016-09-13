@@ -2,7 +2,7 @@ package com.console.service.backend;
 
 import com.console.domain.Action;
 import com.console.domain.ActionType;
-import com.console.domain.ImmutableDataReceived;
+import com.console.domain.DataReceived;
 import com.console.service.appservice.ApplicationService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -34,20 +34,19 @@ public class ThreadBackendService implements IBackendService {
     @Override
     public void start() throws BackEndServiceException {
         logger.debug("Starting Thread backendService");
-        
+
         executor.scheduleAtFixedRate(() -> {
 
             logger.debug("new data to process");
             this.appService.dispatch(new Action<>(ActionType.NEW_MESSAGE, "Waiting for data...."));
-            
+
             String data = "AAAA";
-            ImmutableDataReceived datas 
-                    = ImmutableDataReceived.builder().data(data).build();
-            this.appService.dispatch(new Action<>(ActionType.DATA_RECEIVED, datas));
+            DataReceived dataRecieved = new DataReceived();
+            dataRecieved.setData(data);
+
+            this.appService.dispatch(new Action<>(ActionType.DATA_RECEIVED, dataRecieved));
 
         }, INITIAL_SLEEP, SCHEDULE_EVERY, TimeUnit.SECONDS);
-        
-        
 
     }
 

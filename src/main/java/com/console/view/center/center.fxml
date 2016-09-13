@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.console.view.center.CenterPresenter">
+   <bottom>
+      <AnchorPane prefHeight="33.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+              <buttons>
+                <Button fx:id="startButton" mnemonicParsing="false" onAction="#handleStart" text="Start" />
+                  <Button fx:id="stopButton" mnemonicParsing="false" onAction="#handleStop" text="Stop" />
+              </buttons>
+            </ButtonBar>
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

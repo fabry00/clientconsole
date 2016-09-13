@@ -2,7 +2,7 @@ package com.console.service.appservice;
 
 import com.console.domain.Action;
 import com.console.domain.ActionType;
-import com.console.domain.ImmutableAppState;
+import com.console.domain.AppState;
 import com.console.domain.State;
 import java.util.logging.Level;
 import org.apache.log4j.Logger;
@@ -16,7 +16,7 @@ public class CloseAction implements IActionHandler {
     private final Logger logger = Logger.getLogger(CloseAction.class);
 
     @Override
-    public ImmutableAppState execute(ImmutableAppState currentState, Action action, ApplicationService appService) {
+    public void execute(AppState currentState, Action action, ApplicationService appService) {
         logger.debug("Close Action execution");
         if (!currentState.getState().equals(State.STOPPED)) {
             logger.debug("Application not stopped, stopping");
@@ -31,7 +31,6 @@ public class CloseAction implements IActionHandler {
         }
         logger.debug("Exit the application");
         System.exit(0);
-        return currentState;
     }
 
 }
