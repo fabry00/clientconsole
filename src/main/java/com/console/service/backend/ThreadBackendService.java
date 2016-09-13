@@ -7,6 +7,7 @@ import com.console.service.appservice.ApplicationService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import javafx.application.Platform;
 import org.apache.log4j.Logger;
 
 /**
@@ -47,6 +48,13 @@ public class ThreadBackendService implements IBackendService {
             this.appService.dispatch(new Action<>(ActionType.DATA_RECEIVED, dataRecieved));
 
         }, INITIAL_SLEEP, SCHEDULE_EVERY, TimeUnit.SECONDS);
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                appService.dispatch(new Action<>(ActionType.NEW_MESSAGE, "Starting the console application"));
+            }
+        });
 
     }
 

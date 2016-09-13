@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.console.view.center;
 
 import com.console.domain.Action;
@@ -11,19 +6,15 @@ import com.console.domain.AppState;
 import com.console.domain.IAppStateListener;
 import com.console.domain.State;
 import com.console.service.appservice.ApplicationService;
+import com.console.util.NodeUtil;
+import com.console.view.graphdata.GraphdataView;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.binding.Binding;
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.BooleanBinding;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.Property;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ObservableObjectValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
 
@@ -44,6 +35,9 @@ public class CenterPresenter implements Initializable, IAppStateListener {
     @FXML
     Button stopButton;
 
+    @FXML
+    AnchorPane centerPane;
+
     private SimpleBooleanProperty startDisabled;
 
     @Override
@@ -55,7 +49,14 @@ public class CenterPresenter implements Initializable, IAppStateListener {
         startButton.disableProperty().bind(startDisabled);
         stopButton.disableProperty().bind(startDisabled.not());
 
+        NodeUtil util = new NodeUtil();
+        AnchorPane graphPane = (AnchorPane) new GraphdataView().getView();
+        util.ancorToPane(graphPane);
+        centerPane.getChildren().add(graphPane);
+        
+        
         appService.subscribe(this);
+
     }
 
     @FXML
@@ -75,10 +76,10 @@ public class CenterPresenter implements Initializable, IAppStateListener {
     }
 
     private void setStartDisabled(State state) {
-        boolean disabled = state.equals(State.STARTED) ||
-                state.equals(State.NEWDATARECEIVED);
-        logger.debug("Set setStartDisabled "+disabled+" state: "+state.toString());
-        
+        boolean disabled = state.equals(State.STARTED)
+                || state.equals(State.NEWDATARECEIVED);
+        logger.debug("Set setStartDisabled " + disabled + " state: " + state.toString());
+
         startDisabled.set(disabled);
     }
 

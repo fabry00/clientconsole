@@ -2,6 +2,7 @@ package com.console.view.status;
 
 import com.console.domain.AppState;
 import com.console.domain.IAppStateListener;
+import com.console.domain.State;
 import com.console.service.appservice.ApplicationService;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,33 +32,31 @@ public class StatusPresenter implements Initializable, IAppStateListener {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         logger.debug("Initialize");
-        //appService.subscribe(this);
+        appService.subscribe(this);
 
-        //statusLabelText.set(appService.getCurrentState().getState().getLabel());
-        //systemMessageText.set("");
-        //statusLabel.textProperty().bind(statusLabelText);
-        //systemMessage.textProperty().bind(systemMessageText);
         statusBar.textProperty().bind(appService.getCurrentState().getMessage());
         Label statusLabel = new Label();
         statusLabel.textProperty().bind(appService.getCurrentState().getStateProp());
-        Separator separator = new Separator(Orientation.VERTICAL);
+        statusBar.getRightItems().add(new Separator(Orientation.VERTICAL));
         statusBar.getRightItems().add(statusLabel);
-        statusBar.getRightItems().add(separator);
+        statusBar.getRightItems().add(new Separator(Orientation.VERTICAL));
 
-        /*storeService.subscribe(() -> {
-            statusLabelText.set(storeService.state().status().getLabel());
-            logger.debug("event fired --> set status label " + statusLabelText.get());
-        });  */
+        setProgressIndicator(appService.getCurrentState().getState());
     }
 
     @Override
     public void AppStateChanged(AppState oldState, AppState currentState) {
         logger.debug("Applciation state change");
-        /*statusLabelText.set(currentState.getState().getLabel());
-        statusBallon.setFill(currentState.getState().getColor());
-        if (appService.getCurrentState().getMessage().isPresent()) {
-            systemMessageText.set(appService.getCurrentState().getMessage().get());
-        }*/
+        setProgressIndicator(currentState.getState());
+    }
+
+    private void setProgressIndicator(State state) {
+        if (state.equals(State.NEWDATARECEIVED)
+                || state.equals(State.WAITING)) {
+            statusBar.setProgress(-1);
+        } else {
+            statusBar.setProgress(0);
+        }
     }
 
 }
