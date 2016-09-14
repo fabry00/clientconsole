@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
  *
  * @author fabry
  */
-public class InitAction implements IActionHandler {
+class InitAction implements IActionHandler {
 
     private final static State expected = State.NOT_STARTED;
     private final Logger logger = Logger.getLogger(InitAction.class);

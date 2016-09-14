@@ -17,8 +17,8 @@ import org.apache.log4j.Logger;
 public class ThreadBackendService implements IBackendService {
 
     private static final int MAX_THREAD = 1;
-    private static final int INITIAL_SLEEP = 5; //seconds
-    private static final int SCHEDULE_EVERY = 15; //seconds 
+    private static final int INITIAL_SLEEP = 2; //seconds
+    private static final int SCHEDULE_EVERY = 1; //seconds
     private static final int SHUTDOWN_TIMEOUT = 3; //seconds
 
     private final Logger logger = Logger.getLogger(ThreadBackendService.class);
@@ -39,7 +39,7 @@ public class ThreadBackendService implements IBackendService {
         executor.scheduleAtFixedRate(() -> {
 
             logger.debug("new data to process");
-            this.appService.dispatch(new Action<>(ActionType.NEW_MESSAGE, "Waiting for data...."));
+           // this.appService.dispatch(new Action<>(ActionType.NEW_MESSAGE, "Waiting for data...."));
 
             String data = "AAAA";
             DataReceived dataRecieved = new DataReceived();

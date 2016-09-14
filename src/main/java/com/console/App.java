@@ -27,6 +27,8 @@ public class App extends Application {
     private static final String APP_CSS = "app.css";
     private static final String LOG_CONF = "log4j.properties";
 
+    private String actualTheme = "";
+
     private DashboardView appView;
 
     public static void main(String[] args) {
@@ -40,9 +42,17 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         logger.debug("start");
-        setUserAgentStylesheet(STYLESHEET_CASPIAN);
-        initConfiguration();
-        initStage(stage);
+        try {
+            actualTheme = STYLESHEET_CASPIAN;
+            setUserAgentStylesheet(STYLESHEET_CASPIAN);
+
+            initConfiguration();
+            initStage(stage);
+        }
+        catch (Exception ex) {
+            logger.error(ex);
+            throw ex;
+        }
         logger.debug("started");
     }
 
@@ -51,14 +61,16 @@ public class App extends Application {
         logger.debug("stop");
         Injector.forgetAll();
 
-        DashboardPresenter presenter = (DashboardPresenter) appView.getPresenter();
+        DashboardPresenter presenter = appView.getRealPresenter();
         presenter.getAppService().dispatch(new Action<>(ActionType.CLOSE, null));
 
-        // Wait all thread exit
-        //Thread.sleep(500);
-        // The follow shuldn't be here, but we have to be that all thread
-        // exits otherwise the application will not close
-        //System.exit(0);
+    }
+
+    public void changeTheme() {
+        actualTheme = (actualTheme.equals(STYLESHEET_CASPIAN)) ?
+            STYLESHEET_MODENA : STYLESHEET_CASPIAN;
+
+        setUserAgentStylesheet(actualTheme);
     }
 
     private void initStage(Stage stage) {
@@ -70,6 +82,9 @@ public class App extends Application {
         scene.getStylesheets().add(uri);
         stage.setScene(scene);
         stage.show();
+
+        DashboardPresenter presenter = appView.getRealPresenter();
+        presenter.getAppService().setMainApp(this);
     }
 
     private void initLogger() {

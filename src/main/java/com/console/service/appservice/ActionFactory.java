@@ -20,6 +20,7 @@ class ActionFactory {
             put(ActionType.DATA_RECEIVED, new ProcessDataAction());
             put(ActionType.CLOSE, new CloseAction());
             put(ActionType.NEW_MESSAGE, new NewMessageAction());
+            put(ActionType.CHANGE_THEME, new ChangeTheme());
         }
     };
 

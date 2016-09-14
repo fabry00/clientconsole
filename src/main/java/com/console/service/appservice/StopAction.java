@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
  *
  * @author fabry
  */
-public class StopAction implements IActionHandler {
+class StopAction implements IActionHandler {
 
     private Logger logger = Logger.getLogger(StopAction.class);
 

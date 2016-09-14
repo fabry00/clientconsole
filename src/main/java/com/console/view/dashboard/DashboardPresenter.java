@@ -74,6 +74,11 @@ public class DashboardPresenter implements Initializable, IAppStateListener {
         appService.dispatch(new Action<>(ActionType.CLOSE, null));
     }
 
+    @FXML
+    public void handleChangeTheme() {
+        appService.dispatch(new Action<>(ActionType.CHANGE_THEME,null));
+    }
+
     @Override
     public void AppStateChanged(AppState oldState, AppState currentState) {
         logger.debug("AppStateChanged");

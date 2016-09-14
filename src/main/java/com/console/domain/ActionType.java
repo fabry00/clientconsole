@@ -8,5 +8,6 @@ public enum ActionType {
     STATUS_CHANGED,    
     DATA_RECEIVED,
     NEW_MESSAGE,
-    CLOSE,    
+    CLOSE,
+    CHANGE_THEME,
 }

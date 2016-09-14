@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
  *
  * @author fabry
  */
-public class CloseAction implements IActionHandler {
+class CloseAction implements IActionHandler {
 
     private final Logger logger = Logger.getLogger(CloseAction.class);
 

@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
  *
  * @author fabry
  */
-public class ProcessDataAction implements IActionHandler {
+class ProcessDataAction implements IActionHandler {
 
     private Logger logger = Logger.getLogger(ProcessDataAction.class);
 

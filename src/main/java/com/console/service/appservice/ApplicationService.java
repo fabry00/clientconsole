@@ -1,5 +1,6 @@
 package com.console.service.appservice;
 
+import com.console.App;
 import com.console.domain.Action;
 import com.console.domain.ActionType;
 import com.console.domain.AppState;
@@ -27,13 +28,15 @@ public class ApplicationService {
     private final Logger logger = Logger.getLogger(ApplicationService.class);
 
     private final List<AppState> oldStates = new ArrayList<>();
-    private int currentIndex = 0;
     private final AppState currentState = new AppState();
     private final ActionFactory factory = new ActionFactory();
 
     private final Set<IAppStateListener> listeners = new HashSet<>();
+    private final Map<State,Set<IAppStateListener>> listenersToState = new HashMap<>();
 
     private final Map<ServiceName, Object> services = new HashMap<>();
+
+    private App mainApp;
 
     @PostConstruct
     public void init() {
@@ -51,9 +54,7 @@ public class ApplicationService {
         logger.debug("New action: " + action);
         final ApplicationService self = this;
 
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
+        Platform.runLater(() -> {
                 try {
                     AppState oldState = currentState.clone();
                     oldStates.add(oldState);
@@ -66,7 +67,6 @@ public class ApplicationService {
                 } catch (ActionNotFoundException ex) {
                     logger.error(ex);
                 }
-            }
         });
 
     }
@@ -81,12 +81,27 @@ public class ApplicationService {
     }
 
     public void subscribe(IAppStateListener listener) {
+
         listeners.add(listener);
     }
 
-    public void unsubscribe(IAppStateListener listener) {
-        listeners.remove(listener);
+    public void subscribeToStae(IAppStateListener listener, State type) {
+
+        Set<IAppStateListener> listeners;
+        if(!listenersToState.containsKey(type)) {
+            listeners = new HashSet<>();
+            listenersToState.put(type,listeners);
+        }
+        else {
+            listeners = listenersToState.get(type);
+        }
+
+        listeners.add(listener);
     }
+
+    /*public void unsubscribe(IAppStateListener listener) {
+        listeners.remove(listener);
+    }*/
 
     public void stopAllServices() {
 
@@ -99,16 +114,32 @@ public class ApplicationService {
 
     }
 
-    private void fireAppStateChange(AppState oldState) {
-        listeners.stream().forEach((listener) -> {
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    listener.AppStateChanged(oldState, currentState);
-                }
+    public void  setMainApp(App app) {
+        this.mainApp = app;
+    }
 
-            });
-        });
+    public App getMainApp() {
+        return mainApp;
+    }
+
+    private void fireAppStateChange(AppState oldState) {
+        logger.debug("fireAppStateChange");
+
+        // Fire to whome is subscribed to all events
+        listeners.stream().forEach((listener) -> Platform.runLater(() -> {
+            logger.debug("fire state change to: "+listener.getClass().getSimpleName());
+            listener.AppStateChanged(oldState, currentState);
+        }));
+
+        Set<IAppStateListener> specificListeners = listenersToState.get(currentState.getState());
+        if(specificListeners == null) {
+            return;
+        }
+
+        specificListeners.stream().forEach((listener) -> Platform.runLater(() -> {
+            listener.AppStateChanged(oldState, currentState);
+        }));
+
     }
 
     private void initServices() {

@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
  *
  * @author fabry
  */
-public class NewMessageAction implements IActionHandler {
+class NewMessageAction implements IActionHandler {
 
     private final Logger logger = Logger.getLogger(NewMessageAction.class);
 

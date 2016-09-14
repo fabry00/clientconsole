@@ -19,9 +19,9 @@
                 <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Close" />
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Statistics">
+            <Menu mnemonicParsing="false" text="Tool">
               <items>
-                <MenuItem mnemonicParsing="false" text="Birthday statistics" />
+                <MenuItem mnemonicParsing="false" onAction="#handleChangeTheme" text="Change Theme" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
