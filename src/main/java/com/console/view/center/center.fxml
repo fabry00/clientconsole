@@ -9,10 +9,10 @@
    <bottom>
       <AnchorPane prefHeight="33.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <ButtonBar prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
               <buttons>
-                <Button fx:id="startButton" mnemonicParsing="false" onAction="#handleStart" text="Start" />
-                  <Button fx:id="stopButton" mnemonicParsing="false" onAction="#handleStop" text="Stop" />
+                <Button fx:id="startButton" mnemonicParsing="false" onAction="#handleStart" styleClass="dark-blue" text="Start" />
+                  <Button fx:id="stopButton" mnemonicParsing="false" onAction="#handleStop" styleClass="dark-blue" text="Stop" />
               </buttons>
             </ButtonBar>
          </children>

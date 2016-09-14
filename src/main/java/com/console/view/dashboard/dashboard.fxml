@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
@@ -37,9 +38,15 @@
       <AnchorPane fx:id="bottomPane" prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
-      <AnchorPane fx:id="centerPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <SplitPane dividerPositions="0.1506849315068493" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox fx:id="leftPane" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="centerPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+        </items>
+      </SplitPane>
    </center>
-   <left>
-      <VBox fx:id="leftPane" prefHeight="745.0" prefWidth="150.0" BorderPane.alignment="CENTER" />
-   </left>
 </BorderPane>

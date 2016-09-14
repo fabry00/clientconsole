@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="100.0" prefWidth="200.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="com.console.view.logo.LogoPresenter">
+<AnchorPane id="AnchorPane" prefHeight="75.0" prefWidth="200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.console.view.logo.LogoPresenter">
     <stylesheets>
         <URL value="@logo.css" />
     </stylesheets>
