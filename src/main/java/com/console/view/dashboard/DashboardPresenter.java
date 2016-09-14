@@ -9,6 +9,7 @@ import com.console.util.NodeUtil;
 import com.console.view.center.CenterView;
 import com.console.view.logo.LogoView;
 import com.console.view.status.StatusView;
+import com.console.view.tree.TreeView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,9 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
 
@@ -38,7 +37,7 @@ public class DashboardPresenter implements Initializable, IAppStateListener {
     private AnchorPane centerPane;
     
     @FXML
-    private VBox leftPane;
+    private AnchorPane leftPane;
 
     @Inject
     private ApplicationService appService;
@@ -105,21 +104,31 @@ public class DashboardPresenter implements Initializable, IAppStateListener {
         StatusView view = new StatusView();
         AnchorPane statusView = (AnchorPane) view.getView();
 
-        util.ancorToPane(statusView);
+        util.ancorToPane(statusView,0.0);
         bottomPane.getChildren().add(statusView);
     }
 
     private void setCenterPane() {
         BorderPane center = (BorderPane) new CenterView().getView();
-        util.ancorToPane(center);
+        util.ancorToPane(center,0.0);
         centerPane.getChildren().add(center);
     }
 
     private void setLeftPane() {
-        AnchorPane left = (AnchorPane) new LogoView().getView();
-        util.ancorToPane(left);
-        left.setPadding(new Insets(0));
-        leftPane.getChildren().add(left);
+        AnchorPane logo = (AnchorPane) new LogoView().getView();
+        util.ancorToPaneLeft(logo,0.0);
+        util.ancorToPaneRight(logo,0.0);
+        util.ancorToPaneTop(logo,0.0);
+        logo.setPadding(new Insets(0));
+        leftPane.getChildren().add(logo);
+        
+        AnchorPane tree = (AnchorPane) new TreeView().getView();
+        util.ancorToPaneTop(tree,logo.getPrefHeight());
+        util.ancorToPaneLeft(tree,0.0);
+        util.ancorToPaneRight(tree,0.0);
+        util.ancorToPaneBottom(tree,0.0);
+        tree.setPadding(new Insets(0));
+        leftPane.getChildren().add(tree);
     }
 
 }

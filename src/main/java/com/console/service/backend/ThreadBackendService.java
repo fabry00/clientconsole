@@ -2,7 +2,7 @@ package com.console.service.backend;
 
 import com.console.domain.Action;
 import com.console.domain.ActionType;
-import com.console.domain.DataReceived;
+import com.console.domain.NodeData;
 import com.console.service.appservice.ApplicationService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -26,7 +26,7 @@ public class ThreadBackendService implements IBackendService {
     private final ScheduledExecutorService executor
             = Executors.newScheduledThreadPool(MAX_THREAD);
 
-    private ApplicationService appService;
+    private final ApplicationService appService;
 
     public ThreadBackendService(ApplicationService appService) {
         this.appService = appService;
@@ -39,21 +39,17 @@ public class ThreadBackendService implements IBackendService {
         executor.scheduleAtFixedRate(() -> {
 
             logger.debug("new data to process");
-           // this.appService.dispatch(new Action<>(ActionType.NEW_MESSAGE, "Waiting for data...."));
+            // this.appService.dispatch(new Action<>(ActionType.NEW_MESSAGE, "Waiting for data...."));
 
             String data = "AAAA";
-            DataReceived dataRecieved = new DataReceived();
-            dataRecieved.setData(data);
+            NodeData dataRecieved = new NodeData("Node", data);
 
             this.appService.dispatch(new Action<>(ActionType.DATA_RECEIVED, dataRecieved));
 
         }, INITIAL_SLEEP, SCHEDULE_EVERY, TimeUnit.SECONDS);
 
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                appService.dispatch(new Action<>(ActionType.NEW_MESSAGE, "Starting the console application"));
-            }
+        Platform.runLater(() -> {
+            appService.dispatch(new Action<>(ActionType.NEW_MESSAGE, "Starting the console application"));
         });
 
     }

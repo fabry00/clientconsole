@@ -13,7 +13,7 @@ public class AppState {
     private State state;
     private final StringProperty stateProperty = new SimpleStringProperty("");
     private final StringProperty message = new SimpleStringProperty("");
-    private final DataReceived dataRecieved = new DataReceived();
+    private final NodesData dataRecieved = new NodesData();
     
     public State getState() {
         return state;
@@ -27,7 +27,7 @@ public class AppState {
         return message;
     }
     
-    public DataReceived getDataReceived() {
+    public NodesData getDataReceived() {
         return dataRecieved;
     }
     
@@ -40,15 +40,15 @@ public class AppState {
         this.message.set(message);
     }
     
-    public void setDataReceived(DataReceived dataRecieved) {
-        this.dataRecieved.copy(dataRecieved);
+    public void addNodeData(NodeData newNodeData) {
+        this.dataRecieved.addNodeData(newNodeData);
     }
     
     public AppState clone() {
         AppState cloned = new AppState();
         
         cloned.setState(state);
-        cloned.setDataReceived(dataRecieved);
+        this.dataRecieved.getNodes().stream().forEach((node) -> cloned.addNodeData(node));
         cloned.setMessage(message.getValue());
         
         return cloned;
