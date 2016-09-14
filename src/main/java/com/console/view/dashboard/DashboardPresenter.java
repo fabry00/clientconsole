@@ -7,15 +7,19 @@ import com.console.domain.AppState;
 import com.console.domain.IAppStateListener;
 import com.console.util.NodeUtil;
 import com.console.view.center.CenterView;
+import com.console.view.logo.LogoView;
 import com.console.view.status.StatusView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
 
@@ -32,6 +36,9 @@ public class DashboardPresenter implements Initializable, IAppStateListener {
 
     @FXML
     private AnchorPane centerPane;
+    
+    @FXML
+    private VBox leftPane;
 
     @Inject
     private ApplicationService appService;
@@ -43,9 +50,10 @@ public class DashboardPresenter implements Initializable, IAppStateListener {
         logger.debug("Initialize");
         appService.subscribe(this);
         //fetched from followme.properties
-        logger.error(rb.getString("theEnd"));
+        //logger.error(rb.getString("theEnd"));
 
         setCenterPane();
+        setLeftPane();
         setBottomPane();
 
         initApp();
@@ -105,6 +113,13 @@ public class DashboardPresenter implements Initializable, IAppStateListener {
         BorderPane center = (BorderPane) new CenterView().getView();
         util.ancorToPane(center);
         centerPane.getChildren().add(center);
+    }
+
+    private void setLeftPane() {
+        AnchorPane left = (AnchorPane) new LogoView().getView();
+        util.ancorToPane(left);
+        left.setPadding(new Insets(0));
+        leftPane.getChildren().add(left);
     }
 
 }

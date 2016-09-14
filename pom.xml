@@ -159,6 +159,7 @@
                     <include>**/*.xml</include>
                     <include>**/*.css</include>
                     <include>**/*.properties</include>
+                    <include>**/*.jpg</include>
                 </includes>
             </resource>
         </resources>

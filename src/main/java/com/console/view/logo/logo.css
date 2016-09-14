@@ -1,0 +1,10 @@
+#logoLabel{
+    -fx-background-image: url("../../../../images/logobackground.jpg");
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-fill: #818181;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+    -fx-fill: FIREBRICK;
+}
