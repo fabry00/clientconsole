@@ -85,7 +85,7 @@ public class ApplicationService {
         listeners.add(listener);
     }
 
-    public void subscribeToStae(IAppStateListener listener, State type) {
+    public void subscribeToState(IAppStateListener listener, State type) {
 
         Set<IAppStateListener> listeners;
         if(!listenersToState.containsKey(type)) {

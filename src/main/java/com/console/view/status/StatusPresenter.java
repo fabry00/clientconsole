@@ -52,7 +52,8 @@ public class StatusPresenter implements Initializable, IAppStateListener {
 
     private void setProgressIndicator(State state) {
         if (state.equals(State.NEWDATARECEIVED)
-                || state.equals(State.WAITING)) {
+                || state.equals(State.WAITING)
+                || state.equals(State.NEWDATARECEIVED)) {
             statusBar.setProgress(-1);
         } else {
             statusBar.setProgress(0);

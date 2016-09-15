@@ -24,6 +24,12 @@
     </properties>
     
     <dependencies>
+        <!-- This is for the simulator-->
+        <dependency>
+            <groupId>org.fusesource</groupId>
+            <artifactId>sigar</artifactId>
+            <version>1.6.4</version>
+        </dependency>
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>javafx</artifactId>

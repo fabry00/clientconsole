@@ -16,13 +16,14 @@ public enum State {
     WAITING("Waiting",Color.YELLOW),
     NEWDATARECEIVED("Receiving",Color.GREEN),
     CLOSING("Closing",Color.YELLOW),
-    ERROR("Error",Color.GRAY);
+    ERROR("Error",Color.GRAY),
+    ABNORMAL_NODE_STATE("Anomaly detected",Color.RED);
     
     
     private final String label;
     private final Color color;
 
-    private State(String label, Color color) {
+    State(String label, Color color) {
         this.label = label;
         this.color = color;
     }

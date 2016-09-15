@@ -1,10 +1,7 @@
 package com.console.view.dashboard;
 
-import com.console.domain.Action;
+import com.console.domain.*;
 import com.console.service.appservice.ApplicationService;
-import com.console.domain.ActionType;
-import com.console.domain.AppState;
-import com.console.domain.IAppStateListener;
 import com.console.util.NodeUtil;
 import com.console.view.center.CenterView;
 import com.console.view.logo.LogoView;
@@ -21,12 +18,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javax.inject.Inject;
 import org.apache.log4j.Logger;
+import org.controlsfx.control.NotificationPane;
 
 /**
  *
  * @author adam-bien.com
  */
-public class DashboardPresenter implements Initializable, IAppStateListener {
+public class DashboardPresenter implements Initializable {
 
     private final Logger logger = Logger.getLogger(DashboardPresenter.class);
 
@@ -42,12 +40,14 @@ public class DashboardPresenter implements Initializable, IAppStateListener {
     @Inject
     private ApplicationService appService;
 
+    private NotificationPane notificationPane;
+
     private NodeUtil util = new NodeUtil();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         logger.debug("Initialize");
-        appService.subscribe(this);
+
         //fetched from followme.properties
         //logger.error(rb.getString("theEnd"));
 
@@ -86,11 +86,6 @@ public class DashboardPresenter implements Initializable, IAppStateListener {
         appService.dispatch(new Action<>(ActionType.CHANGE_THEME,null));
     }
 
-    @Override
-    public void AppStateChanged(AppState oldState, AppState currentState) {
-        logger.debug("AppStateChanged");
-    }
-
     public ApplicationService getAppService() {
         return appService;
     }
@@ -109,6 +104,11 @@ public class DashboardPresenter implements Initializable, IAppStateListener {
     }
 
     private void setCenterPane() {
+
+        /*notificationPane = new NotificationPane();
+        notificationPane.getStyleClass().add(NotificationPane.STYLE_CLASS_DARK);
+        centerPane.getChildren().add(notificationPane);*/
+
         BorderPane center = (BorderPane) new CenterView().getView();
         util.ancorToPane(center,0.0);
         centerPane.getChildren().add(center);

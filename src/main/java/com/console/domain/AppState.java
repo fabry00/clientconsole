@@ -3,6 +3,8 @@ package com.console.domain;
 import java.util.Objects;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -14,6 +16,8 @@ public class AppState {
     private final StringProperty stateProperty = new SimpleStringProperty("");
     private final StringProperty message = new SimpleStringProperty("");
     private final NodesData dataRecieved = new NodesData();
+    private final ObservableList<NodeData> nodesInAnomalySate
+            = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
     
     public State getState() {
         return state;
@@ -30,6 +34,10 @@ public class AppState {
     public NodesData getDataReceived() {
         return dataRecieved;
     }
+
+    public ObservableList getNodesInAbnormalState() {
+        return nodesInAnomalySate;
+    }
     
     public void setState(State state) {
         this.state = state;
@@ -42,6 +50,13 @@ public class AppState {
     
     public void addNodeData(NodeData newNodeData) {
         this.dataRecieved.addNodeData(newNodeData);
+    }
+
+    public void addAbnormalNode(NodeData node) {
+        int index = nodesInAnomalySate.lastIndexOf(node);
+        if(index < 0) {
+            nodesInAnomalySate.add(node);
+        }
     }
     
     public AppState clone() {
@@ -74,5 +89,5 @@ public class AppState {
                 + Objects.hash(getMessage())
                 + Objects.hash(getDataReceived());
     }
-    
+
 }

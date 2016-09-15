@@ -77,7 +77,8 @@ public class CenterPresenter implements Initializable, IAppStateListener {
 
     private void setStartDisabled(State state) {
         boolean disabled = state.equals(State.STARTED)
-                || state.equals(State.NEWDATARECEIVED);
+                || state.equals(State.NEWDATARECEIVED)
+                || state.equals(State.ABNORMAL_NODE_STATE);
         logger.debug("Set setStartDisabled " + disabled + " state: " + state.toString());
 
         startDisabled.set(disabled);
