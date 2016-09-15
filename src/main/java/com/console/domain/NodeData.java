@@ -1,5 +1,8 @@
 package com.console.domain;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -7,16 +10,41 @@ import java.util.Objects;
  */
 public class NodeData {
 
+    public static class NodeInfo {
+
+        public enum Type {
+            IP
+        };
+
+        public NodeInfo(Type type, String value) {
+            this.type = type;
+            this.value = value;
+        }
+
+        private final String value;
+        private final Type type;
+
+        public String getValue() {
+            return value;
+        }
+
+        public Type getType() {
+            return type;
+        }
+
+    };
     private final String node;
     private final Double cpu;
     private final Long ram;
-    public boolean anomalyDetected;
+    private boolean anomalyDetected;
+    private List<NodeInfo> info = new ArrayList<>();
 
     private NodeData(Builder builder) {
         this.node = builder.node;
         this.cpu = builder.cpu;
         this.ram = builder.ram;
         this.anomalyDetected = builder.anomalyDetected;
+        this.info.addAll(builder.info);
     }
 
     public String getNode() {
@@ -62,6 +90,7 @@ public class NodeData {
         private Double cpu = 0.0;
         private Long ram = new Long(0);
         private boolean anomalyDetected = false;
+        private List<NodeInfo> info = new ArrayList<>();
 
         public Builder(String node) {
             this.node = node;
@@ -79,6 +108,11 @@ public class NodeData {
 
         public Builder isInAbnormalState() {
             this.anomalyDetected = true;
+            return this;
+        }
+
+        public Builder withInfo(NodeInfo info) {
+            this.info.add(info);
             return this;
         }
 

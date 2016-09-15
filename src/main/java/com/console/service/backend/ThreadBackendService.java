@@ -44,11 +44,11 @@ public class ThreadBackendService implements IBackendService {
         logger.debug("Starting Thread backendService");
 
         List<Simulator> simulators = new ArrayList<>();
-        simulators.add(new Simulator(appService, "Homer", 0.9));
-        simulators.add(new Simulator(appService, "Marge", 1.1));
-        simulators.add(new Simulator(appService, "Bart", 1.0));
-        simulators.add(new Simulator(appService, "Lisa", 0.7));
-        simulators.add(new Simulator(appService, "Meggie", 1.8));
+        simulators.add(new Simulator(appService, "Homer", "172.168.1.25", 0.9));
+        simulators.add(new Simulator(appService, "Marge", "10.22.2.25", 1.1));
+        simulators.add(new Simulator(appService, "Bart", "192.168.10.25", 1.0));
+        simulators.add(new Simulator(appService, "Lisa", "82.58.14.12", 0.7));
+        simulators.add(new Simulator(appService, "Meggie", "172.192.10.25", 1.8));
 
         executor = Executors.newScheduledThreadPool(simulators.size());
         simulators.parallelStream().forEach((sim) -> {
@@ -84,14 +84,17 @@ public class ThreadBackendService implements IBackendService {
 
         private final ApplicationService appService;
         private final String node;
+        private final String ip;
         private final Double factor;
         private final Sigar sigar = new Sigar();
         private boolean anomalyDetected = false;
 
-        private Simulator(ApplicationService appService, String node, Double factor) {
+        private Simulator(ApplicationService appService,
+                String node, String ip, Double factor) {
             this.appService = appService;
             this.node = node;
             this.factor = factor;
+            this.ip = ip;
         }
 
         @Override
@@ -106,9 +109,11 @@ public class ThreadBackendService implements IBackendService {
 
             Long ram2 = Double.valueOf(ram * factor).longValue();
 
-            logger.debug("Sim:" + node + " CPU VALUE: " + cpu + " factor: " + factor + " tot cpu: " + cpu2 + " ram: " + ram);
+            logger.debug("Sim:" + node + " CPU VALUE: " + cpu + " factor: "
+                    + factor + " tot cpu: " + cpu2 + " ram: " + ram);
 
             NodeData.Builder builder = new NodeData.Builder(node)
+                    .withInfo(new NodeData.NodeInfo(NodeData.NodeInfo.Type.IP, ip))
                     .withCpuMetric(cpu2)
                     .withRamMetric(ram2);
             if (!anomalyDetected) {
