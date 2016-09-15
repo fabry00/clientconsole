@@ -139,7 +139,7 @@ public class ThreadBackendService implements IBackendService {
             try {
                 Mem mem = sigar.getMem();
 
-                return mem.getActualUsed() / 1024 ;
+                return mem.getActualUsed() / 1024 / 1024 ;
             } catch (SigarException ex) {
                 logger.error(ex);
             }

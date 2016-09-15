@@ -3,21 +3,15 @@
 <?import java.net.URL?>
 <?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import org.controlsfx.control.CheckComboBox?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.console.view.graphdata.GraphdataPresenter">
     <stylesheets>
         <URL value="@graphdata.css" />
     </stylesheets>
    <children>
-      <ToolBar prefHeight="40.0" prefWidth="200.0"  fx:id="graphToolbar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <items>
-
-        </items>
-      </ToolBar>
+      <AnchorPane fx:id="graphToolbarPane" prefHeight="35.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      </AnchorPane>
       <AreaChart fx:id="chart" layoutX="62.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
         <xAxis>
           <NumberAxis side="BOTTOM" />
