@@ -8,18 +8,17 @@ import javafx.scene.paint.Color;
  */
 public enum State {
 
-    UNKWOWN("Unknown",Color.GRAY),
-    NOT_STARTED("",Color.GRAY),
-    STARTING("Starting",Color.YELLOWGREEN),
-    STARTED("Started",Color.GREEN),
-    STOPPED("Stopped",Color.GRAY),
-    WAITING("Waiting",Color.YELLOW),
-    NEWDATARECEIVED("Receiving",Color.GREEN),
-    CLOSING("Closing",Color.YELLOW),
-    ERROR("Error",Color.GRAY),
-    ABNORMAL_NODE_STATE("Anomaly detected",Color.RED);
-    
-    
+    UNKWOWN("Unknown", Color.GRAY),
+    NOT_STARTED("", Color.GRAY),
+    STARTING("Starting", Color.YELLOWGREEN),
+    STARTED("Started", Color.GREEN),
+    STOPPED("Stopped", Color.GRAY),
+    WAITING("Waiting", Color.YELLOW),
+    NEWDATARECEIVED("Receiving", Color.GREEN),
+    CLOSING("Closing", Color.YELLOW),
+    ERROR("Error", Color.GRAY),
+    ABNORMAL_NODE_STATE("Anomaly detected", Color.RED);
+
     private final String label;
     private final Color color;
 
@@ -27,13 +26,13 @@ public enum State {
         this.label = label;
         this.color = color;
     }
-    
+
     public Color getColor() {
         return color;
     }
-    
-    public String getLabel(){
+
+    public String getLabel() {
         return this.label;
     }
-    
+
 }

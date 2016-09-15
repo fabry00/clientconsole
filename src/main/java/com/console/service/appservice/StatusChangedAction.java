@@ -16,7 +16,7 @@ class StatusChangedAction implements IActionHandler {
     @Override
     public void execute(AppState currentState,
             Action action, ApplicationService appService) {
-        
+
         logger.debug("StatusChangedAction execution");
         State newState = (State) action.value;
         currentState.setState(newState);

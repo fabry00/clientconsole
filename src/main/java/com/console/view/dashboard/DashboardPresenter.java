@@ -33,7 +33,7 @@ public class DashboardPresenter implements Initializable {
 
     @FXML
     private AnchorPane centerPane;
-    
+
     @FXML
     private AnchorPane leftPane;
 
@@ -50,7 +50,6 @@ public class DashboardPresenter implements Initializable {
 
         //fetched from followme.properties
         //logger.error(rb.getString("theEnd"));
-
         setCenterPane();
         setLeftPane();
         setBottomPane();
@@ -83,7 +82,12 @@ public class DashboardPresenter implements Initializable {
 
     @FXML
     public void handleChangeTheme() {
-        appService.dispatch(new Action<>(ActionType.CHANGE_THEME,null));
+        appService.dispatch(new Action<>(ActionType.CHANGE_THEME, null));
+    }
+
+    @FXML
+    public void handleFullScreen() {
+        appService.dispatch(new Action<>(ActionType.FULL_SCREEN, true));
     }
 
     public ApplicationService getAppService() {
@@ -99,7 +103,7 @@ public class DashboardPresenter implements Initializable {
         StatusView view = new StatusView();
         AnchorPane statusView = (AnchorPane) view.getView();
 
-        util.ancorToPane(statusView,0.0);
+        util.ancorToPane(statusView, 0.0);
         bottomPane.getChildren().add(statusView);
     }
 
@@ -108,25 +112,24 @@ public class DashboardPresenter implements Initializable {
         /*notificationPane = new NotificationPane();
         notificationPane.getStyleClass().add(NotificationPane.STYLE_CLASS_DARK);
         centerPane.getChildren().add(notificationPane);*/
-
         BorderPane center = (BorderPane) new CenterView().getView();
-        util.ancorToPane(center,0.0);
+        util.ancorToPane(center, 0.0);
         centerPane.getChildren().add(center);
     }
 
     private void setLeftPane() {
         AnchorPane logo = (AnchorPane) new LogoView().getView();
-        util.ancorToPaneLeft(logo,0.0);
-        util.ancorToPaneRight(logo,0.0);
-        util.ancorToPaneTop(logo,0.0);
+        util.ancorToPaneLeft(logo, 0.0);
+        util.ancorToPaneRight(logo, 0.0);
+        util.ancorToPaneTop(logo, 0.0);
         logo.setPadding(new Insets(0));
         leftPane.getChildren().add(logo);
-        
+
         AnchorPane tree = (AnchorPane) new TreeView().getView();
-        util.ancorToPaneTop(tree,logo.getPrefHeight());
-        util.ancorToPaneLeft(tree,0.0);
-        util.ancorToPaneRight(tree,0.0);
-        util.ancorToPaneBottom(tree,0.0);
+        util.ancorToPaneTop(tree, logo.getPrefHeight());
+        util.ancorToPaneLeft(tree, 0.0);
+        util.ancorToPaneRight(tree, 0.0);
+        util.ancorToPaneBottom(tree, 0.0);
         tree.setPadding(new Insets(0));
         leftPane.getChildren().add(tree);
     }

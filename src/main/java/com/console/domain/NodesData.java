@@ -25,9 +25,9 @@ public class NodesData {
     public void addNodeData(NodeData node) {
 
         int itemIndex = nodesSync.lastIndexOf(node);
-        if(itemIndex >= 0 ) {
+        if (itemIndex >= 0) {
             nodesSync.remove(itemIndex);
-            nodesSync.add(itemIndex,node);
+            nodesSync.add(itemIndex, node);
         } else {
             nodesSync.add(node);
         }

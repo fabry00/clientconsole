@@ -34,6 +34,7 @@ public class App extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    private Stage stage;
 
     public App() {
         initLogger();
@@ -48,8 +49,7 @@ public class App extends Application {
 
             initConfiguration();
             initStage(stage);
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             logger.error(ex);
             throw ex;
         }
@@ -67,10 +67,14 @@ public class App extends Application {
     }
 
     public void changeTheme() {
-        actualTheme = (actualTheme.equals(STYLESHEET_CASPIAN)) ?
-            STYLESHEET_MODENA : STYLESHEET_CASPIAN;
+        actualTheme = (actualTheme.equals(STYLESHEET_CASPIAN))
+                ? STYLESHEET_MODENA : STYLESHEET_CASPIAN;
 
         setUserAgentStylesheet(actualTheme);
+    }
+
+    public void switchToFullScreen(boolean b) {
+        this.stage.setFullScreen(b);
     }
 
     private void initStage(Stage stage) {
@@ -85,6 +89,7 @@ public class App extends Application {
 
         DashboardPresenter presenter = appView.getRealPresenter();
         presenter.getAppService().setMainApp(this);
+        this.stage = stage;
     }
 
     private void initLogger() {
@@ -113,4 +118,5 @@ public class App extends Application {
          */
         System.setProperty("happyEnding", " Enjoy the flight!");
     }
+
 }

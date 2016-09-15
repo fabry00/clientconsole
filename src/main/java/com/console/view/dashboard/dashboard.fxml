@@ -10,38 +10,35 @@
 <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="800.0" prefHeight="800.0" prefWidth="1024.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.console.view.dashboard.DashboardPresenter">
     <top>
         <MenuBar>
-          <menus>
-            <Menu mnemonicParsing="false" text="File">
-              <items>
-                  <MenuItem mnemonicParsing="false" text="New" />
-                  <MenuItem mnemonicParsing="false" text="Open" />
-                  <MenuItem mnemonicParsing="false" text="Save" />
-                  <MenuItem mnemonicParsing="false" text="SaveAs" />
-                <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Close" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Tool">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#handleChangeTheme" text="Change Theme" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Help">
-              <items>
-                <MenuItem mnemonicParsing="false" text="About" />
-              </items>
-            </Menu>
-          </menus>
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="View">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleChangeTheme" text="Change Theme" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleFullScreen" text="Full screen" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
         </MenuBar>
-      </top>
-   <bottom>
-      <AnchorPane fx:id="bottomPane" prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-   </bottom>
-   <center>
-      <SplitPane dividerPositions="0.1506849315068493" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <items>
-          <AnchorPane fx:id="leftPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-          <AnchorPane fx:id="centerPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-        </items>
-      </SplitPane>
-   </center>
+    </top>
+    <bottom>
+        <AnchorPane fx:id="bottomPane" prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+    </bottom>
+    <center>
+        <SplitPane dividerPositions="0.1506849315068493" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <items>
+                <AnchorPane fx:id="leftPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                <AnchorPane fx:id="centerPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+            </items>
+        </SplitPane>
+    </center>
 </BorderPane>

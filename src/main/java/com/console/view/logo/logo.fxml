@@ -8,7 +8,7 @@
     <stylesheets>
         <URL value="@logo.css" />
     </stylesheets>
-   <children>
-      <Label fx:id="logoLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="72.0" layoutY="42.0" text="PrOud" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-   </children>
+    <children>
+        <Label fx:id="logoLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="72.0" layoutY="42.0" text="PrOud" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    </children>
 </AnchorPane>

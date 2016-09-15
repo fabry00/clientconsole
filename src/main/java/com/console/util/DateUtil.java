@@ -9,7 +9,7 @@ import java.time.Instant;
 public class DateUtil {
 
     public String getNow() {
-        Instant instant = Instant.now (); // Current date-time in UTC.
-        return instant.toString ();
+        Instant instant = Instant.now(); // Current date-time in UTC.
+        return instant.toString();
     }
 }

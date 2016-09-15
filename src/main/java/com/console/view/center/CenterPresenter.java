@@ -51,10 +51,9 @@ public class CenterPresenter implements Initializable, IAppStateListener {
 
         NodeUtil util = new NodeUtil();
         AnchorPane graphPane = (AnchorPane) new GraphdataView().getView();
-        util.ancorToPane(graphPane,0.0);
+        util.ancorToPane(graphPane, 0.0);
         centerPane.getChildren().add(graphPane);
-        
-        
+
         appService.subscribe(this);
 
     }

@@ -31,10 +31,13 @@ public class NodeData {
         return ram;
     }
 
-    public boolean AnomalyDetected() { return anomalyDetected;}
+    public boolean AnomalyDetected() {
+        return anomalyDetected;
+    }
 
-    public String toString() { return this.node; }
-
+    public String toString() {
+        return this.node;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -53,8 +56,6 @@ public class NodeData {
         return Objects.hash(node);
     }
 
-
-
     public static class Builder {
 
         private final String node;
@@ -67,12 +68,12 @@ public class NodeData {
         }
 
         public Builder withCpuMetric(Double cpu) {
-            this.cpu  = cpu;
+            this.cpu = cpu;
             return this;
         }
 
         public Builder withRamMetric(Long ram) {
-            this.ram  = ram;
+            this.ram = ram;
             return this;
         }
 

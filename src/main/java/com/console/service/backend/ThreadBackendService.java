@@ -33,7 +33,7 @@ public class ThreadBackendService implements IBackendService {
 
     private final ApplicationService appService;
 
-    private  ScheduledExecutorService executor = null;
+    private ScheduledExecutorService executor = null;
 
     public ThreadBackendService(ApplicationService appService) {
         this.appService = appService;
@@ -44,11 +44,11 @@ public class ThreadBackendService implements IBackendService {
         logger.debug("Starting Thread backendService");
 
         List<Simulator> simulators = new ArrayList<>();
-        simulators.add(new Simulator(appService,"Homer",0.9));
-        simulators.add(new Simulator(appService,"Marge",1.1));
-        simulators.add(new Simulator(appService,"Bart",1.0));
-        simulators.add(new Simulator(appService,"Lisa",0.7));
-        simulators.add(new Simulator(appService,"Meggie",1.8));
+        simulators.add(new Simulator(appService, "Homer", 0.9));
+        simulators.add(new Simulator(appService, "Marge", 1.1));
+        simulators.add(new Simulator(appService, "Bart", 1.0));
+        simulators.add(new Simulator(appService, "Lisa", 0.7));
+        simulators.add(new Simulator(appService, "Meggie", 1.8));
 
         executor = Executors.newScheduledThreadPool(simulators.size());
         simulators.parallelStream().forEach((sim) -> {
@@ -59,14 +59,14 @@ public class ThreadBackendService implements IBackendService {
 
         MessageUtil util = new MessageUtil();
         String msg = util.getMsg("Started successfully");
-        Platform.runLater(() -> appService.dispatch(new Action<>(ActionType.NEW_MESSAGE, msg )));
+        Platform.runLater(() -> appService.dispatch(new Action<>(ActionType.NEW_MESSAGE, msg)));
 
     }
 
     @Override
     public void stop() {
         logger.debug("Shutting down backend  thread");
-        if(executor == null) {
+        if (executor == null) {
             return;
         }
         executor.shutdownNow();
@@ -78,7 +78,8 @@ public class ThreadBackendService implements IBackendService {
         }
     }
 
-    private static class Simulator implements Runnable{
+    private static class Simulator implements Runnable {
+
         private final Logger logger = Logger.getLogger(Simulator.class);
 
         private final ApplicationService appService;
@@ -98,19 +99,21 @@ public class ThreadBackendService implements IBackendService {
 
             Double cpu = getCpuUsage();
             Long ram = getUsedMemory();
-            Double cpu2 = cpu*factor; //Just to have different values among all the simulators
-            if(cpu2 > 100) { cpu2 = 100.0;}
+            Double cpu2 = cpu * factor; //Just to have different values among all the simulators
+            if (cpu2 > 100) {
+                cpu2 = 100.0;
+            }
 
-            Long ram2 =  Double.valueOf( ram*factor).longValue();
+            Long ram2 = Double.valueOf(ram * factor).longValue();
 
-            logger.debug("Sim:"+node+" CPU VALUE: "+cpu+" factor: "+factor+" tot cpu: "+cpu2+" ram: "+ram);
+            logger.debug("Sim:" + node + " CPU VALUE: " + cpu + " factor: " + factor + " tot cpu: " + cpu2 + " ram: " + ram);
 
             NodeData.Builder builder = new NodeData.Builder(node)
                     .withCpuMetric(cpu2)
                     .withRamMetric(ram2);
-            if(!anomalyDetected) {
+            if (!anomalyDetected) {
                 Random random = new Random();
-                if(random.nextInt(100) > 70) {
+                if (random.nextInt(100) > 70) {
                     anomalyDetected = true;
                     builder.isInAbnormalState();
                 }
@@ -127,7 +130,7 @@ public class ThreadBackendService implements IBackendService {
 
                 CpuPerc pCpu = sigar.getCpuPerc();
 
-                return pCpu.getCombined()*100;
+                return pCpu.getCombined() * 100;
             } catch (SigarException ex) {
                 logger.error(ex);
             }
@@ -139,7 +142,7 @@ public class ThreadBackendService implements IBackendService {
             try {
                 Mem mem = sigar.getMem();
 
-                return mem.getActualUsed() / 1024 / 1024 ;
+                return mem.getActualUsed() / 1024 / 1024;
             } catch (SigarException ex) {
                 logger.error(ex);
             }

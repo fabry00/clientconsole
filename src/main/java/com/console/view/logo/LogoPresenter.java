@@ -14,10 +14,10 @@ public class LogoPresenter implements Initializable {
 
     @FXML
     private Label logoLabel;
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
     }
-    
+
 }

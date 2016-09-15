@@ -22,7 +22,7 @@ class CloseAction implements IActionHandler {
             logger.debug("Application not stopped, stopping");
             appService.dispatch(new Action<>(ActionType.STOP, null));
         }
-        
+
         try {
             // Wait all thread exit
             Thread.sleep(500);

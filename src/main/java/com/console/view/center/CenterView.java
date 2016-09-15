@@ -12,9 +12,9 @@ import com.airhacks.afterburner.views.FXMLView;
  * @author fabry
  */
 public class CenterView extends FXMLView {
-    
+
     public CenterPresenter getRealPresenter() {
         return (CenterPresenter) super.getPresenter();
     }
-    
+
 }

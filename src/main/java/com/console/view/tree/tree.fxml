@@ -9,8 +9,8 @@
     <stylesheets>
         <URL value="@tree.css" />
     </stylesheets>
-   <children>
-      <Label text="Nodes" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0" />
-      <ListView fx:id="nodeList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
-   </children>
+    <children>
+        <Label text="Nodes" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0" />
+        <ListView fx:id="nodeList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
+    </children>
 </AnchorPane>

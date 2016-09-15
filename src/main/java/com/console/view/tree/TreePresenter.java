@@ -52,21 +52,22 @@ public class TreePresenter implements Initializable {
     }
 
     private static class DefaultListCell<T> extends ListCell<T> {
-        @Override public void updateItem(T item, boolean empty) {
+
+        @Override
+        public void updateItem(T item, boolean empty) {
             super.updateItem(item, empty);
 
             if (empty) {
                 setText(null);
                 setGraphic(null);
             } else if (item instanceof NodeData) {
-                NodeData node = (NodeData)item;
+                NodeData node = (NodeData) item;
                 setText(node.getNode());
-                if(node.AnomalyDetected()) {
+                if (node.AnomalyDetected()) {
                     setStyle("-fx-background-color: red;");
-                }else {
+                } else {
                     setStyle("");
                 }
-
 
             } else {
                 setText(item == null ? "null" : item.toString());

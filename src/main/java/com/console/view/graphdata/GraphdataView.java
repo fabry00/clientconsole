@@ -12,9 +12,9 @@ import com.airhacks.afterburner.views.FXMLView;
  * @author fabry
  */
 public class GraphdataView extends FXMLView {
-    
+
     public GraphdataPresenter getRealPresenter() {
         return (GraphdataPresenter) super.getPresenter();
     }
-    
+
 }

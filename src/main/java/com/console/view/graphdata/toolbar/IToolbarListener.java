@@ -13,8 +13,7 @@ public interface IToolbarListener {
     public void addAllClicked();
 
     public void removeAllClicked();
-    
+
     public void metricSelected(Metric metric);
 
 }
-

@@ -8,6 +8,7 @@ public class Action<T extends ActionType, V> {
     public Action(T type) {
         this(type, null);
     }
+
     public Action(T type, V value) {
         this.type = type;
         this.value = value;
@@ -21,4 +22,3 @@ public class Action<T extends ActionType, V> {
         }
     }
 }
-

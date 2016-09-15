@@ -5,9 +5,10 @@ public enum ActionType {
     STARTED,
     STOP,
     STOPPED,
-    STATUS_CHANGED,    
+    STATUS_CHANGED,
     DATA_RECEIVED,
     NEW_MESSAGE,
     CLOSE,
     CHANGE_THEME,
+    FULL_SCREEN,
 }
