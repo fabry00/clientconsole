@@ -1,9 +1,6 @@
 package com.console.view.tree;
 
-import com.console.domain.AppState;
-import com.console.domain.IAppStateListener;
 import com.console.domain.NodeData;
-import com.console.domain.State;
 import com.console.service.appservice.ApplicationService;
 import java.net.URL;
 import java.util.*;
@@ -26,7 +23,10 @@ import org.apache.log4j.Logger;
  */
 public class TreePresenter implements Initializable {
 
-    private Logger logger = Logger.getLogger(TreePresenter.class);
+    private static final String ABNORMAL_STATUS_CLASS = "list-view-abnormal";
+    private static final String FAILURE_PREDICTED_CLASS = "list-view-failue";
+
+    private final Logger logger = Logger.getLogger(TreePresenter.class);
 
     @Inject
     ApplicationService appService;
@@ -63,10 +63,14 @@ public class TreePresenter implements Initializable {
             } else if (item instanceof NodeData) {
                 NodeData node = (NodeData) item;
                 setText(node.getNode());
-                if (node.AnomalyDetected()) {
-                    setStyle("-fx-background-color: red;");
+
+                if (node.FailureDetected()) {
+                    getStyleClass().add(FAILURE_PREDICTED_CLASS);
+                } else if (node.AnomalyDetected()) {
+                    getStyleClass().add(ABNORMAL_STATUS_CLASS);
                 } else {
-                    setStyle("");
+                    getStyleClass().remove(FAILURE_PREDICTED_CLASS);
+                    getStyleClass().remove(ABNORMAL_STATUS_CLASS);
                 }
 
             } else {

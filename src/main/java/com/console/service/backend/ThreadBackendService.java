@@ -87,7 +87,7 @@ public class ThreadBackendService implements IBackendService {
         private final String ip;
         private final Double factor;
         private final Sigar sigar = new Sigar();
-        private boolean anomalyDetected = false;
+        private boolean failureDetected = false;
 
         private Simulator(ApplicationService appService,
                 String node, String ip, Double factor) {
@@ -116,12 +116,18 @@ public class ThreadBackendService implements IBackendService {
                     .withInfo(new NodeData.NodeInfo(NodeData.NodeInfo.Type.IP, ip))
                     .withCpuMetric(cpu2)
                     .withRamMetric(ram2);
-            if (!anomalyDetected) {
+            if (!failureDetected) {
                 Random random = new Random();
-                if (random.nextInt(100) > 70) {
-                    anomalyDetected = true;
+                int rand = random.nextInt(100);
+                int failureLimit = 90;
+                if (rand > 70 && rand < failureLimit) {
                     builder.isInAbnormalState();
+                } else if (rand > failureLimit) {
+                    failureDetected = true;
+                    builder.isFailureDetected();
                 }
+            } else {
+                builder.isFailureDetected();
             }
 
             NodeData dataReceived = builder.build();

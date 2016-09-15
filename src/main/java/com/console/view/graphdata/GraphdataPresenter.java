@@ -33,59 +33,59 @@ import javafx.scene.layout.AnchorPane;
  * @author fabry
  */
 public class GraphdataPresenter implements Initializable, IAppStateListener, IToolbarListener {
-
+    
     private static final int MAX_ELEMENTS = 60;
     private final Logger logger = Logger.getLogger(GraphdataPresenter.class);
-
+    
     private final Map<NodeData, XYChart.Series> series = new ConcurrentHashMap<>();
-
+    
     private final ObservableList<XYChart.Series<Integer, Integer>> seriesList
             = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
 
     //http://fxexperience.com/2012/01/curve-fitting-and-styling-areachart/
     @FXML
     private AreaChart chart;
-
+    
     @FXML
     private AnchorPane graphToolbarPane;
-
+    
     @Inject
     ApplicationService appService;
-
+    
     private ToolbarPresenter tbPresenter;
-
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         logger.debug("Initialize");
-
+        
         appService.subscribe(this);
-
+        
         initToolbar();
         initChart();
-
+        
     }
-
+    
     @Override
     public void addAllClicked() {
         resetSeriesClicked();
     }
-
+    
     @Override
     public void removeAllClicked() {
     }
-
+    
     @Override
     public void metricSelected(Metric metric) {
         resetSeriesClicked();
         chart.setTitle(metric.getTitle());
     }
-
+    
     @Override
     public void resetSeriesClicked() {
         seriesList.forEach((serie) -> serie.getData().clear());
         chart.requestLayout();
     }
-
+    
     private void initToolbar() {
         ToolbarView tbView = new ToolbarView();
         AnchorPane tbPane = (AnchorPane) tbView.getView();
@@ -97,9 +97,8 @@ public class GraphdataPresenter implements Initializable, IAppStateListener, ITo
         tbPresenter = tbView.getRealPresenter();
         tbPresenter.subscribe(this);
     }
-
+    
     private void initChart() {
-        chart.setTitle("");
         chart.setLegendSide(Side.LEFT);
         chart.setLegendVisible(true);
         chart.setScaleX(1);
@@ -107,11 +106,13 @@ public class GraphdataPresenter implements Initializable, IAppStateListener, ITo
         // Force if to show always the zero element
         ((NumberAxis) chart.getXAxis()).setForceZeroInRange(false);
         chart.setData(seriesList);
+        
+        chart.setTitle(tbPresenter.getSelectedMetric().getTitle());
     }
-
+    
     @Override
     public void AppStateChanged(AppState oldState, AppState currentState) {
-
+        
         if (!currentState.getState().equals(State.NEWDATARECEIVED)
                 && !currentState.getState().equals(State.ABNORMAL_NODE_STATE)) {
             return;
@@ -121,7 +122,7 @@ public class GraphdataPresenter implements Initializable, IAppStateListener, ITo
 
             // Add note to toolbar if not exists
             tbPresenter.addItem(node);
-
+            
             if (!tbPresenter.isChecked(node)) {
                 if (series.containsKey(node)) {
                     // delete series
@@ -140,13 +141,13 @@ public class GraphdataPresenter implements Initializable, IAppStateListener, ITo
             } else {
                 nodeSerie = series.get(node);
             }
-
+            
             int currentX = nodeSerie.getData().size();
             if (currentX > MAX_ELEMENTS) {
                 // Reached the limit. Delete the first element
                 nodeSerie.getData().remove(0);
             }
-
+            
             Object value = getValue(node);
             if (value != null) {
                 nodeSerie.getData().add(new XYChart.Data(currentX, value));
@@ -155,7 +156,7 @@ public class GraphdataPresenter implements Initializable, IAppStateListener, ITo
             }
         });
     }
-
+    
     private Object getValue(NodeData node) {
         Metric metric = tbPresenter.getSelectedMetric();
         switch (metric) {
@@ -171,5 +172,5 @@ public class GraphdataPresenter implements Initializable, IAppStateListener, ITo
         }
         return null;
     }
-
+    
 }

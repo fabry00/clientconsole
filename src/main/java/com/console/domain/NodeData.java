@@ -1,7 +1,6 @@
 package com.console.domain;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -37,6 +36,7 @@ public class NodeData {
     private final Double cpu;
     private final Long ram;
     private boolean anomalyDetected;
+    private boolean failureDetected;
     private List<NodeInfo> info = new ArrayList<>();
 
     private NodeData(Builder builder) {
@@ -44,6 +44,7 @@ public class NodeData {
         this.cpu = builder.cpu;
         this.ram = builder.ram;
         this.anomalyDetected = builder.anomalyDetected;
+        this.failureDetected = builder.failureDetected;
         this.info.addAll(builder.info);
     }
 
@@ -61,6 +62,10 @@ public class NodeData {
 
     public boolean AnomalyDetected() {
         return anomalyDetected;
+    }
+
+    public boolean FailureDetected() {
+        return failureDetected;
     }
 
     public String toString() {
@@ -90,6 +95,7 @@ public class NodeData {
         private Double cpu = 0.0;
         private Long ram = new Long(0);
         private boolean anomalyDetected = false;
+        private boolean failureDetected = false;
         private List<NodeInfo> info = new ArrayList<>();
 
         public Builder(String node) {
@@ -108,6 +114,11 @@ public class NodeData {
 
         public Builder isInAbnormalState() {
             this.anomalyDetected = true;
+            return this;
+        }
+
+        public Builder isFailureDetected() {
+            this.failureDetected = true;
             return this;
         }
 
