@@ -1,7 +1,8 @@
 package com.console.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -35,9 +36,9 @@ public class NodeData {
     private final String node;
     private final Double cpu;
     private final Long ram;
-    private boolean anomalyDetected;
-    private boolean failureDetected;
-    private List<NodeInfo> info = new ArrayList<>();
+    private final boolean anomalyDetected;
+    private final boolean failureDetected;
+    private final Map<NodeInfo.Type, NodeInfo> info = new HashMap<>();
 
     private NodeData(Builder builder) {
         this.node = builder.node;
@@ -45,7 +46,7 @@ public class NodeData {
         this.ram = builder.ram;
         this.anomalyDetected = builder.anomalyDetected;
         this.failureDetected = builder.failureDetected;
-        this.info.addAll(builder.info);
+        this.info.putAll(builder.info);
     }
 
     public String getNode() {
@@ -66,6 +67,10 @@ public class NodeData {
 
     public boolean FailureDetected() {
         return failureDetected;
+    }
+
+    public Map<NodeInfo.Type, NodeInfo> getInfo() {
+        return Collections.unmodifiableMap(info);
     }
 
     public String toString() {
@@ -96,7 +101,7 @@ public class NodeData {
         private Long ram = new Long(0);
         private boolean anomalyDetected = false;
         private boolean failureDetected = false;
-        private List<NodeInfo> info = new ArrayList<>();
+        private Map<NodeInfo.Type, NodeInfo> info = new HashMap<>();
 
         public Builder(String node) {
             this.node = node;
@@ -123,7 +128,7 @@ public class NodeData {
         }
 
         public Builder withInfo(NodeInfo info) {
-            this.info.add(info);
+            this.info.put(info.type, info);
             return this;
         }
 
