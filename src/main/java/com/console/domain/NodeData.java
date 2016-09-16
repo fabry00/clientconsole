@@ -1,9 +1,6 @@
 package com.console.domain;
 
-import org.apache.commons.collections4.queue.CircularFifoQueue;
-
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
@@ -13,21 +10,14 @@ import javafx.scene.chart.XYChart;
  */
 public class NodeData {
 
-    private static final int MAX_METRICS_COUNT = 200;
+    private static final int MAX_METRICS_COUNT = 50;
 
     private enum NodeState {
         FINE, ANOMALY_DETECTED, FAILURE_PREDICTED
     }
     private final String node;
-    // private final Queue<Object> cpu = new CircularFifoQueue<>(MAX_METRICS_COUNT);
-    // private final Queue<Object> ram  = new CircularFifoQueue<>(MAX_METRICS_COUNT);
     private final Map<Metric, ObservableList<XYChart.Data<Object, Object>>> metrics
             = new HashMap<>();
-    /*private final ObservableList<XYChart.Series<Integer, Integer>> seriesList
-            = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());*/
-
-    //private Object lastCpu = 0.0;
-    //private Object lastRam = 0;
     private NodeState state = NodeState.FINE;
 
     private final Map<NodeInfo.Type, NodeInfo> info = new HashMap<>();
@@ -136,13 +126,18 @@ public class NodeData {
 
         public static void syncNewData(NodeData node, NodeData newData) {
             node.state = newData.state;
-            //node.metrics.putAll(newData.metrics);
-            newData.metrics.forEach((metric, data) -> {
-                System.out.println("########before: "+node.metrics.get(metric).size()+" "+metric.getTitle());
-                node.metrics.get(metric).addAll(data);
-                System.out.println("########after: "+node.metrics.get(metric).size()+" "+metric.getTitle());
+            newData.metrics.forEach((metric, newata) -> {
+                ObservableList<XYChart.Data<Object, Object>> values
+                        = node.metrics.get(metric);
+
+                int total = values.size() + newata.size();
+                if (total > MAX_METRICS_COUNT) {
+                    // To many values, remove the oldest
+                    int toDelete = total - MAX_METRICS_COUNT;
+                    values.remove(0, toDelete);
+                }
+                values.addAll(newata);
             });
-            System.out.print("SYNC");
         }
 
     }

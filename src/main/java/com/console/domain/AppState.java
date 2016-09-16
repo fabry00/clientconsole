@@ -15,7 +15,7 @@ public class AppState {
     private State state;
     private final StringProperty stateProperty = new SimpleStringProperty("");
     private final StringProperty message = new SimpleStringProperty("");
-    private final NodesData dataRecieved = new NodesData();
+    private final Node dataRecieved = new Node();
     private final ObservableList<NodeData> nodesInAnomalySate
              = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
 
@@ -31,7 +31,7 @@ public class AppState {
         return message;
     }
 
-    public NodesData getDataReceived() {
+    public Node getDataReceived() {
         return dataRecieved;
     }
 

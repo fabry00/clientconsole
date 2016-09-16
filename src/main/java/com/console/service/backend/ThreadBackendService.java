@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 public class ThreadBackendService implements IBackendService {
 
     private static final int INITIAL_SLEEP = 1; //seconds
-    private static final int INITIAL_SLEEP_MAX_RAND = 0; //seconds
+    private static final int INITIAL_SLEEP_MAX_RAND = 5; //seconds
     private static final int SCHEDULE_EVERY = 5; //seconds
 
     private static final int SHUTDOWN_TIMEOUT = 3; //seconds
@@ -45,14 +45,20 @@ public class ThreadBackendService implements IBackendService {
     @Override
     public void start() throws BackEndServiceException {
         logger.debug("Starting Thread backendService");
-
         List<Simulator> simulators = new ArrayList<>();
-        simulators.add(new Simulator(appService, "Homer", "172.168.1.25", 0.9));
-        /* simulators.add(new Simulator(appService, "Marge", "10.22.2.25", 1.1));
-        simulators.add(new Simulator(appService, "Bart", "192.168.10.25", 1.0));
-        simulators.add(new Simulator(appService, "Lisa", "82.58.14.12", 0.7));
-        simulators.add(new Simulator(appService, "Meggie", "172.192.10.25", 1.8));
-         */
+        try {
+            simulators.add(new Simulator(appService, "Homer", "172.168.1.25", 0.9));
+            Thread.sleep(10);
+            simulators.add(new Simulator(appService, "Marge", "10.22.2.25", 1.1));
+            Thread.sleep(10);
+            simulators.add(new Simulator(appService, "Bart", "192.168.10.25", 1.0));
+            Thread.sleep(10);
+            simulators.add(new Simulator(appService, "Lisa", "82.58.14.12", 0.7));
+            Thread.sleep(10);
+            simulators.add(new Simulator(appService, "Meggie", "172.192.10.25", 1.8));
+        } catch (InterruptedException ex) {
+            logger.error(ex);
+        }
 
         executor = Executors.newScheduledThreadPool(simulators.size());
         simulators.parallelStream().forEach((sim) -> {
@@ -110,12 +116,12 @@ public class ThreadBackendService implements IBackendService {
 
             Double cpu = getCpuUsage();
             Long ram = getUsedMemory();
-            Double cpu2 = cpu * factor; //Just to have different values among all the simulators
+            Double cpu2 = Math.abs(cpu * factor); //Just to have different values among all the simulators
             if (cpu2 > 100) {
                 cpu2 = 100.0;
             }
 
-            Long ram2 = Double.valueOf(ram * factor).longValue();
+            Long ram2 = Math.abs(Double.valueOf(ram * factor).longValue());
 
             logger.debug("Sim:" + node + " CPU VALUE: " + cpu + " factor: "
                     + factor + " tot cpu: " + cpu2 + " ram: " + ram);

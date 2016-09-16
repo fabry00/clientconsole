@@ -1,21 +1,18 @@
 package com.console.domain;
 
-import java.util.HashSet;
-import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableSet;
 
 /**
  *
  * @author fabry
  */
-public class NodesData {
+public class Node {
 
     private final ObservableList<NodeData> nodesSync
             = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
 
-    public NodesData() {
+    public Node() {
     }
 
     public ObservableList<NodeData> getNodes() {
