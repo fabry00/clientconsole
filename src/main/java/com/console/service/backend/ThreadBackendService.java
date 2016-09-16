@@ -5,6 +5,7 @@ import com.console.domain.ActionType;
 import com.console.domain.Metric;
 import com.console.domain.NodeData;
 import com.console.service.appservice.ApplicationService;
+import com.console.util.DateUtil;
 import com.console.util.MessageUtil;
 import javafx.application.Platform;
 import org.apache.log4j.Logger;
@@ -14,6 +15,7 @@ import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarException;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Executors;
@@ -99,9 +101,10 @@ public class ThreadBackendService implements IBackendService {
         private final String ip;
         private final Double factor;
         private final Sigar sigar = new Sigar();
+        private final DateUtil dateUtil = new DateUtil();
         private boolean failureDetected = false;
-
         private Integer index = 0;
+        
 
         private Simulator(ApplicationService appService,
                 String node, String ip, Double factor) {
@@ -126,10 +129,11 @@ public class ThreadBackendService implements IBackendService {
             logger.debug("Sim:" + node + " CPU VALUE: " + cpu + " factor: "
                     + factor + " tot cpu: " + cpu2 + " ram: " + ram);
 
+            Date xValue = dateUtil.getNowDate();
             NodeData.Builder builder = new NodeData.Builder(node)
                     .withInfo(new NodeData.NodeInfo(NodeData.NodeInfo.Type.IP, ip))
-                    .withMetricValue(Metric.CPU, index, cpu2)
-                    .withMetricValue(Metric.MEMORY, index++, ram2);
+                    .withMetricValue(Metric.CPU, xValue, cpu2)
+                    .withMetricValue(Metric.MEMORY, xValue, ram2);
 
             getNodeStatus(builder);
 

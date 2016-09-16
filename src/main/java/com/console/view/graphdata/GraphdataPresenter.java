@@ -20,6 +20,7 @@ import org.apache.log4j.Logger;
 
 import javax.inject.Inject;
 import javafx.collections.FXCollections;
+import javafx.scene.chart.CategoryAxis;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -30,7 +31,7 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
 
     private final Logger logger = Logger.getLogger(GraphdataPresenter.class);
 
-    private final ObservableList<XYChart.Series<Object, Object>> seriesList
+    private final ObservableList<XYChart.Series<Date, Object>> seriesList
             = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
 
     //http://fxexperience.com/2012/01/curve-fitting-and-styling-areachart/
@@ -84,10 +85,22 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
     private void initChart() {
         chart.setLegendSide(Side.LEFT);
         chart.setLegendVisible(true);
-        chart.setScaleX(1);
+        // By default, the NumberAxis determines its range automatically. 
+        // We can overrule this behavior by setting the autoRanging property to 
+        // false, and by providing values for the lowerBound and the upperBound
+        // setAutoRanging(false); setLowerBoud(..
 
-        // Force if to show always the zero element
-        ((NumberAxis) chart.getXAxis()).setForceZeroInRange(false);
+        if (chart.getXAxis() instanceof NumberAxis) {
+            // Force if to show or not always the zero element
+            ((NumberAxis) chart.getXAxis()).setForceZeroInRange(false);
+        } else if (chart.getXAxis() instanceof CategoryAxis) {
+
+            /*final Comparator<XYChart.Data<String, Number>> comparator
+                    = (XYChart.Data<String, Number> o1, XYChart.Data<String, Number> o2)
+                    -> o1.getXValue().compareTo(o2.getXValue());
+            chart.getData().sort(comparator);*/
+        }
+
         chart.setData(seriesList);
 
         chart.setTitle(tbPresenter.getSelectedMetric().getTitle());
@@ -103,12 +116,12 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
     }
 
     private void addSeriesToChart(List<NodeData> nodeSelected) {
-        List<XYChart.Series<Object, Object>> serieToAdd = new ArrayList<>();
+        List<XYChart.Series<Date, Object>> serieToAdd = new ArrayList<>();
 
         // Check Serie to add
         for (NodeData node : nodeSelected) {
             boolean toAdd = true;
-            for (XYChart.Series<Object, Object> serie : seriesList) {
+            for (XYChart.Series<Date, Object> serie : seriesList) {
 
                 if (serie.getName().equals(node.getNode())) {
                     toAdd = false;
@@ -135,7 +148,7 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
             removeAllSeries();
         } else {
             int index = 0;
-            for (XYChart.Series<Object, Object> serie : seriesList) {
+            for (XYChart.Series<Date, Object> serie : seriesList) {
                 boolean toRemove = false;
                 for (NodeData node : nodeSelected) {
                     if (serie.getName().equals(node.getNode())) {
@@ -171,8 +184,8 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
         return node.getNode();
     }
 
-    private XYChart.Series<Object, Object> getSerieToShow(NodeData node) {
-        XYChart.Series<Object, Object> serie = new XYChart.Series();
+    private XYChart.Series<Date, Object> getSerieToShow(NodeData node) {
+        XYChart.Series<Date, Object> serie = new XYChart.Series();
         serie.setName(getSerieName(node));
         Metric metricSelected = tbPresenter.getSelectedMetric();
         serie.setData(node.getMetric(metricSelected));

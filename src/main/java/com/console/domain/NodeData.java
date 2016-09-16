@@ -16,7 +16,7 @@ public class NodeData {
         FINE, ANOMALY_DETECTED, FAILURE_PREDICTED
     }
     private final String node;
-    private final Map<Metric, ObservableList<XYChart.Data<Object, Object>>> metrics
+    private final Map<Metric, ObservableList<XYChart.Data<Date, Object>>> metrics
             = new HashMap<>();
     private NodeState state = NodeState.FINE;
 
@@ -33,7 +33,7 @@ public class NodeData {
         return this.node;
     }
 
-    public ObservableList<XYChart.Data<Object, Object>> getMetric(Metric type) {
+    public ObservableList<XYChart.Data<Date, Object>> getMetric(Metric type) {
         return this.metrics.get(type);
     }
 
@@ -77,7 +77,7 @@ public class NodeData {
     public static class Builder {
 
         private final String node;
-        private final Map<Metric, ObservableList<XYChart.Data<Object, Object>>> metrics = new HashMap<>();
+        private final Map<Metric, ObservableList<XYChart.Data<Date, Object>>> metrics = new HashMap<>();
         private NodeState state = NodeState.FINE;
 
         private Map<NodeInfo.Type, NodeInfo> info = new HashMap<>();
@@ -86,8 +86,8 @@ public class NodeData {
             this.node = node;
         }
 
-        public Builder withMetricValue(Metric metric, Object key, Object value) {
-            ObservableList<XYChart.Data<Object, Object>> serie;
+        public Builder withMetricValue(Metric metric, Date key, Object value) {
+            ObservableList<XYChart.Data<Date, Object>> serie;
             if (!metrics.containsKey(metric)) {
                 serie = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
                 metrics.put(metric, serie);
@@ -127,7 +127,7 @@ public class NodeData {
         public static void syncNewData(NodeData node, NodeData newData) {
             node.state = newData.state;
             newData.metrics.forEach((metric, newata) -> {
-                ObservableList<XYChart.Data<Object, Object>> values
+                ObservableList<XYChart.Data<Date, Object>> values
                         = node.metrics.get(metric);
 
                 int total = values.size() + newata.size();
