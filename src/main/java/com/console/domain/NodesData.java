@@ -28,6 +28,8 @@ public class NodesData {
         if (itemIndex >= 0) {
             nodesSync.remove(itemIndex);
             nodesSync.add(itemIndex, node);
+            //NodeData currentNode = nodesSync.get(itemIndex);
+            //NodeData.Builder.syncNewData(currentNode, node);
         } else {
             nodesSync.add(node);
         }

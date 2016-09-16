@@ -1,9 +1,9 @@
 package com.console.view.graphdata;
 
 import java.net.URL;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import com.console.domain.AppState;
 import com.console.domain.IAppStateListener;
@@ -117,10 +117,10 @@ public class GraphdataPresenter implements Initializable, IAppStateListener, ITo
                 && !currentState.getState().equals(State.ABNORMAL_NODE_STATE)) {
             return;
         }
-        // If we use parallelStream we have Not on FX application thread Exception
+        // If we use parallelStream we have "Not on FX application thread" Exception
         currentState.getDataReceived().getNodes().forEach((node) -> {
 
-            // Add note to toolbar if not exists
+            // Add node to toolbar if not exists
             tbPresenter.addItem(node);
             
             if (!tbPresenter.isChecked(node)) {
@@ -142,29 +142,89 @@ public class GraphdataPresenter implements Initializable, IAppStateListener, ITo
                 nodeSerie = series.get(node);
             }
             
-            int currentX = nodeSerie.getData().size();
-            if (currentX > MAX_ELEMENTS) {
-                // Reached the limit. Delete the first element
-                nodeSerie.getData().remove(0);
-            }
-            
-            Object value = getValue(node);
-            if (value != null) {
-                nodeSerie.getData().add(new XYChart.Data(currentX, value));
-            } else {
-                logger.error("Error getting value");
-            }
+           addMetricsToGraph(nodeSerie.getData(),node);
+
         });
     }
-    
-    private Object getValue(NodeData node) {
+
+    private void addMetricsToGraph(ObservableList serie, NodeData node) {
+
+        int currentX = serie.size();
+        if (currentX > MAX_ELEMENTS) {
+            // Reached the limit. Delete the first element
+            serie.remove(0);
+        }
+        addAllValue(currentX,serie,node);
+       // Collection<XYChart.Data> values = getAllValue(node);
+        /*if (values != null) {
+            data.addAll(values);
+        } else {
+            logger.error("Error getting value");
+        }*/
+    }
+
+    private void addAllValue(int index, ObservableList serie, NodeData node) {
+        Collection<Object> metrics = getAllValue(node);
+        Iterator<Object> it = metrics.iterator();
+
+        while(it.hasNext()) {
+            Object val = it.next();
+            logger.debug("ADDING METRIG "+val+" to "+node.getNode());
+            serie.add(new XYChart.Data(index, val));
+            index++;
+        }
+    }
+
+    private int getMaxIndex() {
+        final AtomicInteger max = new AtomicInteger(0);
+        series.forEach((k,v) -> {
+            if(v.getData().size() > max.get()){
+                max.set(v.getData().size());
+            }
+        });
+        return max.get();
+    }
+
+
+    private Collection<Object> getAllValue(NodeData node) {
+        Metric metric = tbPresenter.getSelectedMetric();
+        Collection<Object> metrics = null;
+        Collection<XYChart.Data> datas = new ArrayList<>();
+        switch (metric) {
+            case CPU: {
+                metrics = node.getCpu();
+                break;
+            }
+            case MEMORY: {
+                metrics = node.getRam();
+                break;
+            }
+            default: {
+                logger.error("Unknown metric: " + metric);
+            }
+        }
+        logger.debug("Metric to draw: "+metrics.size()+" for node: "+node.getNode());
+        return metrics;
+
+
+        /*Iterator<Object> it = metrics.iterator();
+        int index = 0;
+        while(it.hasNext()) {
+            index++;
+            datas.add(new XYChart.Data(index, it.next()));
+        }
+        logger.debug("total metric values: "+datas.size());
+        return datas;*/
+    }
+
+    private XYChart.Data getLastValue(int currentX,NodeData node) {
         Metric metric = tbPresenter.getSelectedMetric();
         switch (metric) {
             case CPU: {
-                return node.getCpu();
+                return new XYChart.Data(currentX,node.getLastCpu());
             }
             case MEMORY: {
-                return node.getRam();
+                return new XYChart.Data(currentX,node.getLastRam());
             }
             default: {
                 logger.error("Unknown metric: " + metric);

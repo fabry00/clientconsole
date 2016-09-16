@@ -1,51 +1,31 @@
 package com.console.domain;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import org.apache.commons.collections4.queue.CircularFifoQueue;
+
+import java.util.*;
 
 /**
  * Created by exfaff on 15/09/2016.
  */
 public class NodeData {
 
-    public static class NodeInfo {
+    private static final int MAX_METRICS_COUNT = 200;
 
-        public enum Type {
-            IP
-        };
-
-        public NodeInfo(Type type, String value) {
-            this.type = type;
-            this.value = value;
-        }
-
-        private final String value;
-        private final Type type;
-
-        public String getValue() {
-            return value;
-        }
-
-        public Type getType() {
-            return type;
-        }
-
-    };
+    private enum NodeState {FINE, ANOMALY_DETECTED, FAILURE_PREDICTED}
     private final String node;
-    private final Double cpu;
-    private final Long ram;
-    private final boolean anomalyDetected;
-    private final boolean failureDetected;
+    private final Queue<Object> cpu = new CircularFifoQueue<>(MAX_METRICS_COUNT);
+    private final Queue<Object> ram  = new CircularFifoQueue<>(MAX_METRICS_COUNT);
+    private Object lastCpu = 0.0;
+    private Object lastRam = 0;
+    private NodeState state = NodeState.FINE;
+
     private final Map<NodeInfo.Type, NodeInfo> info = new HashMap<>();
 
     private NodeData(Builder builder) {
         this.node = builder.node;
-        this.cpu = builder.cpu;
-        this.ram = builder.ram;
-        this.anomalyDetected = builder.anomalyDetected;
-        this.failureDetected = builder.failureDetected;
+        this.cpu.addAll(builder.cpu);
+        this.ram.addAll(builder.ram);
+        this.state = builder.state;
         this.info.putAll(builder.info);
     }
 
@@ -53,20 +33,28 @@ public class NodeData {
         return this.node;
     }
 
-    public Double getCpu() {
+    public Collection<Object> getCpu() {
         return cpu;
     }
 
-    public Long getRam() {
+    public Object getLastCpu() {
+        return lastCpu;
+    }
+
+    public Object getLastRam() {
+        return lastRam;
+    }
+
+    public Collection<Object> getRam() {
         return ram;
     }
 
     public boolean AnomalyDetected() {
-        return anomalyDetected;
+        return state.equals(NodeState.ANOMALY_DETECTED);
     }
 
     public boolean FailureDetected() {
-        return failureDetected;
+        return state.equals(NodeState.FAILURE_PREDICTED);
     }
 
     public Map<NodeInfo.Type, NodeInfo> getInfo() {
@@ -97,10 +85,10 @@ public class NodeData {
     public static class Builder {
 
         private final String node;
-        private Double cpu = 0.0;
-        private Long ram = new Long(0);
-        private boolean anomalyDetected = false;
-        private boolean failureDetected = false;
+        private final Queue<Double> cpu = new CircularFifoQueue<>(MAX_METRICS_COUNT);
+        private final Queue<Long> ram  = new CircularFifoQueue<>(MAX_METRICS_COUNT);
+        private NodeState state = NodeState.FINE;
+
         private Map<NodeInfo.Type, NodeInfo> info = new HashMap<>();
 
         public Builder(String node) {
@@ -108,22 +96,22 @@ public class NodeData {
         }
 
         public Builder withCpuMetric(Double cpu) {
-            this.cpu = cpu;
+            this.cpu.add(cpu);
             return this;
         }
 
         public Builder withRamMetric(Long ram) {
-            this.ram = ram;
+            this.ram.add(ram);
             return this;
         }
 
         public Builder isInAbnormalState() {
-            this.anomalyDetected = true;
+            this.state = NodeState.ANOMALY_DETECTED;
             return this;
         }
 
         public Builder isFailureDetected() {
-            this.failureDetected = true;
+            this.state = NodeState.FAILURE_PREDICTED;
             return this;
         }
 
@@ -142,5 +130,46 @@ public class NodeData {
 
             return node;
         }
+
+        public static void syncNewData(NodeData node, NodeData newData) {
+            node.state = newData.state;
+            node.cpu.clear();
+            node.cpu.addAll(newData.cpu);
+            Iterator<Object> it = newData.cpu.iterator();
+            while(it.hasNext()) {
+                node.lastCpu = it.next();
+            }
+            node.ram.clear();
+            node.ram.addAll(newData.ram);
+            it = newData.ram.iterator();
+            while(it.hasNext()) {
+                node.lastRam = it.next();
+            }
+        }
+    }
+
+
+    public static class NodeInfo {
+
+        public enum Type {
+            IP
+        };
+
+        public NodeInfo(Type type, String value) {
+            this.type = type;
+            this.value = value;
+        }
+
+        private final String value;
+        private final Type type;
+
+        public String getValue() {
+            return value;
+        }
+
+        public Type getType() {
+            return type;
+        }
+
     }
 }

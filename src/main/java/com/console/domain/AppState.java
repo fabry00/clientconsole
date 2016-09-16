@@ -17,7 +17,7 @@ public class AppState {
     private final StringProperty message = new SimpleStringProperty("");
     private final NodesData dataRecieved = new NodesData();
     private final ObservableList<NodeData> nodesInAnomalySate
-            = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
+             = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
 
     public State getState() {
         return state;

@@ -25,8 +25,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadBackendService implements IBackendService {
 
-    private static final int INITIAL_SLEEP = 5; //seconds
-    private static final int SCHEDULE_EVERY = 10; //seconds
+    private static final int INITIAL_SLEEP = 1; //seconds
+    private static final int INITIAL_SLEEP_MAX_RAND = 0; //seconds
+    private static final int SCHEDULE_EVERY = 5; //seconds
+
     private static final int SHUTDOWN_TIMEOUT = 3; //seconds
 
     private final Logger logger = Logger.getLogger(ThreadBackendService.class);
@@ -47,13 +49,14 @@ public class ThreadBackendService implements IBackendService {
         simulators.add(new Simulator(appService, "Homer", "172.168.1.25", 0.9));
         simulators.add(new Simulator(appService, "Marge", "10.22.2.25", 1.1));
         simulators.add(new Simulator(appService, "Bart", "192.168.10.25", 1.0));
-        simulators.add(new Simulator(appService, "Lisa", "82.58.14.12", 0.7));
-        simulators.add(new Simulator(appService, "Meggie", "172.192.10.25", 1.8));
+        /*simulators.add(new Simulator(appService, "Lisa", "82.58.14.12", 0.7));
+        simulators.add(new Simulator(appService, "Meggie", "172.192.10.25", 1.8));*/
 
         executor = Executors.newScheduledThreadPool(simulators.size());
         simulators.parallelStream().forEach((sim) -> {
             Random rand = new Random();
-            executor.scheduleAtFixedRate(sim, INITIAL_SLEEP + rand.nextInt(10),
+            int initial = INITIAL_SLEEP + ((INITIAL_SLEEP_MAX_RAND > 0)?  rand.nextInt(INITIAL_SLEEP_MAX_RAND): 0);
+            executor.scheduleAtFixedRate(sim, initial,
                     SCHEDULE_EVERY, TimeUnit.SECONDS);
         });
 
@@ -88,6 +91,7 @@ public class ThreadBackendService implements IBackendService {
         private final Double factor;
         private final Sigar sigar = new Sigar();
         private boolean failureDetected = false;
+        private final int failureLimit = 93;
 
         private Simulator(ApplicationService appService,
                 String node, String ip, Double factor) {
@@ -119,7 +123,6 @@ public class ThreadBackendService implements IBackendService {
             if (!failureDetected) {
                 Random random = new Random();
                 int rand = random.nextInt(100);
-                int failureLimit = 90;
                 if (rand > 70 && rand < failureLimit) {
                     builder.isInAbnormalState();
                 } else if (rand > failureLimit) {
