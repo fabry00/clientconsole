@@ -3,8 +3,11 @@
 <?import java.net.URL?>
 <?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import com.console.domain.chart.DateAxis?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+
+<!-- To open con scene builder comment the following line and change xAxis to Numeric-->
+<?import com.console.domain.chart.DateAxis?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.console.view.graphdata.GraphdataPresenter">
     <stylesheets>
@@ -13,7 +16,8 @@
     <children>
         <AnchorPane fx:id="graphToolbarPane" prefHeight="35.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         </AnchorPane>
-        <AreaChart fx:id="chart" layoutX="62.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+        <Label fx:id="labelValues" alignment="CENTER" prefHeight="25.0" prefWidth="251.0" text="X: - Y: -" textAlignment="CENTER" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
+        <AreaChart fx:id="chart" layoutX="62.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="70.0">
             <xAxis>
                 <DateAxis side="BOTTOM" />
             </xAxis>

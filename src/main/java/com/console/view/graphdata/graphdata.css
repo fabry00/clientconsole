@@ -1,22 +1,14 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-
-/* 
- * This file can be manually injected into your file graphdata.fxml via:
- * 
- * <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.console.view.graphdata.GraphdataPresenter">
- *     <stylesheets>
- *         <URL value="@graphdata.css"/>
- *     </stylesheets>
- * </AnchorPane>
- * 
- * The above shown soucecode will be automatically generated if you have the
- * options to create (and to inject) the 'optional' .css file into your 
- * file graphdata.fxml selected in the page 'Optional Files'.
- * 
- * Created on : 13-set-2016, 21.25.00
- * Author     : fabry
- */
+#labelValues{
+     -fx-background-color: 
+        #a6b5c9,
+        linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),
+        linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-padding: 1 5 7 1;
+    -fx-text-fill: #242d35;
+    -fx-font-family: "Helvetica";
+   
+    -fx-text-fill: white;
+    
+}

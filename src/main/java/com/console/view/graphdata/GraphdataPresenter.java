@@ -5,10 +5,14 @@ import java.util.*;
 import com.console.domain.Metric;
 import com.console.domain.Node;
 import com.console.service.appservice.ApplicationService;
+import com.console.util.DateUtil;
 import com.console.util.NodeUtil;
 import com.console.view.graphdata.toolbar.IToolbarListener;
 import com.console.view.graphdata.toolbar.ToolbarPresenter;
 import com.console.view.graphdata.toolbar.ToolbarView;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,8 +24,15 @@ import org.apache.log4j.Logger;
 
 import javax.inject.Inject;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.event.EventHandler;
+import javafx.geometry.Point2D;
 import javafx.scene.chart.CategoryAxis;
+import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.WindowEvent;
 
 /**
  *
@@ -41,6 +52,9 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
     @FXML
     private AnchorPane graphToolbarPane;
 
+    @FXML
+    private Label labelValues;
+
     @Inject
     ApplicationService appService;
 
@@ -52,6 +66,7 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
 
         initToolbar();
         initChart();
+        initChartTooltip();
     }
 
     @Override
@@ -90,15 +105,24 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
         // false, and by providing values for the lowerBound and the upperBound
         // setAutoRanging(false); setLowerBoud(..
 
+        // To change the format for the data try this: (not tested)
+        /**
+         * final DateAxis xAxis = new DateAxis(); final NumberAxis yAxis = new
+         * NumberAxis(); xAxis.setLabel("Date"); yAxis.setLabel("Events");
+         *
+         * final LineChart<Date,Number> lineChart = new LineChart<>(xAxis,
+         * yAxis); lineChart.setTitle("Events");
+         *
+         * SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy");
+         *
+         *
+         * XYChart.Series<Date,Number> series = new XYChart.Series<>();
+         * series.setName("Events this Year"); series.getData().add(new
+         * XYChart.Data(dateFormat.parse("11/Jan/2014"), 23));
+         */
         if (chart.getXAxis() instanceof NumberAxis) {
             // Force if to show or not always the zero element
             ((NumberAxis) chart.getXAxis()).setForceZeroInRange(false);
-        } else if (chart.getXAxis() instanceof CategoryAxis) {
-
-            /*final Comparator<XYChart.Data<String, Number>> comparator
-                    = (XYChart.Data<String, Number> o1, XYChart.Data<String, Number> o2)
-                    -> o1.getXValue().compareTo(o2.getXValue());
-            chart.getData().sort(comparator);*/
         }
 
         chart.setData(seriesList);
@@ -189,7 +213,55 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
         serie.setName(getSerieName(node));
         Metric metricSelected = tbPresenter.getSelectedMetric();
         serie.setData(node.getMetric(metricSelected));
+
         return serie;
+    }
+
+    private void initChartTooltip() {
+
+        ObjectProperty<Point2D> mouseLocationInScene = new SimpleObjectProperty<>();
+        chart.addEventHandler(MouseEvent.MOUSE_MOVED, evt -> {
+            mouseLocationInScene.set(new Point2D(evt.getSceneX(), evt.getSceneY()));
+        });
+
+        final DateUtil util = new DateUtil();
+        labelValues.textProperty().bind(Bindings.createStringBinding(() -> {
+            if (mouseLocationInScene.isNull().get()) {
+                return "";
+            }
+            double xInXAxis = chart.getXAxis().sceneToLocal(mouseLocationInScene.get()).getX();
+            Date x = (Date) chart.getXAxis().getValueForDisplay(xInXAxis);
+            double yInYAxis = chart.getYAxis().sceneToLocal(mouseLocationInScene.get()).getY();
+            double y = (double) chart.getYAxis().getValueForDisplay(yInYAxis);
+
+            return "Date: "+util.formatDate(x) + "  Value: " + String.format("%1$,.2f", y);
+        }, mouseLocationInScene));
+
+        //  Tooltip.install(chart, tooltip);
+        // TODO
+        /* ObjectProperty<Point2D> mouseLocationInScene = new SimpleObjectProperty<>();
+
+        Tooltip tooltip = new Tooltip();
+
+        chart.addEventHandler(MouseEvent.MOUSE_MOVED, evt -> {
+            if (!tooltip.isShowing()) {
+                mouseLocationInScene.set(new Point2D(evt.getSceneX(), evt.getSceneY()));
+            }
+        });
+        
+
+        tooltip.textProperty().bind(Bindings.createStringBinding(() -> {
+            if (mouseLocationInScene.isNull().get()) {
+                return "";
+            }
+            double xInXAxis =chart.getXAxis().sceneToLocal(mouseLocationInScene.get()).getX();
+            Date x = (Date)chart.getXAxis().getValueForDisplay(xInXAxis);
+            double yInYAxis = chart.getYAxis().sceneToLocal(mouseLocationInScene.get()).getY();
+            double y = (double)chart.getYAxis().getValueForDisplay(yInYAxis);
+            return  x +" "+ y;
+        }, mouseLocationInScene));
+
+        Tooltip.install(chart, tooltip);*/
     }
 
 }

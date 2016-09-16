@@ -4,6 +4,7 @@ import java.util.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Tooltip;
 
 /**
  * Created by exfaff on 15/09/2016.
@@ -136,6 +137,7 @@ public class Node {
                     int toDelete = total - MAX_METRICS_COUNT;
                     values.remove(0, toDelete);
                 }
+                
                 values.addAll(newata);
             });
         }
