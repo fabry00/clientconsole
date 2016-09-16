@@ -1,6 +1,5 @@
 package com.console.domain;
 
-import java.util.Objects;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -15,9 +14,11 @@ public class AppState {
     private State state;
     private final StringProperty stateProperty = new SimpleStringProperty("");
     private final StringProperty message = new SimpleStringProperty("");
-    private final Node dataRecieved = new Node();
+    private final ObservableList<NodeData> nodes
+            = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
+
     private final ObservableList<NodeData> nodesInAnomalySate
-             = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
+            = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
 
     public State getState() {
         return state;
@@ -29,10 +30,6 @@ public class AppState {
 
     public StringProperty getMessage() {
         return message;
-    }
-
-    public Node getDataReceived() {
-        return dataRecieved;
     }
 
     public ObservableList getNodesInAbnormalState() {
@@ -49,7 +46,17 @@ public class AppState {
     }
 
     public void addNodeData(NodeData newNodeData) {
-        this.dataRecieved.addNodeData(newNodeData);
+        int itemIndex = nodes.lastIndexOf(newNodeData);
+        NodeData nodeData;
+        if (itemIndex >= 0) {
+            nodeData = nodes.get(itemIndex);
+            //nodesSync.remove(itemIndex);
+            //nodesSync.add(itemIndex, node);
+            //NodeData currentNode = nodesSync.get(itemIndex);
+            NodeData.Builder.syncNewData(nodeData, newNodeData);
+        } else {
+            nodes.add(newNodeData);
+        }
     }
 
     public void addAbnormalNode(NodeData node) {
@@ -63,9 +70,13 @@ public class AppState {
         AppState cloned = new AppState();
 
         cloned.setState(state);
-        this.dataRecieved.getNodes().stream().forEach((node) -> cloned.addNodeData(node));
+        nodes.stream().forEach((node) -> cloned.addNodeData(node));
         cloned.setMessage(message.getValue());
 
         return cloned;
+    }
+
+    public ObservableList<NodeData> getNodes() {
+        return nodes;
     }
 }

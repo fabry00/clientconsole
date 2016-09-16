@@ -1,6 +1,5 @@
 package com.console.view.graphdata.toolbar;
 
-import com.console.domain.AppState;
 import com.console.domain.IAppStateListener;
 import com.console.domain.Metric;
 import com.console.domain.NodeData;
@@ -35,9 +34,10 @@ import org.controlsfx.control.CheckComboBox;
  *
  * @author fabry
  */
-public class ToolbarPresenter implements Initializable, IAppStateListener {
+public class ToolbarPresenter implements Initializable {
 
-    private final ObservableList<NodeData> nodesInComboBox = FXCollections.observableArrayList();
+    private final static double NODE_CHOOSER_WIDTH = 200;
+
     @FXML
     private ToolBar graphToolbar;
 
@@ -45,15 +45,13 @@ public class ToolbarPresenter implements Initializable, IAppStateListener {
 
     private ComboBox<String> metricSelector;
 
-    @Inject
-    ApplicationService appService;
-
     private final Set<IToolbarListener> listeners = new HashSet<>();
+
+    @Inject
+    private ApplicationService appService;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        appService.subscribeToState(this, State.NEWDATARECEIVED);
 
         addNodesChooser();
 
@@ -74,12 +72,11 @@ public class ToolbarPresenter implements Initializable, IAppStateListener {
         return Arrays.stream(e.getEnumConstants()).map(Enum::name).toArray(String[]::new);
     }
 
-    public void addItem(NodeData node) {
+    /* public void addItem(NodeData node) {
         if (!nodesInComboBox.contains(node)) {
             nodesInComboBox.add(node);
         }
-    }
-
+    }*/
     public boolean isChecked(NodeData node) {
         return graphNodeChooser.checkModelProperty().get().isChecked(node);
     }
@@ -94,32 +91,15 @@ public class ToolbarPresenter implements Initializable, IAppStateListener {
         return Metric.valueOf(metricSelector.getSelectionModel().getSelectedItem());
     }
 
-    @Override
-    public void AppStateChanged(AppState oldState, AppState currentState) {
-        // check it there is new nodes to add to the combobox
-        if (!currentState.getState().equals(State.NEWDATARECEIVED)
-                && !currentState.getState().equals(State.ABNORMAL_NODE_STATE)) {
-            return;
-        }
-
-        currentState.getDataReceived().getNodes().forEach((node) -> {
-            // Add node to toolbar if not exists
-
-            // FIXME to Observable list
-            addItem(node);
-        });
-
-    }
-
     private void addNodesChooser() {
         Label label = new Label("Nodes: ");
         graphToolbar.getItems().add(label);
 
-        // Do no use this, otherwise you loose the selection
-        //graphNodeChooser = new CheckComboBox<>(appService.getCurrentState().getDataReceived().getNodes());
+        ObservableList<NodeData> nodesInComboBox = appService.getCurrentState().getNodes();
+
         graphNodeChooser = new CheckComboBox<>(nodesInComboBox);
 
-        graphNodeChooser.setPrefWidth(200);
+        graphNodeChooser.setPrefWidth(NODE_CHOOSER_WIDTH);
 
         graphNodeChooser.getCheckModel().getCheckedIndices().addListener(new ListChangeListener<Integer>() {
             @Override

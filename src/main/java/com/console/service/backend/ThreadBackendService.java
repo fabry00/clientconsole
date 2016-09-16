@@ -19,6 +19,7 @@ import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 /**
  *
@@ -26,11 +27,14 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadBackendService implements IBackendService {
 
-    private static final int INITIAL_SLEEP = 1; //seconds
+    private static final int INITIAL_SLEEP = 3; //seconds
     private static final int INITIAL_SLEEP_MAX_RAND = 5; //seconds
     private static final int SCHEDULE_EVERY = 5; //seconds
 
     private static final int SHUTDOWN_TIMEOUT = 3; //seconds
+
+    private final static int ANOMALY_LIMIT = 80;
+    private final static int FAILURE_LIMIT = 94;
 
     private final Logger logger = Logger.getLogger(ThreadBackendService.class);
 
@@ -46,26 +50,23 @@ public class ThreadBackendService implements IBackendService {
     public void start() throws BackEndServiceException {
         logger.debug("Starting Thread backendService");
         List<Simulator> simulators = new ArrayList<>();
-        try {
-            simulators.add(new Simulator(appService, "Homer", "172.168.1.25", 0.9));
-            Thread.sleep(10);
-            simulators.add(new Simulator(appService, "Marge", "10.22.2.25", 1.1));
-            Thread.sleep(10);
-            simulators.add(new Simulator(appService, "Bart", "192.168.10.25", 1.0));
-            Thread.sleep(10);
-            simulators.add(new Simulator(appService, "Lisa", "82.58.14.12", 0.7));
-            Thread.sleep(10);
-            simulators.add(new Simulator(appService, "Meggie", "172.192.10.25", 1.8));
-        } catch (InterruptedException ex) {
-            logger.error(ex);
-        }
+        simulators.add(new Simulator(appService, "Homer", "172.168.1.25", 0.9));
+        simulators.add(new Simulator(appService, "Marge", "10.22.2.25", 1.1));
+        simulators.add(new Simulator(appService, "Bart", "192.168.10.25", 1.0));
+        simulators.add(new Simulator(appService, "Lisa", "82.58.14.12", 0.7));
+        simulators.add(new Simulator(appService, "Meggie", "172.192.10.25", 1.8));
 
         executor = Executors.newScheduledThreadPool(simulators.size());
-        simulators.parallelStream().forEach((sim) -> {
+        simulators.stream().forEach((sim) -> {
             Random rand = new Random();
             int initial = INITIAL_SLEEP + ((INITIAL_SLEEP_MAX_RAND > 0) ? rand.nextInt(INITIAL_SLEEP_MAX_RAND) : 0);
             executor.scheduleAtFixedRate(sim, initial,
                     SCHEDULE_EVERY, TimeUnit.SECONDS);
+            try {
+                Thread.sleep(rand.nextInt(INITIAL_SLEEP_MAX_RAND));
+            } catch (InterruptedException ex) {
+                logger.error(ex);
+            }
         });
 
         MessageUtil util = new MessageUtil();
@@ -99,7 +100,6 @@ public class ThreadBackendService implements IBackendService {
         private final Double factor;
         private final Sigar sigar = new Sigar();
         private boolean failureDetected = false;
-        private final int failureLimit = 93;
 
         private Integer index = 0;
 
@@ -131,18 +131,7 @@ public class ThreadBackendService implements IBackendService {
                     .withMetricValue(Metric.CPU, index, cpu2)
                     .withMetricValue(Metric.MEMORY, index++, ram2);
 
-            if (!failureDetected) {
-                Random random = new Random();
-                int rand = random.nextInt(100);
-                if (rand > 70 && rand < failureLimit) {
-                    builder.isInAbnormalState();
-                } else if (rand > failureLimit) {
-                    failureDetected = true;
-                    builder.isFailureDetected();
-                }
-            } else {
-                builder.isFailureDetected();
-            }
+            getNodeStatus(builder);
 
             NodeData dataReceived = builder.build();
             this.appService.dispatch(new Action<>(ActionType.DATA_RECEIVED, dataReceived));
@@ -150,11 +139,8 @@ public class ThreadBackendService implements IBackendService {
         }
 
         private Double getCpuUsage() {
-
             try {
-
                 CpuPerc pCpu = sigar.getCpuPerc();
-
                 return pCpu.getCombined() * 100;
             } catch (SigarException ex) {
                 logger.error(ex);
@@ -166,7 +152,6 @@ public class ThreadBackendService implements IBackendService {
         private Long getUsedMemory() {
             try {
                 Mem mem = sigar.getMem();
-
                 return mem.getActualUsed() / 1024 / 1024;
             } catch (SigarException ex) {
                 logger.error(ex);
@@ -174,6 +159,20 @@ public class ThreadBackendService implements IBackendService {
             return null;
         }
 
+        private void getNodeStatus(NodeData.Builder builder) {
+            if (!failureDetected) {
+                Random random = new Random();
+                int rand = random.nextInt(100);
+                if (rand > ANOMALY_LIMIT && rand < FAILURE_LIMIT) {
+                    builder.isInAbnormalState();
+                } else if (rand > FAILURE_LIMIT) {
+                    failureDetected = true;
+                    builder.isFailureDetected();
+                }
+            } else {
+                builder.isFailureDetected();
+            }
+        }
     }
 
 }

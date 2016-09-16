@@ -50,7 +50,7 @@ public class TreePresenter implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         logger.debug("initialize");
-        listProperty.set(appService.getCurrentState().getDataReceived().getNodes());
+        listProperty.set(appService.getCurrentState().getNodes());
         nodeList.itemsProperty().bind(listProperty);
 
         nodeList.setCellFactory(new Callback<ListView, ListCell>() {

@@ -54,6 +54,8 @@ public class ApplicationService {
         logger.debug("New action: " + action);
         final ApplicationService self = this;
 
+        // Use Platform.runLater(...) for quick and simple operations and 
+        // Task for complex and big operations .
         Platform.runLater(() -> {
             try {
                 AppState oldState = currentState.clone();
@@ -87,15 +89,15 @@ public class ApplicationService {
 
     public void subscribeToState(IAppStateListener listener, State type) {
 
-        Set<IAppStateListener> listeners;
+        Set<IAppStateListener> listemersForAState;
         if (!listenersToState.containsKey(type)) {
-            listeners = new HashSet<>();
-            listenersToState.put(type, listeners);
+            listemersForAState = new HashSet<>();
+            listenersToState.put(type, listemersForAState);
         } else {
-            listeners = listenersToState.get(type);
+            listemersForAState = listenersToState.get(type);
         }
 
-        listeners.add(listener);
+        listemersForAState.add(listener);
     }
 
     /*public void unsubscribe(IAppStateListener listener) {

@@ -59,6 +59,7 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
         // Fire node nodesSelectedChanged to re-add all the series with the right metric
         nodesSelectedChanged();
         chart.setTitle(metric.getTitle());
+
     }
 
     @Override
