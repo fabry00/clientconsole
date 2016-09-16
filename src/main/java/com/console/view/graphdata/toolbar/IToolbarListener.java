@@ -10,10 +10,8 @@ public interface IToolbarListener {
 
     public void resetSeriesClicked();
 
-    public void addAllClicked();
-
-    public void removeAllClicked();
-
     public void metricSelected(Metric metric);
+    
+    public void nodesSelectedChanged();
 
 }

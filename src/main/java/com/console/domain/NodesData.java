@@ -25,12 +25,15 @@ public class NodesData {
     public void addNodeData(NodeData node) {
 
         int itemIndex = nodesSync.lastIndexOf(node);
+        NodeData nodeData;
         if (itemIndex >= 0) {
-            nodesSync.remove(itemIndex);
-            nodesSync.add(itemIndex, node);
+            nodeData = nodesSync.get(itemIndex);
+            //nodesSync.remove(itemIndex);
+            //nodesSync.add(itemIndex, node);
             //NodeData currentNode = nodesSync.get(itemIndex);
-            //NodeData.Builder.syncNewData(currentNode, node);
+            NodeData.Builder.syncNewData(nodeData, node);
         } else {
+            nodeData = node;
             nodesSync.add(node);
         }
     }

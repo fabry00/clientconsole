@@ -2,6 +2,7 @@ package com.console.service.backend;
 
 import com.console.domain.Action;
 import com.console.domain.ActionType;
+import com.console.domain.Metric;
 import com.console.domain.NodeData;
 import com.console.service.appservice.ApplicationService;
 import com.console.util.MessageUtil;
@@ -47,15 +48,16 @@ public class ThreadBackendService implements IBackendService {
 
         List<Simulator> simulators = new ArrayList<>();
         simulators.add(new Simulator(appService, "Homer", "172.168.1.25", 0.9));
-        simulators.add(new Simulator(appService, "Marge", "10.22.2.25", 1.1));
+        /* simulators.add(new Simulator(appService, "Marge", "10.22.2.25", 1.1));
         simulators.add(new Simulator(appService, "Bart", "192.168.10.25", 1.0));
-        /*simulators.add(new Simulator(appService, "Lisa", "82.58.14.12", 0.7));
-        simulators.add(new Simulator(appService, "Meggie", "172.192.10.25", 1.8));*/
+        simulators.add(new Simulator(appService, "Lisa", "82.58.14.12", 0.7));
+        simulators.add(new Simulator(appService, "Meggie", "172.192.10.25", 1.8));
+         */
 
         executor = Executors.newScheduledThreadPool(simulators.size());
         simulators.parallelStream().forEach((sim) -> {
             Random rand = new Random();
-            int initial = INITIAL_SLEEP + ((INITIAL_SLEEP_MAX_RAND > 0)?  rand.nextInt(INITIAL_SLEEP_MAX_RAND): 0);
+            int initial = INITIAL_SLEEP + ((INITIAL_SLEEP_MAX_RAND > 0) ? rand.nextInt(INITIAL_SLEEP_MAX_RAND) : 0);
             executor.scheduleAtFixedRate(sim, initial,
                     SCHEDULE_EVERY, TimeUnit.SECONDS);
         });
@@ -93,6 +95,8 @@ public class ThreadBackendService implements IBackendService {
         private boolean failureDetected = false;
         private final int failureLimit = 93;
 
+        private Integer index = 0;
+
         private Simulator(ApplicationService appService,
                 String node, String ip, Double factor) {
             this.appService = appService;
@@ -118,8 +122,9 @@ public class ThreadBackendService implements IBackendService {
 
             NodeData.Builder builder = new NodeData.Builder(node)
                     .withInfo(new NodeData.NodeInfo(NodeData.NodeInfo.Type.IP, ip))
-                    .withCpuMetric(cpu2)
-                    .withRamMetric(ram2);
+                    .withMetricValue(Metric.CPU, index, cpu2)
+                    .withMetricValue(Metric.MEMORY, index++, ram2);
+
             if (!failureDetected) {
                 Random random = new Random();
                 int rand = random.nextInt(100);

@@ -3,6 +3,10 @@ package com.console.domain;
 import org.apache.commons.collections4.queue.CircularFifoQueue;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.XYChart;
 
 /**
  * Created by exfaff on 15/09/2016.
@@ -11,20 +15,26 @@ public class NodeData {
 
     private static final int MAX_METRICS_COUNT = 200;
 
-    private enum NodeState {FINE, ANOMALY_DETECTED, FAILURE_PREDICTED}
+    private enum NodeState {
+        FINE, ANOMALY_DETECTED, FAILURE_PREDICTED
+    }
     private final String node;
-    private final Queue<Object> cpu = new CircularFifoQueue<>(MAX_METRICS_COUNT);
-    private final Queue<Object> ram  = new CircularFifoQueue<>(MAX_METRICS_COUNT);
-    private Object lastCpu = 0.0;
-    private Object lastRam = 0;
+    // private final Queue<Object> cpu = new CircularFifoQueue<>(MAX_METRICS_COUNT);
+    // private final Queue<Object> ram  = new CircularFifoQueue<>(MAX_METRICS_COUNT);
+    private final Map<Metric, ObservableList<XYChart.Data<Object, Object>>> metrics
+            = new HashMap<>();
+    /*private final ObservableList<XYChart.Series<Integer, Integer>> seriesList
+            = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());*/
+
+    //private Object lastCpu = 0.0;
+    //private Object lastRam = 0;
     private NodeState state = NodeState.FINE;
 
     private final Map<NodeInfo.Type, NodeInfo> info = new HashMap<>();
 
     private NodeData(Builder builder) {
         this.node = builder.node;
-        this.cpu.addAll(builder.cpu);
-        this.ram.addAll(builder.ram);
+        this.metrics.putAll(builder.metrics);
         this.state = builder.state;
         this.info.putAll(builder.info);
     }
@@ -33,20 +43,12 @@ public class NodeData {
         return this.node;
     }
 
-    public Collection<Object> getCpu() {
-        return cpu;
+    public ObservableList<XYChart.Data<Object, Object>> getMetric(Metric type) {
+        return this.metrics.get(type);
     }
 
-    public Object getLastCpu() {
-        return lastCpu;
-    }
-
-    public Object getLastRam() {
-        return lastRam;
-    }
-
-    public Collection<Object> getRam() {
-        return ram;
+    public void addMetricValue(Metric metric, Object key, Object value) {
+        this.metrics.get(metric).add(new XYChart.Data(key, value));
     }
 
     public boolean AnomalyDetected() {
@@ -85,8 +87,7 @@ public class NodeData {
     public static class Builder {
 
         private final String node;
-        private final Queue<Double> cpu = new CircularFifoQueue<>(MAX_METRICS_COUNT);
-        private final Queue<Long> ram  = new CircularFifoQueue<>(MAX_METRICS_COUNT);
+        private final Map<Metric, ObservableList<XYChart.Data<Object, Object>>> metrics = new HashMap<>();
         private NodeState state = NodeState.FINE;
 
         private Map<NodeInfo.Type, NodeInfo> info = new HashMap<>();
@@ -95,13 +96,15 @@ public class NodeData {
             this.node = node;
         }
 
-        public Builder withCpuMetric(Double cpu) {
-            this.cpu.add(cpu);
-            return this;
-        }
-
-        public Builder withRamMetric(Long ram) {
-            this.ram.add(ram);
+        public Builder withMetricValue(Metric metric, Object key, Object value) {
+            ObservableList<XYChart.Data<Object, Object>> serie;
+            if (!metrics.containsKey(metric)) {
+                serie = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
+                metrics.put(metric, serie);
+            } else {
+                serie = metrics.get(metric);
+            }
+            serie.add(new XYChart.Data(key, value));
             return this;
         }
 
@@ -133,21 +136,16 @@ public class NodeData {
 
         public static void syncNewData(NodeData node, NodeData newData) {
             node.state = newData.state;
-            node.cpu.clear();
-            node.cpu.addAll(newData.cpu);
-            Iterator<Object> it = newData.cpu.iterator();
-            while(it.hasNext()) {
-                node.lastCpu = it.next();
-            }
-            node.ram.clear();
-            node.ram.addAll(newData.ram);
-            it = newData.ram.iterator();
-            while(it.hasNext()) {
-                node.lastRam = it.next();
-            }
+            //node.metrics.putAll(newData.metrics);
+            newData.metrics.forEach((metric, data) -> {
+                System.out.println("########before: "+node.metrics.get(metric).size()+" "+metric.getTitle());
+                node.metrics.get(metric).addAll(data);
+                System.out.println("########after: "+node.metrics.get(metric).size()+" "+metric.getTitle());
+            });
+            System.out.print("SYNC");
         }
-    }
 
+    }
 
     public static class NodeInfo {
 

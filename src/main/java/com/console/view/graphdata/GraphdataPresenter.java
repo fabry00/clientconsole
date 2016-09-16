@@ -2,14 +2,8 @@ package com.console.view.graphdata;
 
 import java.net.URL;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import com.console.domain.AppState;
-import com.console.domain.IAppStateListener;
 import com.console.domain.Metric;
 import com.console.domain.NodeData;
-import com.console.domain.State;
 import com.console.service.appservice.ApplicationService;
 import com.console.util.NodeUtil;
 import com.console.view.graphdata.toolbar.IToolbarListener;
@@ -32,60 +26,48 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author fabry
  */
-public class GraphdataPresenter implements Initializable, IAppStateListener, IToolbarListener {
-    
-    private static final int MAX_ELEMENTS = 60;
+public class GraphdataPresenter implements Initializable, IToolbarListener {
+
     private final Logger logger = Logger.getLogger(GraphdataPresenter.class);
-    
-    private final Map<NodeData, XYChart.Series> series = new ConcurrentHashMap<>();
-    
-    private final ObservableList<XYChart.Series<Integer, Integer>> seriesList
+
+    private final ObservableList<XYChart.Series<Object, Object>> seriesList
             = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
 
     //http://fxexperience.com/2012/01/curve-fitting-and-styling-areachart/
     @FXML
     private AreaChart chart;
-    
+
     @FXML
     private AnchorPane graphToolbarPane;
-    
+
     @Inject
     ApplicationService appService;
-    
+
     private ToolbarPresenter tbPresenter;
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         logger.debug("Initialize");
-        
-        appService.subscribe(this);
-        
+
         initToolbar();
         initChart();
-        
     }
-    
-    @Override
-    public void addAllClicked() {
-        resetSeriesClicked();
-    }
-    
-    @Override
-    public void removeAllClicked() {
-    }
-    
+
     @Override
     public void metricSelected(Metric metric) {
-        resetSeriesClicked();
+        removeAllSeries();
+        // Fire node nodesSelectedChanged to re-add all the series with the right metric
+        nodesSelectedChanged();
         chart.setTitle(metric.getTitle());
     }
-    
+
     @Override
     public void resetSeriesClicked() {
+        // As are observable, deleting the chart series we dalete also the node data
         seriesList.forEach((serie) -> serie.getData().clear());
         chart.requestLayout();
     }
-    
+
     private void initToolbar() {
         ToolbarView tbView = new ToolbarView();
         AnchorPane tbPane = (AnchorPane) tbView.getView();
@@ -97,7 +79,7 @@ public class GraphdataPresenter implements Initializable, IAppStateListener, ITo
         tbPresenter = tbView.getRealPresenter();
         tbPresenter.subscribe(this);
     }
-    
+
     private void initChart() {
         chart.setLegendSide(Side.LEFT);
         chart.setLegendVisible(true);
@@ -106,131 +88,94 @@ public class GraphdataPresenter implements Initializable, IAppStateListener, ITo
         // Force if to show always the zero element
         ((NumberAxis) chart.getXAxis()).setForceZeroInRange(false);
         chart.setData(seriesList);
-        
+
         chart.setTitle(tbPresenter.getSelectedMetric().getTitle());
     }
-    
+
     @Override
-    public void AppStateChanged(AppState oldState, AppState currentState) {
-        
-        if (!currentState.getState().equals(State.NEWDATARECEIVED)
-                && !currentState.getState().equals(State.ABNORMAL_NODE_STATE)) {
-            return;
-        }
-        // If we use parallelStream we have "Not on FX application thread" Exception
-        currentState.getDataReceived().getNodes().forEach((node) -> {
+    public void nodesSelectedChanged() {
+        logger.debug("nodeSelectedChange");
+        List<NodeData> nodeSelected = tbPresenter.getNodesSelected();
 
-            // Add node to toolbar if not exists
-            tbPresenter.addItem(node);
-            
-            if (!tbPresenter.isChecked(node)) {
-                if (series.containsKey(node)) {
-                    // delete series
-                    seriesList.remove(series.get(node));
-                    series.remove(node);
+        removeSeriesFromChart(nodeSelected);
+        addSeriesToChart(nodeSelected);
+    }
+
+    private void addSeriesToChart(List<NodeData> nodeSelected) {
+        List<XYChart.Series<Object, Object>> serieToAdd = new ArrayList<>();
+
+        // Check Serie to add
+        for (NodeData node : nodeSelected) {
+            boolean toAdd = true;
+            for (XYChart.Series<Object, Object> serie : seriesList) {
+
+                if (serie.getName().equals(node.getNode())) {
+                    toAdd = false;
+                    break;
                 }
-                return;
             }
-            XYChart.Series nodeSerie;
-            if (!series.containsKey(node)) {
-                // Add series
-                nodeSerie = new XYChart.Series();
-                nodeSerie.setName(node.getNode() + " " + tbPresenter.getSelectedMetric());
-                series.put(node, nodeSerie);
-                seriesList.add(nodeSerie);
-            } else {
-                nodeSerie = series.get(node);
+            if (toAdd) {
+                // Serie not displayed --> add
+                serieToAdd.add(getSerieToShow(node));
             }
-            
-           addMetricsToGraph(nodeSerie.getData(),node);
+        }
 
-        });
+        logger.debug("Series to add: " + serieToAdd.size());
+
+        // Add Serie
+        seriesList.addAll(serieToAdd);
     }
 
-    private void addMetricsToGraph(ObservableList serie, NodeData node) {
-
-        int currentX = serie.size();
-        if (currentX > MAX_ELEMENTS) {
-            // Reached the limit. Delete the first element
-            serie.remove(0);
-        }
-        addAllValue(currentX,serie,node);
-       // Collection<XYChart.Data> values = getAllValue(node);
-        /*if (values != null) {
-            data.addAll(values);
+    private void removeSeriesFromChart(List<NodeData> nodeSelected) {
+        List<Integer> serieToRemove = new ArrayList<>();
+        // Check Serie to remove
+        if (nodeSelected.isEmpty()) {
+            // Delete all displayed series
+            removeAllSeries();
         } else {
-            logger.error("Error getting value");
-        }*/
-    }
-
-    private void addAllValue(int index, ObservableList serie, NodeData node) {
-        Collection<Object> metrics = getAllValue(node);
-        Iterator<Object> it = metrics.iterator();
-
-        while(it.hasNext()) {
-            Object val = it.next();
-            logger.debug("ADDING METRIG "+val+" to "+node.getNode());
-            serie.add(new XYChart.Data(index, val));
-            index++;
-        }
-    }
-
-    private int getMaxIndex() {
-        final AtomicInteger max = new AtomicInteger(0);
-        series.forEach((k,v) -> {
-            if(v.getData().size() > max.get()){
-                max.set(v.getData().size());
+            int index = 0;
+            for (XYChart.Series<Object, Object> serie : seriesList) {
+                boolean toRemove = false;
+                for (NodeData node : nodeSelected) {
+                    if (serie.getName().equals(node.getNode())) {
+                        toRemove = true;
+                        break;
+                    }
+                }
+                if (!toRemove) {
+                    // Serie not displayed --> add
+                    serieToRemove.add(index);
+                }
+                index++;
             }
+        }
+
+        // Remove series
+        serieToRemove.stream().forEach((i) -> {
+            seriesList.remove(seriesList.get(i));
         });
-        return max.get();
     }
 
-
-    private Collection<Object> getAllValue(NodeData node) {
-        Metric metric = tbPresenter.getSelectedMetric();
-        Collection<Object> metrics = null;
-        Collection<XYChart.Data> datas = new ArrayList<>();
-        switch (metric) {
-            case CPU: {
-                metrics = node.getCpu();
-                break;
-            }
-            case MEMORY: {
-                metrics = node.getRam();
-                break;
-            }
-            default: {
-                logger.error("Unknown metric: " + metric);
-            }
+    private void removeAllSeries() {
+        List<Integer> serieToRemove = new ArrayList<>();
+        for (int i = 0; i < seriesList.size(); i++) {
+            serieToRemove.add(i);
         }
-        logger.debug("Metric to draw: "+metrics.size()+" for node: "+node.getNode());
-        return metrics;
-
-
-        /*Iterator<Object> it = metrics.iterator();
-        int index = 0;
-        while(it.hasNext()) {
-            index++;
-            datas.add(new XYChart.Data(index, it.next()));
-        }
-        logger.debug("total metric values: "+datas.size());
-        return datas;*/
+        serieToRemove.stream().forEach((i) -> {
+            seriesList.remove(seriesList.get(i));
+        });
     }
 
-    private XYChart.Data getLastValue(int currentX,NodeData node) {
-        Metric metric = tbPresenter.getSelectedMetric();
-        switch (metric) {
-            case CPU: {
-                return new XYChart.Data(currentX,node.getLastCpu());
-            }
-            case MEMORY: {
-                return new XYChart.Data(currentX,node.getLastRam());
-            }
-            default: {
-                logger.error("Unknown metric: " + metric);
-            }
-        }
-        return null;
+    private String getSerieName(NodeData node) {
+        return node.getNode();
     }
-    
+
+    private XYChart.Series<Object, Object> getSerieToShow(NodeData node) {
+        XYChart.Series<Object, Object> serie = new XYChart.Series();
+        serie.setName(getSerieName(node));
+        Metric metricSelected = tbPresenter.getSelectedMetric();
+        serie.setData(node.getMetric(metricSelected));
+        return serie;
+    }
+
 }
