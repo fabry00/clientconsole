@@ -1,7 +1,7 @@
 package com.console.view.tree;
 
-import com.console.domain.NodeData;
-import com.console.domain.NodeData.NodeInfo;
+import com.console.domain.Node;
+import com.console.domain.Node.NodeInfo;
 import com.console.service.appservice.ApplicationService;
 import java.net.URL;
 import java.util.*;
@@ -45,7 +45,7 @@ public class TreePresenter implements Initializable {
     @FXML
     private ListView nodeList;
 
-    protected ListProperty<NodeData> listProperty = new SimpleListProperty<>();
+    protected ListProperty<Node> listProperty = new SimpleListProperty<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -90,7 +90,7 @@ public class TreePresenter implements Initializable {
     }
 
     private void showPopup(ListCell<Item> cell) {
-        NodeData node = (NodeData) cell.getItem();
+        Node node = (Node) cell.getItem();
         statusPopOver.setTitle("Node " + node.getNode() + " Info");
         String ipAddressStr = node.getInfo().get(NodeInfo.Type.IP).getValue();
         ipAddress.setText("IP ADDRESS: " + ipAddressStr);
@@ -121,8 +121,8 @@ public class TreePresenter implements Initializable {
             if (empty) {
                 setText(null);
                 setGraphic(null);
-            } else if (item instanceof NodeData) {
-                NodeData node = (NodeData) item;
+            } else if (item instanceof Node) {
+                Node node = (Node) item;
                 setText(node.getNode());
 
                 if (node.FailureDetected()) {

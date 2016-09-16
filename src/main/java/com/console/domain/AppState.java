@@ -14,10 +14,10 @@ public class AppState {
     private State state;
     private final StringProperty stateProperty = new SimpleStringProperty("");
     private final StringProperty message = new SimpleStringProperty("");
-    private final ObservableList<NodeData> nodes
+    private final ObservableList<Node> nodes
             = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
 
-    private final ObservableList<NodeData> nodesInAnomalySate
+    private final ObservableList<Node> nodesInAnomalySate
             = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
 
     public State getState() {
@@ -45,21 +45,21 @@ public class AppState {
         this.message.set(message);
     }
 
-    public void addNodeData(NodeData newNodeData) {
+    public void addNodeData(Node newNodeData) {
         int itemIndex = nodes.lastIndexOf(newNodeData);
-        NodeData nodeData;
+        Node nodeData;
         if (itemIndex >= 0) {
             nodeData = nodes.get(itemIndex);
             //nodesSync.remove(itemIndex);
             //nodesSync.add(itemIndex, node);
             //NodeData currentNode = nodesSync.get(itemIndex);
-            NodeData.Builder.syncNewData(nodeData, newNodeData);
+            Node.Builder.syncNewData(nodeData, newNodeData);
         } else {
             nodes.add(newNodeData);
         }
     }
 
-    public void addAbnormalNode(NodeData node) {
+    public void addAbnormalNode(Node node) {
         int index = nodesInAnomalySate.lastIndexOf(node);
         if (index < 0) {
             nodesInAnomalySate.add(node);
@@ -76,7 +76,7 @@ public class AppState {
         return cloned;
     }
 
-    public ObservableList<NodeData> getNodes() {
+    public ObservableList<Node> getNodes() {
         return nodes;
     }
 }

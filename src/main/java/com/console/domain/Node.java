@@ -8,7 +8,7 @@ import javafx.scene.chart.XYChart;
 /**
  * Created by exfaff on 15/09/2016.
  */
-public class NodeData {
+public class Node {
 
     private static final int MAX_METRICS_COUNT = 50;
 
@@ -22,7 +22,7 @@ public class NodeData {
 
     private final Map<NodeInfo.Type, NodeInfo> info = new HashMap<>();
 
-    private NodeData(Builder builder) {
+    private Node(Builder builder) {
         this.node = builder.node;
         this.metrics.putAll(builder.metrics);
         this.state = builder.state;
@@ -65,7 +65,7 @@ public class NodeData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        final NodeData other = (NodeData) o;
+        final Node other = (Node) o;
         return Objects.equals(this.node, other.node);
     }
 
@@ -113,8 +113,8 @@ public class NodeData {
             return this;
         }
 
-        public NodeData build() {
-            NodeData node = new NodeData(this);
+        public Node build() {
+            Node node = new Node(this);
 
             if (node.getNode().isEmpty()) {
                 // thread-safe
@@ -124,7 +124,7 @@ public class NodeData {
             return node;
         }
 
-        public static void syncNewData(NodeData node, NodeData newData) {
+        public static void syncNewData(Node node, Node newData) {
             node.state = newData.state;
             newData.metrics.forEach((metric, newata) -> {
                 ObservableList<XYChart.Data<Date, Object>> values

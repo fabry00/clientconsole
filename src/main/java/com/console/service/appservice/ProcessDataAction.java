@@ -2,7 +2,7 @@ package com.console.service.appservice;
 
 import com.console.domain.Action;
 import com.console.domain.AppState;
-import com.console.domain.NodeData;
+import com.console.domain.Node;
 import com.console.domain.State;
 
 /**
@@ -16,7 +16,7 @@ class ProcessDataAction implements IActionHandler {
     public void execute(AppState currentState,
             Action action, ApplicationService appService) {
 
-        NodeData node = (NodeData) action.value;
+        Node node = (Node) action.value;
         if (node.AnomalyDetected()) {
             currentState.addAbnormalNode(node);
         } else {

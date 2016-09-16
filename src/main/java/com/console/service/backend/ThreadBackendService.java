@@ -3,7 +3,7 @@ package com.console.service.backend;
 import com.console.domain.Action;
 import com.console.domain.ActionType;
 import com.console.domain.Metric;
-import com.console.domain.NodeData;
+import com.console.domain.Node;
 import com.console.service.appservice.ApplicationService;
 import com.console.util.DateUtil;
 import com.console.util.MessageUtil;
@@ -130,14 +130,14 @@ public class ThreadBackendService implements IBackendService {
                     + factor + " tot cpu: " + cpu2 + " ram: " + ram);
 
             Date xValue = dateUtil.getNowDate();
-            NodeData.Builder builder = new NodeData.Builder(node)
-                    .withInfo(new NodeData.NodeInfo(NodeData.NodeInfo.Type.IP, ip))
+            Node.Builder builder = new Node.Builder(node)
+                    .withInfo(new Node.NodeInfo(Node.NodeInfo.Type.IP, ip))
                     .withMetricValue(Metric.CPU, xValue, cpu2)
                     .withMetricValue(Metric.MEMORY, xValue, ram2);
 
             getNodeStatus(builder);
 
-            NodeData dataReceived = builder.build();
+            Node dataReceived = builder.build();
             this.appService.dispatch(new Action<>(ActionType.DATA_RECEIVED, dataReceived));
 
         }
@@ -163,7 +163,7 @@ public class ThreadBackendService implements IBackendService {
             return null;
         }
 
-        private void getNodeStatus(NodeData.Builder builder) {
+        private void getNodeStatus(Node.Builder builder) {
             if (!failureDetected) {
                 Random random = new Random();
                 int rand = random.nextInt(100);

@@ -2,7 +2,7 @@ package com.console.view.graphdata.toolbar;
 
 import com.console.domain.IAppStateListener;
 import com.console.domain.Metric;
-import com.console.domain.NodeData;
+import com.console.domain.Node;
 import com.console.domain.State;
 import com.console.service.appservice.ApplicationService;
 import java.net.URL;
@@ -41,7 +41,7 @@ public class ToolbarPresenter implements Initializable {
     @FXML
     private ToolBar graphToolbar;
 
-    private CheckComboBox<NodeData> graphNodeChooser;
+    private CheckComboBox<Node> graphNodeChooser;
 
     private ComboBox<String> metricSelector;
 
@@ -77,12 +77,12 @@ public class ToolbarPresenter implements Initializable {
             nodesInComboBox.add(node);
         }
     }*/
-    public boolean isChecked(NodeData node) {
+    public boolean isChecked(Node node) {
         return graphNodeChooser.checkModelProperty().get().isChecked(node);
     }
 
-    public List<NodeData> getNodesSelected() {
-        List<NodeData> nodesSelected = new ArrayList<>();
+    public List<Node> getNodesSelected() {
+        List<Node> nodesSelected = new ArrayList<>();
         nodesSelected.addAll(graphNodeChooser.checkModelProperty().get().getCheckedItems());
         return Collections.unmodifiableList(nodesSelected);
     }
@@ -95,7 +95,7 @@ public class ToolbarPresenter implements Initializable {
         Label label = new Label("Nodes: ");
         graphToolbar.getItems().add(label);
 
-        ObservableList<NodeData> nodesInComboBox = appService.getCurrentState().getNodes();
+        ObservableList<Node> nodesInComboBox = appService.getCurrentState().getNodes();
 
         graphNodeChooser = new CheckComboBox<>(nodesInComboBox);
 

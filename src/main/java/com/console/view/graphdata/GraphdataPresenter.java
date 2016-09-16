@@ -3,7 +3,7 @@ package com.console.view.graphdata;
 import java.net.URL;
 import java.util.*;
 import com.console.domain.Metric;
-import com.console.domain.NodeData;
+import com.console.domain.Node;
 import com.console.service.appservice.ApplicationService;
 import com.console.util.NodeUtil;
 import com.console.view.graphdata.toolbar.IToolbarListener;
@@ -109,17 +109,17 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
     @Override
     public void nodesSelectedChanged() {
         logger.debug("nodeSelectedChange");
-        List<NodeData> nodeSelected = tbPresenter.getNodesSelected();
+        List<Node> nodeSelected = tbPresenter.getNodesSelected();
 
         removeSeriesFromChart(nodeSelected);
         addSeriesToChart(nodeSelected);
     }
 
-    private void addSeriesToChart(List<NodeData> nodeSelected) {
+    private void addSeriesToChart(List<Node> nodeSelected) {
         List<XYChart.Series<Date, Object>> serieToAdd = new ArrayList<>();
 
         // Check Serie to add
-        for (NodeData node : nodeSelected) {
+        for (Node node : nodeSelected) {
             boolean toAdd = true;
             for (XYChart.Series<Date, Object> serie : seriesList) {
 
@@ -140,7 +140,7 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
         seriesList.addAll(serieToAdd);
     }
 
-    private void removeSeriesFromChart(List<NodeData> nodeSelected) {
+    private void removeSeriesFromChart(List<Node> nodeSelected) {
         List<Integer> serieToRemove = new ArrayList<>();
         // Check Serie to remove
         if (nodeSelected.isEmpty()) {
@@ -150,7 +150,7 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
             int index = 0;
             for (XYChart.Series<Date, Object> serie : seriesList) {
                 boolean toRemove = false;
-                for (NodeData node : nodeSelected) {
+                for (Node node : nodeSelected) {
                     if (serie.getName().equals(node.getNode())) {
                         toRemove = true;
                         break;
@@ -180,11 +180,11 @@ public class GraphdataPresenter implements Initializable, IToolbarListener {
         });
     }
 
-    private String getSerieName(NodeData node) {
+    private String getSerieName(Node node) {
         return node.getNode();
     }
 
-    private XYChart.Series<Date, Object> getSerieToShow(NodeData node) {
+    private XYChart.Series<Date, Object> getSerieToShow(Node node) {
         XYChart.Series<Date, Object> serie = new XYChart.Series();
         serie.setName(getSerieName(node));
         Metric metricSelected = tbPresenter.getSelectedMetric();
