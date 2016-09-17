@@ -1,7 +1,10 @@
 package com.console.view.tree;
 
+import com.console.domain.AppState;
+import com.console.domain.IAppStateListener;
 import com.console.domain.Node;
 import com.console.domain.Node.NodeInfo;
+import com.console.domain.State;
 import com.console.service.appservice.ApplicationService;
 import java.net.URL;
 import java.util.*;
@@ -28,7 +31,7 @@ import org.controlsfx.control.PropertySheet.Item;
  *
  * @author fabry
  */
-public class TreePresenter implements Initializable {
+public class TreePresenter implements Initializable/*, IAppStateListener*/ {
 
     private static final String ABNORMAL_STATUS_CLASS = "list-view-abnormal";
     private static final String FAILURE_PREDICTED_CLASS = "list-view-failue";
@@ -50,15 +53,11 @@ public class TreePresenter implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         logger.debug("initialize");
+       // appService.subscribeToState(this, State.ABNORMAL_NODE_STATE);
         listProperty.set(appService.getCurrentState().getNodes());
         nodeList.itemsProperty().bind(listProperty);
 
-        nodeList.setCellFactory(new Callback<ListView, ListCell>() {
-            @Override
-            public ListCell call(ListView param) {
-                return new DefaultListCell();
-            }
-        });
+       
 
         nodeList.setCellFactory(lv -> {
             ListCell<Item> cell = new DefaultListCell();
@@ -97,6 +96,7 @@ public class TreePresenter implements Initializable {
         statusNode.getStyleClass().remove(FAILURE_PREDICTED_CLASS);
         statusNode.getStyleClass().remove(ABNORMAL_STATUS_CLASS);
         if (node.FailureDetected()) {
+            
             statusNode.setText("FAILURE PREDICTED");
             statusNode.getStyleClass().add(FAILURE_PREDICTED_CLASS);
         } else if (node.AnomalyDetected()) {
@@ -112,24 +112,30 @@ public class TreePresenter implements Initializable {
         statusPopOver.hide();
     }
 
+    /*@Override
+    public void AppStateChanged(AppState oldState, AppState currentState) {
+        //nodeList.refresh();
+    }*/
+
     private static class DefaultListCell<T> extends ListCell<T> {
 
         @Override
         public void updateItem(T item, boolean empty) {
             super.updateItem(item, empty);
-
             if (empty) {
                 setText(null);
                 setGraphic(null);
             } else if (item instanceof Node) {
                 Node node = (Node) item;
                 setText(node.getNode());
-
                 if (node.FailureDetected()) {
+                    System.out.println("################################################### FailureDetected "+node.getNode());
                     getStyleClass().add(FAILURE_PREDICTED_CLASS);
                 } else if (node.AnomalyDetected()) {
+                    System.out.println("################################################### AnomalyDetected "+node.getNode());
                     getStyleClass().add(ABNORMAL_STATUS_CLASS);
                 } else {
+                    System.out.println("################################################### fine "+node.getNode());
                     getStyleClass().remove(FAILURE_PREDICTED_CLASS);
                     getStyleClass().remove(ABNORMAL_STATUS_CLASS);
                 }

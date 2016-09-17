@@ -1,10 +1,11 @@
 package com.console.domain;
 
 import java.util.*;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Tooltip;
 
 /**
  * Created by exfaff on 15/09/2016.
@@ -22,12 +23,14 @@ public class Node {
     private NodeState state = NodeState.FINE;
 
     private final Map<NodeInfo.Type, NodeInfo> info = new HashMap<>();
+    private BooleanProperty isFineProp = new SimpleBooleanProperty(true);
 
     private Node(Builder builder) {
         this.node = builder.node;
         this.metrics.putAll(builder.metrics);
         this.state = builder.state;
         this.info.putAll(builder.info);
+        this.isFineProp.set(IsFine());
     }
 
     public String getNode() {
@@ -48,6 +51,14 @@ public class Node {
 
     public boolean FailureDetected() {
         return state.equals(NodeState.FAILURE_PREDICTED);
+    }
+
+    public BooleanProperty IsFineProp() {
+        return this.isFineProp;
+    }
+    
+    public boolean IsFine() {
+         return !AnomalyDetected() && !FailureDetected();
     }
 
     public Map<NodeInfo.Type, NodeInfo> getInfo() {
@@ -127,6 +138,9 @@ public class Node {
 
         public static void syncNewData(Node node, Node newData) {
             node.state = newData.state;
+
+            node.isFineProp.set(node.IsFine());
+
             newData.metrics.forEach((metric, newata) -> {
                 ObservableList<XYChart.Data<Date, Object>> values
                         = node.metrics.get(metric);
@@ -137,7 +151,7 @@ public class Node {
                     int toDelete = total - MAX_METRICS_COUNT;
                     values.remove(0, toDelete);
                 }
-                
+
                 values.addAll(newata);
             });
         }

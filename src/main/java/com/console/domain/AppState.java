@@ -1,9 +1,11 @@
 package com.console.domain;
 
+import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.util.Callback;
 
 /**
  *
@@ -11,11 +13,21 @@ import javafx.collections.ObservableList;
  */
 public class AppState {
 
+    // Every time the the node change state the event listChanged is fired
+    //https://gist.github.com/andytill/3116203
+    Callback<Node, Observable[]> extractor = new Callback<Node, Observable[]>() {
+
+        @Override
+        public Observable[] call(Node p) {
+            return new Observable[]{(Observable) p.IsFineProp()};
+        }
+    };
+
     private State state;
     private final StringProperty stateProperty = new SimpleStringProperty("");
     private final StringProperty message = new SimpleStringProperty("");
     private final ObservableList<Node> nodes
-            = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
+            = FXCollections.synchronizedObservableList(FXCollections.observableArrayList(extractor));
 
     private final ObservableList<Node> nodesInAnomalySate
             = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());

@@ -17,7 +17,7 @@ class ProcessDataAction implements IActionHandler {
             Action action, ApplicationService appService) {
 
         Node node = (Node) action.value;
-        if (node.AnomalyDetected()) {
+        if (node.AnomalyDetected() || node.FailureDetected()) {
             currentState.addAbnormalNode(node);
         } else {
             int index = currentState.getNodesInAbnormalState().lastIndexOf(node);
